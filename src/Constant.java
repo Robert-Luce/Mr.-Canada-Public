@@ -3,6 +3,7 @@ public class Constant extends Word {
   public Constant(int index) {
     super(getNumber(index), 32);
   }
+  // THIS IS THE TEST COMMENT 
   private static int getNumber(int index){
     double prime = Constant.primes[index];
     double cubedRoot = Math.cbrt(prime);
