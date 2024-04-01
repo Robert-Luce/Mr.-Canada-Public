@@ -1,3 +1,5 @@
+package SHA256;
+
 public class Block {
   private Word[] words = new Word[16];
   public Block(int index){

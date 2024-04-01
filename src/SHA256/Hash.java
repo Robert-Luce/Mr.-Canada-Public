@@ -1,3 +1,4 @@
+package SHA256;
 import java.util.ArrayList;
 
 public class Hash {
@@ -40,26 +41,26 @@ public class Hash {
         h = g;
         g = f;
         f = e;
-        Word temp = Word.moduloAddition(d.getWord(), T2);
-        e = new HashValue(temp.getBits());
+        HashValue temp = (HashValue) Word.moduloAddition(d, T2);
+        e = temp;
         d = c;
         c = b;
         b = a;
-        Word temp2 = Word.moduloAddition(T1, a.getWord());
-        a = new HashValue(temp2.getBits());
+        HashValue temp2 = (HashValue) Word.moduloAddition(T1, a);
+        a =  temp2;
       }
-      this.hashValues[0] = new HashValue(Word.moduloAddition(a.getWord(), this.hashValues[0].getWord()).getBits());
-      this.hashValues[1] = new HashValue(Word.moduloAddition(b.getWord(), this.hashValues[1].getWord()).getBits());
-      this.hashValues[2] = new HashValue(Word.moduloAddition(c.getWord(), this.hashValues[2].getWord()).getBits());
-      this.hashValues[3] = new HashValue(Word.moduloAddition(d.getWord(), this.hashValues[3].getWord()).getBits());
-      this.hashValues[4] = new HashValue(Word.moduloAddition(e.getWord(), this.hashValues[4].getWord()).getBits());
-      this.hashValues[5] = new HashValue(Word.moduloAddition(f.getWord(), this.hashValues[5].getWord()).getBits());
-      this.hashValues[6] = new HashValue(Word.moduloAddition(g.getWord(), this.hashValues[6].getWord()).getBits());
-      this.hashValues[7] = new HashValue(Word.moduloAddition(h.getWord(), this.hashValues[7].getWord()).getBits());
+      this.hashValues[0] = (HashValue) Word.moduloAddition(a, this.hashValues[0]);
+      this.hashValues[1] = (HashValue) Word.moduloAddition(b, this.hashValues[1]);
+      this.hashValues[2] = (HashValue) Word.moduloAddition(c, this.hashValues[2]);
+      this.hashValues[3] = (HashValue) Word.moduloAddition(d, this.hashValues[3]);
+      this.hashValues[4] = (HashValue) Word.moduloAddition(e, this.hashValues[4]);
+      this.hashValues[5] = (HashValue) Word.moduloAddition(f, this.hashValues[5]);
+      this.hashValues[6] = (HashValue) Word.moduloAddition(g, this.hashValues[6]);
+      this.hashValues[7] = (HashValue) Word.moduloAddition(h, this.hashValues[7]);
     }
     String output = "";
     for (HashValue hashValue : this.hashValues) {
-      output += hashValue.getWord().toString();
+      output += hashValue.toString();
     }
     return output;
   }

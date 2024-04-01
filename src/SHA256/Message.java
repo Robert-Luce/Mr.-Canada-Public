@@ -1,3 +1,4 @@
+package SHA256;
 import java.util.ArrayList;
 public class Message{
   private ArrayList<Boolean> data = new ArrayList<Boolean>();

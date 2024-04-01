@@ -1,6 +1,8 @@
 import java.io.FileReader;
 import java.io.File;
 import java.io.FileWriter;
+
+import SHA256.Hash;
 public class Password {
     private String username;
     public Password(String username) {

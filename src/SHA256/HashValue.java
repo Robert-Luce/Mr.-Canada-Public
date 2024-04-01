@@ -1,3 +1,5 @@
+package SHA256;
+
 public class HashValue extends Word {
   private final static double[] primes =  {2, 3, 5, 7, 11, 13, 17, 19};
   public HashValue(int index) {
@@ -12,9 +14,5 @@ public class HashValue extends Word {
     double fractionalPart = cubedRoot % 1.0;
     int number = (int) (fractionalPart*Math.pow(2, 32));
     return number; 
-  }
-  public Word getWord(){
-    Word word = new Word(this.bits);
-    return word;
   }
 }

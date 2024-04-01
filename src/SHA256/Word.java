@@ -1,3 +1,4 @@
+package SHA256;
 public class Word {
   protected Boolean[] bits;
 
@@ -134,9 +135,6 @@ public class Word {
     return output;
   }
 
-  public Boolean[] getBits() {
-    return this.bits;
-  }
 
   public String toString() {
     String output = "";
