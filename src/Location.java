@@ -3,7 +3,6 @@ import java.util.ArrayList;
 public class Location {
 	private String name;
 	private String city;
-	private String address;
 	private boolean isAccessible;
 	
 	private ArrayList<Location> walkablePlaces = new ArrayList<>();
@@ -18,10 +17,9 @@ public class Location {
 	 * @param address - the address of the Location
 	 * @param isAccessible - whether or not the Location has handicapped accessibility
 	 */
-	public Location(String name, String city, String address, boolean isAccessible) {
+	public Location(String name, String city, boolean isAccessible) {
 		this.name = name;
 		this.city = city;
-		this.address = address;
 		this.isAccessible = isAccessible;
 	}
 	
@@ -66,14 +64,6 @@ public class Location {
 	 */
 	public String getCity() {
 		return city;
-	}
-	
-	/**
-	 * ensures: allows other classes to access this Location's address
-	 * @return - the address of this Location
-	 */
-	public String getAddress() {
-		return address;
 	}
 	
 	/**
