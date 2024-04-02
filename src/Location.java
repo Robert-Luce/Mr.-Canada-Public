@@ -48,6 +48,28 @@ public class Location {
 		driveablePlaces.add(l);
 	}
 	
+	/**
+	 * ensures: allows other classes to access this location's name
+	 * @return - the name of this Location
+	 */
+	public String getName() {
+		return name;
+	}
 	
+	/**
+	 * ensures: allows other classes to access the city that this Location is in
+	 * @return - the city that this Location resides in
+	 */
+	public String getCity() {
+		return city;
+	}
+	
+	/**
+	 * ensures: allows other classes to access this location's address
+	 * @return - the address of this Location
+	 */
+	public String getAddress() {
+		return address;
+	}
 
 }
