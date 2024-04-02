@@ -10,7 +10,7 @@ public class Password {
     }
     public boolean checkPassword(String password) {
         try {
-            File passwordFile = new File(this.username + "\\password.txt");
+            File passwordFile = new File("MrCanadaData\\Users\\" + this.username + "\\password.txt");
             Hash inputHash = new Hash(password);
             FileReader reader = new FileReader(passwordFile);
             int data = reader.read();
