@@ -1,4 +1,4 @@
-package SHA256;
+package hashingAlgorithms;
 public class Word {
   protected Boolean[] bits;
 

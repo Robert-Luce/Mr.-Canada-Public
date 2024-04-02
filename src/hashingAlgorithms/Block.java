@@ -1,4 +1,4 @@
-package SHA256;
+package hashingAlgorithms;
 
 public class Block {
   private Word[] words = new Word[16];

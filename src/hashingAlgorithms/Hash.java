@@ -1,4 +1,4 @@
-package SHA256;
+package hashingAlgorithms;
 import java.util.ArrayList;
 
 public class Hash {
