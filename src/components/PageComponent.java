@@ -25,6 +25,7 @@ public class PageComponent {
 	 * @param frame
 	 */
 	public PageComponent(String fileName, String filePath, JFrame frame) {
+		this.panel = new JPanel();
 		this.filePath = filePath;
 		this.fileName = fileName;
 		this.frame = frame;
@@ -41,6 +42,7 @@ public class PageComponent {
 	    this.pane.setDocument(doc);
         this.pane.setText(this.fileData);
         this.panel.add(this.pane);
+        System.out.println(this.fileData);
 	}
 	public void open() {
 		this.frame.add(this.panel);
