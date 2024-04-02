@@ -4,21 +4,25 @@ public class Location {
 	private String name;
 	private String city;
 	private String address;
+	private boolean isAccessible;
 	
 	private ArrayList<Location> walkablePlaces = new ArrayList<>();
 	private ArrayList<Location> bikeablePlaces = new ArrayList<>();
 	private ArrayList<Location> driveablePlaces = new ArrayList<>();
+
 	
 	/**
 	 * ensures: constructs the Location with the correct information
-	 * @param name - the name of the location
-	 * @param city - the city that the location is in
-	 * @param address - the address of the location
+	 * @param name - the name of the Location
+	 * @param city - the city that the Location is in
+	 * @param address - the address of the Location
+	 * @param isAccessible - whether or not the Location has handicapped accessibility
 	 */
-	public Location(String name, String city, String address) {
+	public Location(String name, String city, String address, boolean isAccessible) {
 		this.name = name;
 		this.city = city;
 		this.address = address;
+		this.isAccessible = isAccessible;
 	}
 	
 	/**
@@ -49,7 +53,7 @@ public class Location {
 	}
 	
 	/**
-	 * ensures: allows other classes to access this location's name
+	 * ensures: allows other classes to access this Location's name
 	 * @return - the name of this Location
 	 */
 	public String getName() {
@@ -65,11 +69,19 @@ public class Location {
 	}
 	
 	/**
-	 * ensures: allows other classes to access this location's address
+	 * ensures: allows other classes to access this Location's address
 	 * @return - the address of this Location
 	 */
 	public String getAddress() {
 		return address;
+	}
+	
+	/**
+	 * ensures: allows other classes to access this Location's accessibility information
+	 * @return - whether or not this Location has mobility accessibility
+	 */
+	public boolean getAccessibility() {
+		return isAccessible;
 	}
 
 }
