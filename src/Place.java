@@ -1,13 +1,13 @@
 import java.util.ArrayList;
 
-public class Location {
+public class Place {
 	private String name;
 	private String city;
 	private boolean isAccessible;
 	
-	private ArrayList<Location> walkablePlaces = new ArrayList<>();
-	private ArrayList<Location> bikeablePlaces = new ArrayList<>();
-	private ArrayList<Location> driveablePlaces = new ArrayList<>();
+	private ArrayList<Place> walkableFrom = new ArrayList<>();
+	private ArrayList<Place> bikeableFrom = new ArrayList<>();
+	private ArrayList<Place> driveableFrom = new ArrayList<>();
 
 	
 	/**
@@ -17,7 +17,7 @@ public class Location {
 	 * @param address - the address of the Location
 	 * @param isAccessible - whether or not the Location has handicapped accessibility
 	 */
-	public Location(String name, String city, boolean isAccessible) {
+	public Place(String name, String city, boolean isAccessible) {
 		this.name = name;
 		this.city = city;
 		this.isAccessible = isAccessible;
@@ -27,27 +27,27 @@ public class Location {
 	 * ensures: passes along another Location that is close enough to walk to.
 	 * @param l - the location to be added to this Location's lists.
 	 */
-	public void addWalkableLocation(Location l) {
-		walkablePlaces.add(l);
-		bikeablePlaces.add(l);
-		driveablePlaces.add(l);
+	public void addWalkableLocation(Place l) {
+		walkableFrom.add(l);
+		bikeableFrom.add(l);
+		driveableFrom.add(l);
 	}
 	
 	/**
 	 * ensures: passes along another Location that is close enough to bike to.
 	 * @param l - the location to be added to this Location's lists.
 	 */
-	public void addBikeableLocation(Location l) {
-		bikeablePlaces.add(l);
-		driveablePlaces.add(l);
+	public void addBikeableLocation(Place l) {
+		bikeableFrom.add(l);
+		driveableFrom.add(l);
 	}
 	
 	/**
 	 * ensures: passes along another Location that is close enough to drive to (within the same city).
 	 * @param l - the location to be added to this Location's list.
 	 */
-	public void addDriveableLocation(Location l) {
-		driveablePlaces.add(l);
+	public void addDriveableLocation(Place l) {
+		driveableFrom.add(l);
 	}
 	
 	/**
