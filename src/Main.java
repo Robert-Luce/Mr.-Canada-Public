@@ -6,13 +6,8 @@ import components.HTMLComponent;
 public class Main {
   public static void main(String[] args) {
 	  JFrame frame = new JFrame();
-	  frame.setSize(400,500); 
+	  frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	  BannerComponent banner = new BannerComponent(frame); 
 	  banner.open();
-	  frame.pack();
-	  frame.repaint();
-	  frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-	  frame.setLayout(null);
-	  frame.setVisible(true);
   }   
 }
