@@ -1,4 +1,4 @@
-package hashingAlgorithms;
+package hashingAlgorithm;
 import java.util.ArrayList;
 
 public class Hash {

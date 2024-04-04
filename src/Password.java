@@ -2,7 +2,7 @@ import java.io.FileReader;
 import java.io.File;
 import java.io.FileWriter;
 
-import hashingAlgorithms.Hash;
+import hashingAlgorithm.Hash;
 public class Password {
     private String username;
     public Password(String username) {
