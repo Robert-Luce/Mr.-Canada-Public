@@ -6,7 +6,7 @@ public class Restaurant extends Place {
 	private boolean halal;
 	
 	/**
-	 * ensures: default constructor for the Restaurant class that extends its superclass constructor
+	 * ensures: default constructor for the Restaurant class
 	 * @param name - String - the name of the Restaurant
 	 * @param city - String - the city that the Restaurant is in
 	 * @param isAccessible - boolean - whether or not it is wheelchair accessible
