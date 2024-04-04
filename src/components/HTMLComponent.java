@@ -8,10 +8,10 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 public class HTMLComponent {
-	private JPanel panel;
+	protected JPanel panel;
 	private String fileName;
 	private String filePath;
-	private JFrame frame;
+	protected JFrame frame;
 	private String fileData;
 	private Path path;
 	private JLabel label;
@@ -25,7 +25,7 @@ public class HTMLComponent {
 		this.filePath = filePath;
 		this.fileName = fileName;
 		this.frame = frame;
-		this.path = Path.of("MrCanadaData\\Pages\\" + this.filePath + "\\" + this.fileName);
+		this.path = Path.of("MrCanadaData\\HTML Files\\" + this.filePath + "\\" + this.fileName);
 		try {
 			this.fileData = Files.readString(this.path);
 		} catch (IOException e) {
