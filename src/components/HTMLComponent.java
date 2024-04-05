@@ -8,7 +8,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 public class HTMLComponent {
-	protected JPanel panel;
+	private JPanel panel;
 	private String fileName;
 	private String filePath;
 	protected JFrame frame;
