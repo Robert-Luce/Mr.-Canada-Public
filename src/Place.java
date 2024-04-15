@@ -25,29 +25,29 @@ public class Place {
 	
 	/**
 	 * ensures: passes along another Place that is close enough to walk to.
-	 * @param l - the Place to be added to this Place's lists.
+	 * @param p - the Place to be added to this Place's lists.
 	 */
-	public void addWalkablePlace(Place l) {
-		walkableFrom.add(l);
-		bikeableFrom.add(l);
-		driveableFrom.add(l);
+	public void addWalkablePlace(Place p) {
+		walkableFrom.add(p);
+		bikeableFrom.add(p);
+		driveableFrom.add(p);
 	}
 	
 	/**
 	 * ensures: passes along another Place that is close enough to bike to.
-	 * @param l - the Place to be added to this Place's lists.
+	 * @param p - the Place to be added to this Place's lists.
 	 */
-	public void addBikeablePlace(Place l) {
-		bikeableFrom.add(l);
-		driveableFrom.add(l);
+	public void addBikeablePlace(Place p) {
+		bikeableFrom.add(p);
+		driveableFrom.add(p);
 	}
 	
 	/**
 	 * ensures: passes along another Place that is close enough to drive to (within the same city).
-	 * @param l - the Place to be added to this Place's list.
+	 * @param p - the Place to be added to this Place's list.
 	 */
-	public void addDriveablePlace(Place l) {
-		driveableFrom.add(l);
+	public void addDriveablePlace(Place p) {
+		driveableFrom.add(p);
 	}
 	
 	/**
