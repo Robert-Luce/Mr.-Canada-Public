@@ -9,5 +9,9 @@ public class Main {
 	  frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	  BannerComponent banner = new BannerComponent(frame); 
 	  banner.open();
+	  frame.setVisible(true);
+	  frame.pack();
+	  frame.repaint();
+	  
   }   
 }
