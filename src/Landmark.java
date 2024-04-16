@@ -7,7 +7,7 @@ public class Landmark extends Excursion {
 		super(name, city, isAccessible);
 		this.isManmade = isManmade;
 	}
-	
+
 	public boolean isManmade() {
 		return isManmade;
 	}

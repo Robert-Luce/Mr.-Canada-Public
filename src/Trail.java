@@ -7,7 +7,7 @@ public class Trail extends Excursion {
 		super(name, city, isAccessible);
 		this.canUseBike = canUseBike;
 	}
-	
+
 	public boolean isBikingAllowed() {
 		return canUseBike;
 	}
