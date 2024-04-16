@@ -1,5 +1,6 @@
 package components;
 
+import java.awt.Graphics;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -9,12 +10,11 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 public class HTMLComponent extends JComponent {
-	private static final long serialVersionUID = 1L;
-	private JPanel panel;
+	protected JPanel panel;
 	private String fileName;
 	private String filePath;
 	protected JFrame frame;
-	private String fileData;
+	protected String fileData;
 	private Path path;
 	protected JLabel label;
 	private String absolutePath;
@@ -39,24 +39,27 @@ public class HTMLComponent extends JComponent {
 			e.printStackTrace();
 		}
 
-		if (this.fileData.contains("<img src=>")) {
+		if (this.fileData.contains("<img src=")) {
 			this.absolutePath = this.absolutePath.replace(" ", "%20");
 			this.absolutePath = this.absolutePath.replace(".html", ".png");
-			this.fileData = this.fileData.replace("<img src=>", "<img src=\"file:///" + this.absolutePath + "\">");
+			this.fileData = this.fileData.replace("<img src=", "<img src=\"file:///" + this.absolutePath + "\"");
 		}
 		this.label.setText(this.fileData);
 		this.panel.add(this.label);
+		this.add(this.panel);
 	}
 
 	public void open() {
-		this.frame.add(this.panel);
+		this.frame.add(this);
+		this.repaint();
 	}
 
 	public void close() {
-		this.frame.remove(this.panel);
+		this.frame.remove(this);
+	}
+	@Override
+	public void paintComponent(Graphics g) {
+		super.paintComponent(g);
 	}
 
-	public void repaint() {
-		super.repaint();
-	}
 }

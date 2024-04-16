@@ -1,5 +1,4 @@
 import javax.swing.JFrame;
-
 import components.BannerComponent;
 import components.HTMLComponent;
 
@@ -12,6 +11,5 @@ public class Main {
 		frame.setVisible(true);
 		frame.pack();
 		frame.repaint();
-
 	}
 }
