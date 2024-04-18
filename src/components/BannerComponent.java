@@ -19,7 +19,7 @@ public class BannerComponent extends HTMLComponent {
 	}
 
 	public void open() {
-		this.getFrame().add(this);
+		this.getFrame().add(this, BorderLayout.NORTH);
 		this.repaint();
 	}
 
