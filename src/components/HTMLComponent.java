@@ -69,7 +69,7 @@ public class HTMLComponent extends JComponent {
 			}
 			for (int heightIndex = 0; heightIndex < splitFileData.length; heightIndex++) {
 				if (splitFileData[heightIndex].contains("height=")) {
-					this.htmlWidth = Integer.valueOf(splitFileData[heightIndex].replaceAll("[^0-9]", ""));
+					this.htmlHeight = Integer.valueOf(splitFileData[heightIndex].replaceAll("[^0-9]", ""));
 					break;
 				}
 			}
@@ -77,6 +77,7 @@ public class HTMLComponent extends JComponent {
 		this.label.setText(this.fileData);
 		this.panel.add(this.label);
 		this.add(this.panel);
+		System.out.println((int) this.htmlWidth + "," + (int) this.htmlHeight);
 		this.setPreferredSize(new Dimension((int) this.htmlWidth, (int) this.htmlHeight));
 	}
 

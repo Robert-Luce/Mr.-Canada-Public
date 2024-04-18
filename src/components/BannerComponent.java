@@ -15,14 +15,11 @@ public class BannerComponent extends HTMLComponent {
 	 */
 	public BannerComponent(JFrame frame) {
 		super(BANNER_FILE_NAME, BANNER_FILE_PATH, frame);
-		this.getFrame().setSize(BannerComponent.BANNER_WIDTH, BannerComponent.BANNER_HEIGHT);
 		this.repaint();
-		this.setHtmlWidth(BannerComponent.BANNER_WIDTH);
-		this.setHtmlHeight(BannerComponent.BANNER_HEIGHT);
 	}
 
 	public void open() {
-		this.getFrame().add(this, BorderLayout.NORTH);
+		this.getFrame().add(this);
 		this.repaint();
 	}
 
