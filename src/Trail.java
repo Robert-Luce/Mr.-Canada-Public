@@ -1,10 +1,10 @@
 
-public class Trail extends Excursion {
+public class Trail extends Attraction {
 
 	private boolean canUseBike;
 
-	public Trail(String name, String city, boolean isAccessible, boolean canUseBike) {
-		super(name, city, isAccessible);
+	public Trail(String name, String city, boolean isAccessible, boolean canUseBike, String priceLevel) {
+		super(name, city, isAccessible, priceLevel);
 		this.canUseBike = canUseBike;
 	}
 
