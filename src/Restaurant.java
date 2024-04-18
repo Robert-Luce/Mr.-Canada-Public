@@ -24,14 +24,26 @@ public class Restaurant extends Place {
 		this.halal = halal;
 	}
 
+	/**
+	 * ensures: the cuisine type of a restaurant to be accessed 
+	 * @return cuisineType
+	 */
 	public String getCuisine() {
 		return cuisineType;
 	}
 
+	/**
+	 * ensures: that the information regarding if a restaurant has vegetarian options can be accessed
+	 * @return vegetarians
+	 */
 	public boolean isVegetarian() {
 		return vegetarian;
 	}
 
+	/**
+	 * ensures: that the information regarding if a restaurant has halal options can be accessed
+	 * @return halal
+	 */
 	public boolean isHalal() {
 		return halal;
 	}
