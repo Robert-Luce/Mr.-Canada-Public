@@ -1,5 +1,6 @@
 package components;
 
+import java.awt.BorderLayout;
 import java.awt.Graphics;
 import java.io.IOException;
 import java.nio.file.Files;
@@ -66,7 +67,7 @@ public class HTMLComponent extends JComponent {
 	}
 	                
 	public void close() {
-		this.getFrame().remove(this);
+		this.frame.remove(this);
 	}
 	
 	public void paintComponent(Graphics g) {
@@ -98,6 +99,7 @@ public class HTMLComponent extends JComponent {
 		this.label.setText(this.fileData);
 		this.label.update(g);
 		this.panel.update(g);
+		this.updateSize();
 	}
 
 	public void setHtmlWidth(int htmlWidth) {
@@ -118,9 +120,12 @@ public class HTMLComponent extends JComponent {
 	public int getHTMLHeight() {
 		return (int) this.htmlHeight;
 	}
-
+	public void updateSize() {
+		this.htmlHeight = 100;
+		this.htmlWidth = 100;
+	}
 	public void pressed() {
-		
+		System.out.println("pressed");
 	}
 
 

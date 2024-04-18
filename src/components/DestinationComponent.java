@@ -7,8 +7,11 @@ import java.util.ArrayList;
 
 import javax.swing.JComponent;
 import javax.swing.JFrame;
+import javax.swing.JPanel;
 
-public class DestinationComponent extends JComponent {
+import listeners.MouseListeners;
+
+public class DestinationComponent extends JPanel {
 
 	private JFrame frame;
 	private String filePath;
@@ -34,14 +37,24 @@ public class DestinationComponent extends JComponent {
 			}
 		}
 		for (HTMLComponent button : this.buttons) {
-			this.frame.add(button);
+			this.add(button);
+			button.updateSize();
 		}
 
 	}
 	public void paintComponent(Graphics g) {
+		super.paintComponent(g);
 		for (HTMLComponent button : this.buttons) {
-			button.repaint();
+			button.update(g);
 		}
+		System.out.println("hi");
 	}
-
+	public void open() {
+		this.frame.add(this);
+		for (HTMLComponent button : this.buttons) {
+			button.open();
+			this.addMouseListener(new MouseListeners(button));
+		}
+		this.repaint();
+	}
 }
