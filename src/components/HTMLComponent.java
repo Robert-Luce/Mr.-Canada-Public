@@ -10,13 +10,21 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 public class HTMLComponent extends JComponent {
-	protected JPanel panel;
+	public JPanel getPanel() {
+		return panel;
+	}
+
+	public JLabel getLabel() {
+		return label;
+	}
+
+	private JPanel panel;
 	private String fileName;
 	private String filePath;
-	protected JFrame frame;
-	protected String fileData;
+	private JFrame frame;
+	private String fileData;
 	private Path path;
-	protected JLabel label;
+	private JLabel label;
 	private String absolutePath;
 
 	/**
@@ -34,7 +42,7 @@ public class HTMLComponent extends JComponent {
 		this.path = Path.of("MrCanadaData\\HTML Files\\" + this.filePath + "\\" + this.fileName);
 		this.absolutePath = this.path.toAbsolutePath().toString();
 		try {
-			this.fileData = Files.readString(this.path);
+			this.setFileData(Files.readString(this.path));
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -42,7 +50,7 @@ public class HTMLComponent extends JComponent {
 		if (this.fileData.contains("<img src=")) {
 			this.absolutePath = this.absolutePath.replace(" ", "%20");
 			this.absolutePath = this.absolutePath.replace(".html", ".png");
-			this.fileData = this.fileData.replace("<img src=", "<img src=\"file:///" + this.absolutePath + "\"");
+			this.setFileData(this.fileData.replace("<img src=", "<img src=\"file:///" + this.absolutePath + "\""));
 		}
 		this.label.setText(this.fileData);
 		this.panel.add(this.label);
@@ -53,13 +61,25 @@ public class HTMLComponent extends JComponent {
 		this.frame.add(this);
 		this.repaint();
 	}
-
+	                
 	public void close() {
 		this.frame.remove(this);
+	}
+	public JFrame getFrame() {
+		return this.frame;
 	}
 	@Override
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
+		
+	}
+
+	public String getFileData() {
+		return fileData;
+	}
+
+	public void setFileData(String fileData) {
+		this.fileData = fileData;
 	}
 
 }
