@@ -10,6 +10,7 @@ import javax.swing.JFrame;
 import components.BannerComponent;
 import components.DestinationComponent;
 import components.HTMLComponent;
+import listeners.MouseListeners;
 
 public class Main {
 	public static void main(String[] args) {
@@ -20,8 +21,6 @@ public class Main {
 		banner.open();
 		HTMLComponent button  = new HTMLComponent("Destination Label.html", "Montreal HTML", frame);
 		button.open();
-		System.out.println(button.getHTMLHeight());
-		System.out.println(button.getHTMLWidth());
 //		DestinationComponent montreal = new DestinationComponent("Montreal HTML",frame);
 //		montreal.open();
 		frame.setVisible(true);

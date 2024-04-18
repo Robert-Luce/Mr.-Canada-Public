@@ -10,6 +10,8 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+import listeners.MouseListeners;
+
 public class HTMLComponent extends JComponent {
 	public JPanel getPanel() {
 		return panel;
@@ -59,17 +61,21 @@ public class HTMLComponent extends JComponent {
 		this.label.setText(this.fileData);
 		this.panel.add(this.label);
 		this.add(this.panel);
+		this.htmlHeight = 1000;
+		this.htmlWidth = 1000;
 	}
 
 	public void open() {
 		this.frame.add(this);
+		this.frame.addMouseListener(new MouseListeners(this));
 		this.repaint();
 	}
-	                
+
 	public void close() {
 		this.frame.remove(this);
+		this.repaint();
 	}
-	
+
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
 		String[] splitFileData = this.fileData.split(" ");
@@ -95,11 +101,20 @@ public class HTMLComponent extends JComponent {
 		splitFileData[savedWidthIndex] = "width=\"" + scaledWidth + "\"";
 		splitFileData[savedHeightIndex] = "height=\"" + scaledHeight + "\"";
 		this.label.setSize(scaledWidth, scaledHeight);
-		this.fileData=String.join(" ", splitFileData);
+		this.fileData = String.join(" ", splitFileData);
 		this.label.setText(this.fileData);
 		this.label.update(g);
 		this.panel.update(g);
-		this.updateSize();
+		if (this.htmlHeight == 0) {
+			this.htmlHeight = 24;
+			return;
+		}
+		if (this.htmlWidth == 0) {
+			this.htmlWidth = 125;
+			return;
+		}
+		this.htmlHeight =scaledHeight;
+		this.htmlWidth =scaledWidth;
 	}
 
 	public void setHtmlWidth(int htmlWidth) {
@@ -117,16 +132,20 @@ public class HTMLComponent extends JComponent {
 	public int getHTMLWidth() {
 		return (int) this.htmlWidth;
 	}
+
 	public int getHTMLHeight() {
 		return (int) this.htmlHeight;
 	}
-	public void updateSize() {
-		this.htmlHeight = 100;
-		this.htmlWidth = 100;
-	}
+
+
 	public void pressed() {
 		System.out.println("pressed");
+		System.out.println(this.getHTMLHeight());
+		System.out.println(this.getHTMLWidth());
+		this.close();
+		HTMLComponent montreal  = new HTMLComponent("Destination Page.html", "Montreal HTML", this.frame);
+		montreal.open();
+		montreal.repaint();
 	}
-
 
 }

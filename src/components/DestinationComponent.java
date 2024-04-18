@@ -38,7 +38,6 @@ public class DestinationComponent extends JPanel {
 		}
 		for (HTMLComponent button : this.buttons) {
 			this.add(button);
-			button.updateSize();
 		}
 
 	}
@@ -47,7 +46,6 @@ public class DestinationComponent extends JPanel {
 		for (HTMLComponent button : this.buttons) {
 			button.update(g);
 		}
-		System.out.println("hi");
 	}
 	public void open() {
 		this.frame.add(this);

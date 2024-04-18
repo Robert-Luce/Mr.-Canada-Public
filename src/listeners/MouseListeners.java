@@ -15,16 +15,15 @@ public class MouseListeners implements MouseListener {
 
 	@Override
 	public void mouseClicked(MouseEvent e) {
-		// TODO Auto-generated method stub
+
 		
 	}
 
 	@Override
 	public void mousePressed(MouseEvent e) {
-		if((this.component.getX() <= e.getX() ||this.component.getX()+this.component.getHTMLWidth() >= e.getX()) && (this.component.getY() <= e.getY() ||this.component.getY()+this.component.getHTMLHeight() >= e.getY())) {
+		if((this.component.getX() <= e.getX() && this.component.getX()+this.component.getHTMLWidth() >= e.getX()) && (this.component.getY() <= e.getY() && this.component.getY()+this.component.getHTMLHeight() >= e.getY())) {
 			this.component.pressed();
 		}
-		
 	}
 
 	@Override
