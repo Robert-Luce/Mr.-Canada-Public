@@ -16,6 +16,10 @@ public class PlaceOfWorship extends Place {
 		this.religion = religion;
 	}
 
+	/**
+	 * ensures: religion of a place of worship can be accessed
+	 * @return religion
+	 */
 	public String getReligion() {
 		return religion;
 	}
