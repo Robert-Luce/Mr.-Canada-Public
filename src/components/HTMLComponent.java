@@ -1,6 +1,7 @@
 package components;
 
 import java.awt.BorderLayout;
+import java.awt.Dimension;
 import java.awt.Graphics;
 import java.io.IOException;
 import java.nio.file.Files;
@@ -57,12 +58,26 @@ public class HTMLComponent extends JComponent {
 			this.absolutePath = this.absolutePath.replace(" ", "%20");
 			this.absolutePath = this.absolutePath.replace(".html", ".png");
 			this.fileData = this.fileData.replace("<img src=", "<img src=\"file:///" + this.absolutePath + "\"");
+			String[] splitFileData = this.fileData.split(" ");
+			int savedWidthIndex = 0;
+			int savedHeightIndex = 0;
+			for (int widthIndex = 0; widthIndex < splitFileData.length; widthIndex++) {
+				if (splitFileData[widthIndex].contains("width=")) {
+					this.htmlWidth = Integer.valueOf(splitFileData[widthIndex].replaceAll("[^0-9]", ""));
+					break;
+				}
+			}
+			for (int heightIndex = 0; heightIndex < splitFileData.length; heightIndex++) {
+				if (splitFileData[heightIndex].contains("height=")) {
+					this.htmlWidth = Integer.valueOf(splitFileData[heightIndex].replaceAll("[^0-9]", ""));
+					break;
+				}
+			}
 		}
 		this.label.setText(this.fileData);
 		this.panel.add(this.label);
 		this.add(this.panel);
-		this.htmlHeight = 1000;
-		this.htmlWidth = 1000;
+		this.setPreferredSize(new Dimension((int) this.htmlWidth, (int) this.htmlHeight));
 	}
 
 	public void open() {
@@ -114,8 +129,8 @@ public class HTMLComponent extends JComponent {
 			this.htmlWidth = 125;
 			return;
 		}
-		this.htmlHeight =scaledHeight;
-		this.htmlWidth =scaledWidth;
+		this.htmlHeight = scaledHeight;
+		this.htmlWidth = scaledWidth;
 	}
 
 	public void setHtmlWidth(int htmlWidth) {
@@ -138,13 +153,9 @@ public class HTMLComponent extends JComponent {
 		return (int) this.htmlHeight;
 	}
 
-
 	public void pressed() {
-		System.out.println("pressed");
-		System.out.println(this.getHTMLHeight());
-		System.out.println(this.getHTMLWidth());
 		this.close();
-		HTMLComponent montreal  = new HTMLComponent("Destination Page.html", "Montreal HTML", this.frame);
+		HTMLComponent montreal = new HTMLComponent("Destination Page.html", "Montreal HTML", this.frame);
 		montreal.open();
 		montreal.repaint();
 	}
