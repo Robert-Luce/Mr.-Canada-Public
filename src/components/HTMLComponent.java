@@ -68,6 +68,7 @@ public class HTMLComponent extends JComponent {
 	public void open() {
 		this.frame.add(this);
 		this.frame.addMouseListener(new MouseListeners(this));
+		this.frame.pack();
 		this.repaint();
 	}
 
