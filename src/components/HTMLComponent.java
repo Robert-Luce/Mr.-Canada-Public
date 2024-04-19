@@ -32,6 +32,7 @@ public class HTMLComponent extends JComponent {
 	private String absolutePath;
 	private double htmlWidth;
 	private double htmlHeight;
+	private PageComponent page;
 
 	/**
 	 * @param fileName
@@ -152,8 +153,14 @@ public class HTMLComponent extends JComponent {
 	public int getHTMLHeight() {
 		return (int) this.htmlHeight;
 	}
-
+	public void setPage(PageComponent page) {
+		this.page = page;
+	}
+	public PageComponent getPage() {
+		return this.page;
+	}
 	public void pressed() {
+		this.page.thumbnailPressed();
 		this.close();
 		HTMLComponent montreal = new HTMLComponent("Destination Page.html", "Montreal HTML", this.frame);
 		montreal.open();
