@@ -20,7 +20,9 @@ public class PageComponent {
 		this.banner.open();
 		
 	}
-
+	public void thumbnailOpen() {
+		this.thumbnail.open();
+	}
 	public void thumbnailPressed() {
 		this.frame.removeAll();
 		this.frame.repaint();

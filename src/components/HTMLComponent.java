@@ -78,7 +78,6 @@ public class HTMLComponent extends JComponent {
 		this.label.setText(this.fileData);
 		this.panel.add(this.label);
 		this.add(this.panel);
-		System.out.println((int) this.htmlWidth + "," + (int) this.htmlHeight);
 		this.setPreferredSize(new Dimension((int) this.htmlWidth, (int) this.htmlHeight));
 	}
 
@@ -96,42 +95,42 @@ public class HTMLComponent extends JComponent {
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
 		String[] splitFileData = this.fileData.split(" ");
-		int savedWidthIndex = 0;
-		int savedHeightIndex = 0;
-		for (int widthIndex = 0; widthIndex < splitFileData.length; widthIndex++) {
-			if (splitFileData[widthIndex].contains("width=")) {
-				savedWidthIndex = widthIndex;
-				break;
-			}
-		}
-		for (int heightIndex = 0; heightIndex < splitFileData.length; heightIndex++) {
-			if (splitFileData[heightIndex].contains("height=")) {
-				savedHeightIndex = heightIndex;
-				break;
-			}
-		}
-		double scaleX = Math.abs((double) this.frame.getContentPane().getWidth() / this.htmlWidth);
-		double scaleY = Math.abs((double) this.frame.getContentPane().getHeight() / this.htmlHeight);
-		double scale = Math.min(scaleX, scaleY);
-		int scaledWidth = (int) (this.htmlWidth * scale);
-		int scaledHeight = (int) (this.htmlHeight * scale);
-		splitFileData[savedWidthIndex] = "width=\"" + scaledWidth + "\"";
-		splitFileData[savedHeightIndex] = "height=\"" + scaledHeight + "\"";
-		this.label.setSize(scaledWidth, scaledHeight);
-		this.fileData = String.join(" ", splitFileData);
+//		int savedWidthIndex = 0;
+//		int savedHeightIndex = 0;
+//		for (int widthIndex = 0; widthIndex < splitFileData.length; widthIndex++) {
+//			if (splitFileData[widthIndex].contains("width=")) {
+//				savedWidthIndex = widthIndex;
+//				break;
+//			}
+//		}
+//		for (int heightIndex = 0; heightIndex < splitFileData.length; heightIndex++) {
+//			if (splitFileData[heightIndex].contains("height=")) {
+//				savedHeightIndex = heightIndex;
+//				break;
+//			}
+//		}
+//		double scaleX = Math.abs((double) this.frame.getContentPane().getWidth() / this.htmlWidth);
+//		double scaleY = Math.abs((double) this.frame.getContentPane().getHeight() / this.htmlHeight);
+//		double scale = Math.min(scaleX, scaleY);
+//		int scaledWidth = (int) (this.htmlWidth * scale);
+//		int scaledHeight = (int) (this.htmlHeight * scale);
+//		splitFileData[savedWidthIndex] = "width=\"" + scaledWidth + "\"";
+//		splitFileData[savedHeightIndex] = "height=\"" + scaledHeight + "\"";
+//		this.label.setSize(scaledWidth, scaledHeight);
+//		this.fileData = String.join(" ", splitFileData);
 		this.label.setText(this.fileData);
 		this.label.update(g);
 		this.panel.update(g);
-		if (this.htmlHeight == 0) {
-			this.htmlHeight = 24;
-			return;
-		}
-		if (this.htmlWidth == 0) {
-			this.htmlWidth = 125;
-			return;
-		}
-		this.htmlHeight = scaledHeight;
-		this.htmlWidth = scaledWidth;
+//		if (this.htmlHeight == 0) {
+//			this.htmlHeight = 24;
+//			return;
+//		}
+//		if (this.htmlWidth == 0) {
+//			this.htmlWidth = 125;
+//			return;
+//		}
+//		this.htmlHeight = scaledHeight;
+//		this.htmlWidth = scaledWidth;
 	}
 
 	public void setHtmlWidth(int htmlWidth) {
@@ -161,10 +160,6 @@ public class HTMLComponent extends JComponent {
 	}
 	public void pressed() {
 		this.page.thumbnailPressed();
-		this.close();
-		HTMLComponent montreal = new HTMLComponent("Destination Page.html", "Montreal HTML", this.frame);
-		montreal.open();
-		montreal.repaint();
 	}
 
 }
