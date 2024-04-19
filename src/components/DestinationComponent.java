@@ -19,7 +19,8 @@ public class DestinationComponent extends JPanel {
 	private String absolutePath;
 	private String[] fileNames;
 	private File folder;
-	private ArrayList<HTMLComponent> buttons;
+	private ArrayList<HTMLComponent> mainComponents;
+	private HTMLComponent thumbnailComponent;
 
 	public DestinationComponent(String filePath, JFrame frame) {
 		super();
@@ -29,27 +30,27 @@ public class DestinationComponent extends JPanel {
 		this.absolutePath = this.path.toAbsolutePath().toString();
 		this.folder = new File(this.absolutePath);
 		this.fileNames = folder.list();
-		this.buttons = new ArrayList<HTMLComponent>();
-		this.buttons.add(new HTMLComponent("Destination Label.html", this.filePath, this.frame));
+		this.mainComponents = new ArrayList<HTMLComponent>();
+		this.mainComponents.add(new HTMLComponent("Destination Label.html", this.filePath, this.frame));
 		for (String fileName : this.fileNames) {
-			if(fileName.contains(".html")) {
-			this.buttons.add(new HTMLComponent(fileName, this.filePath, this.frame));
+			if(fileName.contains(".html")&& !fileName.contains("thumbnail")) {
+			this.mainComponents.add(new HTMLComponent(fileName, this.filePath, this.frame));
 			}
 		}
-		for (HTMLComponent button : this.buttons) {
+		for (HTMLComponent button : this.mainComponents) {
 			this.add(button);
 		}
 
 	}
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
-		for (HTMLComponent button : this.buttons) {
+		for (HTMLComponent button : this.mainComponents) {
 			button.update(g);
 		}
 	}
 	public void open() {
 		this.frame.add(this);
-		for (HTMLComponent button : this.buttons) {
+		for (HTMLComponent button : this.mainComponents) {
 			button.open();
 			this.addMouseListener(new MouseListeners(button));
 		}
