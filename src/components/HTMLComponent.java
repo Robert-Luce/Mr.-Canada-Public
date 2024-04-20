@@ -25,10 +25,12 @@ public class HTMLComponent extends JComponent {
 	private String fileName;
 	private String filePath;
 	private JFrame frame;
-	private String fileData;
-	private Path path;
+	private String txtFileData;
+	private String htmlFileData;
 	private JLabel label;
-	private String absolutePath;
+	private String txtAbsolutePath;
+	private String pngAbsolutePath;
+	private String htmlAbsolutePath;
 	private double htmlWidth;
 	private double htmlHeight;
 	private PageComponent page;
@@ -45,47 +47,49 @@ public class HTMLComponent extends JComponent {
 		this.filePath = filePath;
 		this.fileName = fileName;
 		this.frame = frame;
-		this.path = Path.of("MrCanadaData\\" + this.filePath + "\\" + this.fileName);
-		this.absolutePath = this.path.toAbsolutePath().toString();
-		this.fileData = new String();
+		this.txtAbsolutePath = Path.of("MrCanadaData\\" + this.filePath + "\\" + this.fileName + ".txt")
+				.toAbsolutePath().toString();
+		this.pngAbsolutePath = Path.of("MrCanadaData\\" + this.filePath + "\\" + this.fileName + ".png")
+				.toAbsolutePath().toString();
+		this.htmlAbsolutePath = Path.of("MrCanadaData\\" + this.filePath + "\\" + this.fileName + ".html")
+				.toAbsolutePath().toString();
 		try {
-			this.fileData = Files.readString(Path.of(this.absolutePath));
+			this.txtFileData = Files.readString(Path.of(this.txtAbsolutePath));
+			this.htmlFileData = Files.readString(Path.of(this.htmlAbsolutePath));
 		} catch (IOException e) {
-			this.fileData = "";
+			this.txtFileData = "";
+			this.htmlFileData = "";
+		}
+		String[] splitTXTFileData = this.txtFileData.split(" ");
+		for (int widthIndex = 0; widthIndex < splitTXTFileData.length; widthIndex++) {
+			if (splitTXTFileData[widthIndex].contains("width=")) {
+				this.htmlWidth = Integer.valueOf(splitTXTFileData[widthIndex].replaceAll("[^0-9]", ""));
+				break;
+			}
+		}
+		for (int heightIndex = 0; heightIndex < splitTXTFileData.length; heightIndex++) {
+			if (splitTXTFileData[heightIndex].contains("height=")) {
+				this.htmlHeight = Integer.valueOf(splitTXTFileData[heightIndex].replaceAll("[^0-9]", ""));
+				break;
+			}
 		}
 
-		if (this.fileData.contains("<img src=")) {
-			this.absolutePath = this.absolutePath.replace(" ", "%20");
-			this.absolutePath = this.absolutePath.replace(".html", ".png");
-			this.fileData = this.fileData.replace("<img src=", "<img src=\"file:///" + this.absolutePath + "\"");
-			String[] splitFileData = this.fileData.split(" ");
-			int savedWidthIndex = 0;
-			int savedHeightIndex = 0;
-			for (int widthIndex = 0; widthIndex < splitFileData.length; widthIndex++) {
-				if (splitFileData[widthIndex].contains("width=")) {
-					this.htmlWidth = Integer.valueOf(splitFileData[widthIndex].replaceAll("[^0-9]", ""));
-					break;
-				}
-			}
-			for (int heightIndex = 0; heightIndex < splitFileData.length; heightIndex++) {
-				if (splitFileData[heightIndex].contains("height=")) {
-					this.htmlHeight = Integer.valueOf(splitFileData[heightIndex].replaceAll("[^0-9]", ""));
-					break;
-				}
-			}
+		if (this.htmlFileData.contains("<img src=")) {
+			this.pngAbsolutePath = this.pngAbsolutePath.replace(" ", "%20");
+			this.htmlFileData = this.htmlFileData.replace("<img src=",
+					"<img src=\"file:///" + this.pngAbsolutePath + "\"");
+
 		}
-		this.label.setText(this.fileData);
+		this.label.setText(this.htmlFileData);
 		this.panel.add(this.label);
 		this.add(this.panel);
 		this.setPreferredSize(new Dimension((int) this.htmlWidth, (int) this.htmlHeight));
 	}
 
 	public void open() {
-		if(!this.fileData.equals("")){
 			this.frame.add(this);
 			this.frame.addMouseListener(new MouseListeners(this));
 			this.repaint();
-		}
 	}
 
 	public void close() {
@@ -119,7 +123,7 @@ public class HTMLComponent extends JComponent {
 //		splitFileData[savedHeightIndex] = "height=\"" + scaledHeight + "\"";
 //		this.label.setSize(scaledWidth, scaledHeight);
 //		this.fileData = String.join(" ", splitFileData);
-		this.label.setText(this.fileData);
+		this.label.setText(this.htmlFileData);
 		this.label.update(g);
 		this.panel.update(g);
 //		if (this.htmlHeight == 0) {
@@ -153,12 +157,15 @@ public class HTMLComponent extends JComponent {
 	public int getHTMLHeight() {
 		return (int) this.htmlHeight;
 	}
+
 	public void setPage(PageComponent page) {
 		this.page = page;
 	}
+
 	public PageComponent getPage() {
 		return this.page;
 	}
+
 	public void pressed() {
 		this.page.thumbnailPressed();
 	}

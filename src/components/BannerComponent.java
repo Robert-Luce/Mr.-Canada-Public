@@ -3,10 +3,8 @@ package components;
 import javax.swing.JFrame;
 
 public class BannerComponent extends HTMLComponent {
-	private static final String BANNER_FILE_PATH = "Banner HTML";
-	private static final String BANNER_FILE_NAME = "Banner.html";
-	private static final int BANNER_HEIGHT = 212;
-	private static final int BANNER_WIDTH = 1440;
+	private static final String BANNER_FILE_PATH = "Banner";
+	private static final String BANNER_FILE_NAME = "Banner";
 
 	/**
 	 * @param frame
