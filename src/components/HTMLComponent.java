@@ -52,7 +52,7 @@ public class HTMLComponent extends JComponent {
 		try {
 			this.fileData = Files.readString(Path.of(this.absolutePath));
 		} catch (IOException e) {
-			e.printStackTrace();
+			this.fileData = "";
 		}
 
 		if (this.fileData.contains("<img src=")) {
@@ -82,9 +82,11 @@ public class HTMLComponent extends JComponent {
 	}
 
 	public void open() {
-		this.frame.add(this);
-		this.frame.addMouseListener(new MouseListeners(this));
-		this.repaint();
+		if(!this.fileData.equals("")){
+			this.frame.add(this);
+			this.frame.addMouseListener(new MouseListeners(this));
+			this.repaint();
+		}
 	}
 
 	public void close() {
@@ -94,7 +96,7 @@ public class HTMLComponent extends JComponent {
 
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
-		String[] splitFileData = this.fileData.split(" ");
+//		String[] splitFileData = this.fileData.split(" ");
 //		int savedWidthIndex = 0;
 //		int savedHeightIndex = 0;
 //		for (int widthIndex = 0; widthIndex < splitFileData.length; widthIndex++) {
@@ -161,5 +163,4 @@ public class HTMLComponent extends JComponent {
 	public void pressed() {
 		this.page.thumbnailPressed();
 	}
-
 }
