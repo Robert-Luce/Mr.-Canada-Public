@@ -1,7 +1,5 @@
 package components;
 
-import java.awt.BorderLayout;
-import java.awt.Dimension;
 import javax.swing.JFrame;
 
 public class BannerComponent extends HTMLComponent {

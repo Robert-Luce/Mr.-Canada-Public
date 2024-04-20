@@ -1,6 +1,5 @@
 package components;
 
-import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.io.IOException;
@@ -46,7 +45,7 @@ public class HTMLComponent extends JComponent {
 		this.filePath = filePath;
 		this.fileName = fileName;
 		this.frame = frame;
-		this.path = Path.of("MrCanadaData\\HTML Files\\" + this.filePath + "\\" + this.fileName);
+		this.path = Path.of("MrCanadaData\\" + this.filePath + "\\" + this.fileName);
 		this.absolutePath = this.path.toAbsolutePath().toString();
 		this.fileData = new String();
 		try {

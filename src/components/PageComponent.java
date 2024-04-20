@@ -21,7 +21,7 @@ public class PageComponent {
 		this.name = name;
 		this.frame = frame;
 		this.banner = new BannerComponent(this.frame);
-		this.thumbnail = new HTMLComponent("MrCanadaData\\HTML Files\\" + this.name, "thumbnail.html", this.frame);
+		this.thumbnail = new HTMLComponent("MrCanadaData\\" + this.name, "thumbnail.html", this.frame);
 		this.pages = new ArrayList<PageComponent>();
 
 	}
@@ -30,7 +30,7 @@ public class PageComponent {
 		this.banner.open();
 		try {
 			this.pageNames = Files.readString(Path.of(
-					Path.of("MrCanadaData\\HTML Files\\" + this.name + "\\Page Names.txt").toAbsolutePath().toString()))
+					Path.of("MrCanadaData\\" + this.name + "\\Page Names.txt").toAbsolutePath().toString()))
 					.split(" ");
 		} catch (IOException e) {
 			this.pageNames[0] = "";
