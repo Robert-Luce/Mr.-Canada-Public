@@ -21,7 +21,7 @@ public class PageComponent {
 		this.name = name;
 		this.frame = frame;
 		this.banner = new BannerComponent(this.frame);
-		this.thumbnail = new HTMLComponent("MrCanadaData\\" + this.name, "thumbnail", this.frame);
+		this.thumbnail = new HTMLComponent("thumbnail", this.name, this.frame);  
 		this.pages = new ArrayList<PageComponent>();
 		this.pageNames = new ArrayList<String>();
 
@@ -30,14 +30,14 @@ public class PageComponent {
 	public void open() {
 		this.banner.open();
 		try {
-				this.pageNames = new ArrayList<String>(Arrays.asList(Files
-						.readString(Path.of(
-								Path.of("MrCanadaData\\" + this.name + "\\Page Names.txt").toAbsolutePath().toString()))
-						.split("\n")));
+			this.pageNames = new ArrayList<String>(Arrays.asList(Files
+					.readString(Path
+							.of(Path.of("MrCanadaData\\" + this.name + "\\Page Names.txt").toAbsolutePath().toString()))
+					.split("\n")));
 		} catch (IOException e) {
 			this.pageNames.add("");
 		} finally {
-			if (!(this.pageNames.isEmpty())){
+			if (!(this.pageNames.isEmpty())) {
 				for (String pageName : this.pageNames) {
 					this.pages.add(new PageComponent(this.frame, pageName));
 				}

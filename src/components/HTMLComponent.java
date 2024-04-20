@@ -47,16 +47,28 @@ public class HTMLComponent extends JComponent {
 		this.filePath = filePath;
 		this.fileName = fileName;
 		this.frame = frame;
-		this.txtAbsolutePath = Path.of("MrCanadaData\\" + this.filePath + "\\" + this.fileName + ".txt")
-				.toAbsolutePath().toString();
+		try {
+			this.txtAbsolutePath = Path.of("MrCanadaData\\" + this.filePath + "\\" + this.fileName + ".txt")
+					.toAbsolutePath().toString();
+		} catch (Exception e) {
+			System.out.println("Please add " + "MrCanadaData\\" + this.filePath + "\\" + this.fileName + ".txt");
+		}
+		try {
 		this.pngAbsolutePath = Path.of("MrCanadaData\\" + this.filePath + "\\" + this.fileName + ".png")
 				.toAbsolutePath().toString();
+		} catch (Exception e) {
+			System.out.println("Please add " + "MrCanadaData\\" + this.filePath + "\\" + this.fileName + ".png");
+		}
+		try {
 		this.htmlAbsolutePath = Path.of("MrCanadaData\\" + this.filePath + "\\" + this.fileName + ".html")
 				.toAbsolutePath().toString();
+		} catch (Exception e) {
+			System.out.println("Please add " + "MrCanadaData\\" + this.filePath + "\\" + this.fileName + ".html");
+		}
 		try {
 			this.txtFileData = Files.readString(Path.of(this.txtAbsolutePath));
 			this.htmlFileData = Files.readString(Path.of(this.htmlAbsolutePath));
-		} catch (IOException e) {
+		} catch (Exception e) {
 			this.txtFileData = "";
 			this.htmlFileData = "";
 		}
