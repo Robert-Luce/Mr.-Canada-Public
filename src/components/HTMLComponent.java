@@ -32,7 +32,9 @@ public class HTMLComponent extends JComponent {
 	protected int htmlY;
 	public HTMLComponent(String fileName, String filePath, JFrame frame) {
 		super();
+		this.setOpaque(false);
 		this.panel = new JPanel();
+		this.panel.setOpaque(false);
 		this.label = new JLabel();
 		this.filePath = filePath;
 		this.fileName = fileName;

@@ -34,10 +34,8 @@ public class ThumbnailComponent extends HTMLComponent {
 	}
 
 	public void pressed() {
-		if (!this.pageDisplayedOn.getName().equals(this.pageToGoTo.getName())) {
 			this.pageToGoTo.thumbnailPressed();
-		}
-
+			System.out.println("yo");
 	}
 
 	@Override

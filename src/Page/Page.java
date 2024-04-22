@@ -84,8 +84,6 @@ public class Page {
 		this.frame.repaint();
 	}
 
-	public String getName() {
-		return this.name;
-	}
+
 
 }
