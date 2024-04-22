@@ -1,1 +1,1 @@
-x=0 y=237 width=1440 height=935
+x=0 y=237 width=1080 height=701
