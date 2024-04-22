@@ -13,10 +13,5 @@ public class BannerComponent extends HTMLComponent {
 		super(BANNER_FILE_NAME, BANNER_FILE_PATH, frame);
 		this.repaint();
 	}
-
-	public void open() {
-		this.getFrame().add(this);
-		this.repaint();
-	}
 	
 }

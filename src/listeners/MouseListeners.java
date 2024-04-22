@@ -3,13 +3,13 @@ package listeners;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
-import components.HTMLComponent;
+import components.ThumbnailComponent;
 
 public class MouseListeners implements MouseListener {
 
-	private HTMLComponent component;
+	private ThumbnailComponent component;
 
-	public MouseListeners(HTMLComponent component) {
+	public MouseListeners(ThumbnailComponent component) {
 		this.component = component;
 	}
 

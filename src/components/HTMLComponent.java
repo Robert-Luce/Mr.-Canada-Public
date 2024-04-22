@@ -2,42 +2,34 @@ package components;
 
 import java.awt.BorderLayout;
 import java.awt.Graphics;
-import java.awt.Rectangle;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
 import javax.swing.JComponent;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import Page.Page;
+
 import listeners.MouseListeners;
 
 public class HTMLComponent extends JComponent {
-	private JPanel panel;
-	private String fileName;
-	private String filePath;
-	private JFrame frame;
-	private String txtFileData;
-	private String htmlFileData;
-	private JLabel label;
-	private String txtAbsolutePath;
-	private String pngAbsolutePath;
-	private String htmlAbsolutePath;
-	private Page pageToGoTo;
-	private Page pageDisplayedOn;
-	private int htmlWidth;
-	private int htmlHeight;
-	private int htmlX;
-	private int htmlY;
-	private MouseListeners listener;
 
-	/**
-	 * @param fileName
-	 * @param filePath
-	 * @param frame
-	 */
+	protected JPanel panel;
+	protected String fileName;
+	protected String filePath;
+	protected JFrame frame;
+	protected String txtFileData;
+	protected String htmlFileData;
+	protected JLabel label;
+	protected String txtAbsolutePath;
+	protected String pngAbsolutePath;
+	protected String htmlAbsolutePath;
+	protected int htmlWidth;
+	protected int htmlHeight;
+	protected int htmlX;
+	protected int htmlY;
 	public HTMLComponent(String fileName, String filePath, JFrame frame) {
 		super();
 		this.panel = new JPanel();
@@ -122,18 +114,187 @@ public class HTMLComponent extends JComponent {
 		this.setLocation(this.htmlX, this.htmlY);
 		this.setSize(this.htmlWidth, this.htmlHeight);
 	}
+	public static int extractIntegerAfter(String target, String text) throws Exception {
+		Pattern pattern = Pattern.compile(target + "(\\d+)");
+		Matcher matcher = pattern.matcher(text);
+		if (matcher.find()) {
+			String numberString = matcher.group(1);
+			return Integer.parseInt(numberString);
+		} else {
+			throw new Exception();
+		}
+	}
 
 	public void open() {
-		this.listener = new MouseListeners(this);
-		this.frame.getContentPane().addMouseListener(this.listener);
 		this.frame.add(this);
 		this.revalidate();
 		this.repaint();
 	}
 
+	/**
+	 * @return the panel
+	 */
+	public JPanel getPanel() {
+		return panel;
+	}
+	/**
+	 * @param panel the panel to set
+	 */
+	public void setPanel(JPanel panel) {
+		this.panel = panel;
+	}
+	/**
+	 * @return the fileName
+	 */
+	public String getFileName() {
+		return fileName;
+	}
+	/**
+	 * @param fileName the fileName to set
+	 */
+	public void setFileName(String fileName) {
+		this.fileName = fileName;
+	}
+	/**
+	 * @return the filePath
+	 */
+	public String getFilePath() {
+		return filePath;
+	}
+	/**
+	 * @param filePath the filePath to set
+	 */
+	public void setFilePath(String filePath) {
+		this.filePath = filePath;
+	}
+	/**
+	 * @return the txtFileData
+	 */
+	public String getTxtFileData() {
+		return txtFileData;
+	}
+	/**
+	 * @param txtFileData the txtFileData to set
+	 */
+	public void setTxtFileData(String txtFileData) {
+		this.txtFileData = txtFileData;
+	}
+	/**
+	 * @return the htmlFileData
+	 */
+	public String getHtmlFileData() {
+		return htmlFileData;
+	}
+	/**
+	 * @param htmlFileData the htmlFileData to set
+	 */
+	public void setHtmlFileData(String htmlFileData) {
+		this.htmlFileData = htmlFileData;
+	}
+	/**
+	 * @return the label
+	 */
+	public JLabel getLabel() {
+		return label;
+	}
+	/**
+	 * @param label the label to set
+	 */
+	public void setLabel(JLabel label) {
+		this.label = label;
+	}
+	/**
+	 * @return the txtAbsolutePath
+	 */
+	public String getTxtAbsolutePath() {
+		return txtAbsolutePath;
+	}
+	/**
+	 * @param txtAbsolutePath the txtAbsolutePath to set
+	 */
+	public void setTxtAbsolutePath(String txtAbsolutePath) {
+		this.txtAbsolutePath = txtAbsolutePath;
+	}
+	/**
+	 * @return the pngAbsolutePath
+	 */
+	public String getPngAbsolutePath() {
+		return pngAbsolutePath;
+	}
+	/**
+	 * @param pngAbsolutePath the pngAbsolutePath to set
+	 */
+	public void setPngAbsolutePath(String pngAbsolutePath) {
+		this.pngAbsolutePath = pngAbsolutePath;
+	}
+	/**
+	 * @return the htmlAbsolutePath
+	 */
+	public String getHtmlAbsolutePath() {
+		return htmlAbsolutePath;
+	}
+	/**
+	 * @param htmlAbsolutePath the htmlAbsolutePath to set
+	 */
+	public void setHtmlAbsolutePath(String htmlAbsolutePath) {
+		this.htmlAbsolutePath = htmlAbsolutePath;
+	}
+	/**
+	 * @return the htmlWidth
+	 */
+	public int getHtmlWidth() {
+		return htmlWidth;
+	}
+	/**
+	 * @param htmlWidth the htmlWidth to set
+	 */
+	public void setHtmlWidth(int htmlWidth) {
+		this.htmlWidth = htmlWidth;
+	}
+	/**
+	 * @return the htmlHeight
+	 */
+	public int getHtmlHeight() {
+		return htmlHeight;
+	}
+	/**
+	 * @param htmlHeight the htmlHeight to set
+	 */
+	public void setHtmlHeight(int htmlHeight) {
+		this.htmlHeight = htmlHeight;
+	}
+	/**
+	 * @return the htmlX
+	 */
+	public int getHtmlX() {
+		return htmlX;
+	}
+	/**
+	 * @param htmlX the htmlX to set
+	 */
+	public void setHtmlX(int htmlX) {
+		this.htmlX = htmlX;
+	}
+	/**
+	 * @return the htmlY
+	 */
+	public int getHtmlY() {
+		return htmlY;
+	}
+	/**
+	 * @param htmlY the htmlY to set
+	 */
+	public void setHtmlY(int htmlY) {
+		this.htmlY = htmlY;
+	}
+	/**
+	 * @param frame the frame to set
+	 */
+	public void setFrame(JFrame frame) {
+		this.frame = frame;
+	}
 	public void close() {
 		this.frame.remove(this);
-		this.frame.removeMouseListener(this.listener);
 		this.revalidate();
 		this.repaint();
 	}
@@ -149,43 +310,5 @@ public class HTMLComponent extends JComponent {
 		return frame;
 	}
 
-	public void setPage(Page page) {
-		this.pageToGoTo = page;
-	}
-
-	public Page getPageToGoTo() {
-		return this.pageToGoTo;
-	}
-
-	public void pressed() {
-		if (!this.pageDisplayedOn.getName().equals(this.pageToGoTo.getName())) {
-			this.pageToGoTo.thumbnailPressed();
-		}
-
-	}
-
-	public static int extractIntegerAfter(String target, String text) throws Exception {
-		Pattern pattern = Pattern.compile(target + "(\\d+)");
-		Matcher matcher = pattern.matcher(text);
-		if (matcher.find()) {
-			String numberString = matcher.group(1);
-			return Integer.parseInt(numberString);
-		} else {
-			throw new Exception();
-		}
-	}
-
-	@Override
-	public Rectangle getBounds() {
-		return new Rectangle(this.htmlX, this.htmlY, this.htmlWidth, this.htmlHeight);
-	}
-
-	public void setPageDisplayedOn(Page pageDisplayedOn) {
-		this.pageDisplayedOn = pageDisplayedOn;
-	}
-
-	public Page getPageDisplayedOn() {
-		return this.pageDisplayedOn;
-	}
 
 }

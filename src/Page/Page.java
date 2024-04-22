@@ -8,14 +8,14 @@ import java.util.Arrays;
 import javax.swing.JFrame;
 
 import components.BannerComponent;
-import components.HTMLComponent;
+import components.ThumbnailComponent;
 
 public class Page {
 
 	private JFrame frame;
 	private BannerComponent banner;
 	private String name;
-	private HTMLComponent thumbnail;
+	private ThumbnailComponent thumbnail;
 	private ArrayList<Page> pages;
 	private ArrayList<String> pageNames;
 
@@ -25,7 +25,7 @@ public class Page {
 		this.name = name;
 		this.frame = frame;
 		this.banner = new BannerComponent(this.frame);
-		this.thumbnail = new HTMLComponent("thumbnail", this.name, this.frame);
+		this.thumbnail = new ThumbnailComponent("thumbnail", this.name, this.frame);
 		this.thumbnail.setPage(this);
 		this.pages = new ArrayList<Page>();
 		this.pageNames = new ArrayList<String>();
