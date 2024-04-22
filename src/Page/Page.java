@@ -63,6 +63,7 @@ public class Page {
 	public void thumbnailOpen(Page page) {
 		this.thumbnail.open();
 		this.thumbnail.setPageDisplayedOn(page);
+		this.frame.repaint();
 	}
 
 	public void thumbnailClose() {
@@ -78,6 +79,7 @@ public class Page {
 
 	public void close() {
 		this.banner.close();
+		this.content.close();
 		for (Page page : this.pages) {
 			page.thumbnailClose();
 		}

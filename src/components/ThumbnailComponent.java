@@ -1,13 +1,7 @@
 package components;
 
-import java.awt.BorderLayout;
 import java.awt.Rectangle;
-import java.nio.file.Files;
-import java.nio.file.Path;
-
 import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
 import Page.Page;
 import listeners.MouseListeners;
 
@@ -23,6 +17,7 @@ public class ThumbnailComponent extends HTMLComponent {
 	 */
 	public ThumbnailComponent(String fileName, String filePath, JFrame frame) {
 		super(fileName, filePath, frame);
+		this.listener = new MouseListeners(this);
 	}
 
 	public void setPage(Page page) {
@@ -35,7 +30,6 @@ public class ThumbnailComponent extends HTMLComponent {
 
 	public void pressed() {
 			this.pageToGoTo.thumbnailPressed();
-			System.out.println("yo");
 	}
 
 	@Override
@@ -51,4 +45,16 @@ public class ThumbnailComponent extends HTMLComponent {
 		return this.pageDisplayedOn;
 	}
 
+	@Override
+	public void open() {
+		super.open();
+		this.frame.getContentPane().addMouseListener(this.listener);
+	}
+
+	@Override
+	public void close() {
+		super.close();
+		this.frame.getContentPane().removeMouseListener(this.listener);
+	}
+	
 }
