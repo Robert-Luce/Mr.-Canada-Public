@@ -15,15 +15,14 @@ public class MouseListeners implements MouseListener {
 
 	@Override
 	public void mouseClicked(MouseEvent e) {
-
-		
+		if(component.getBounds().contains(e.getX(), e.getY())) {
+			this.component.pressed();
+		}
 	}
 
 	@Override
 	public void mousePressed(MouseEvent e) {
-		if((this.component.getX() <= e.getX() && this.component.getX()+this.component.getHTMLWidth() >= e.getX()) && (this.component.getY() <= e.getY() && this.component.getY()+this.component.getHTMLHeight() >= e.getY())) {
-			this.component.pressed();
-		}
+
 	}
 
 	@Override

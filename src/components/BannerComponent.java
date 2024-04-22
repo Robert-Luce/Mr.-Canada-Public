@@ -18,6 +18,5 @@ public class BannerComponent extends HTMLComponent {
 		this.getFrame().add(this);
 		this.repaint();
 	}
-
 	
 }
