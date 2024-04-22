@@ -8,6 +8,7 @@ import java.util.Arrays;
 import javax.swing.JFrame;
 
 import components.BannerComponent;
+import components.HTMLComponent;
 import components.ThumbnailComponent;
 
 public class Page {
@@ -18,6 +19,7 @@ public class Page {
 	private ThumbnailComponent thumbnail;
 	private ArrayList<Page> pages;
 	private ArrayList<String> pageNames;
+	private HTMLComponent content;
 
 
 	public Page(JFrame frame, String name) {
@@ -29,11 +31,13 @@ public class Page {
 		this.thumbnail.setPage(this);
 		this.pages = new ArrayList<Page>();
 		this.pageNames = new ArrayList<String>();
+		this.content = new HTMLComponent("content", this.name, this.frame);
 
 	}
 
 	public void open() {
 		this.banner.open();
+		this.content.open();
 		try {
 			this.pageNames = new ArrayList<String>(Arrays.asList(Files
 					.readString(Path
