@@ -21,7 +21,11 @@ public class Page {
 	private ArrayList<String> pageNames;
 	private HTMLComponent content;
 
-
+	/**
+	 * ensures: The default constructor for the Page class. Calls a list of thumbnails and content based on its given name
+	 * @param frame - The JFrame that the Page will be added to
+	 * @param name - The name of the Page. IMPORTANT - Must match the name in the file structure with its associated data.
+	 */
 	public Page(JFrame frame, String name) {
 		super();
 		this.name = name;
@@ -34,7 +38,11 @@ public class Page {
 		this.content = new HTMLComponent("content", this.name, this.frame);
 
 	}
-
+	
+	/**
+	 * ensures: that the correct content is displayed on this Page. Uses the name given in the constructor to 
+	 * search through the MrCanadaData folder for the associated content and buttons for this Page.
+	 */
 	public void open() {
 		this.banner.open();
 		this.content.open();
@@ -59,24 +67,38 @@ public class Page {
 
 	}
 
-
+	/**
+	 * ensures: displays the thumbnail associated with this page on a given page.
+	 * @param page - the Page that the thumbnail should be displayed on.
+	 */
 	public void thumbnailOpen(Page page) {
 		this.thumbnail.open();
 		this.thumbnail.setPageDisplayedOn(page);
 		this.frame.repaint();
 	}
-
+	
+	/**
+	 * ensures: Makes the thumbnail for this page disappear from where it was originally displayed.
+	 */
 	public void thumbnailClose() {
 		this.thumbnail.close();
 		this.frame.repaint();
 	}
 
+	/**
+	 * ensures: Handles what should happen when the thumbnail is pressed: closes the Page it was 
+	 * originally displayed on and opens this Page.
+	 */
 	public void thumbnailPressed() {
 		this.thumbnail.getPageDisplayedOn().close();
 		this.open();
 		this.frame.repaint();
 	}
 
+	/**
+	 * ensures: makes it so that this Page is no longer displayed. removes the banner and content 
+	 * associated with the page, as well as each each thumbnail that was displayed on the page.
+	 */
 	public void close() {
 		this.banner.close();
 		this.content.close();
