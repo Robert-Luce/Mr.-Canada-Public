@@ -1,0 +1,1 @@
+x=8 y=225 width=150 height=35

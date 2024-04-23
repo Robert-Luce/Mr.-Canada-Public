@@ -1,0 +1,1 @@
+x=490 y=212 width=300 height=60
