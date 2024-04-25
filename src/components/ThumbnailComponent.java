@@ -2,6 +2,8 @@ package components;
 
 import java.awt.Rectangle;
 import javax.swing.JFrame;
+import javax.swing.JPanel;
+
 import Page.Page;
 import listeners.MouseListeners;
 
@@ -13,10 +15,10 @@ public class ThumbnailComponent extends HTMLComponent {
 	/**
 	 * @param fileName
 	 * @param filePath
-	 * @param frame
+	 * @param viewport
 	 */
-	public ThumbnailComponent(String fileName, String filePath, JFrame frame) {
-		super(fileName, filePath, frame);
+	public ThumbnailComponent(String fileName, String filePath, JPanel viewport) {
+		super(fileName, filePath, viewport);
 		this.listener = new MouseListeners(this);
 	}
 
@@ -48,13 +50,13 @@ public class ThumbnailComponent extends HTMLComponent {
 	@Override
 	public void open() {
 		super.open();
-		this.frame.getContentPane().addMouseListener(this.listener);
+		this.viewport.addMouseListener(this.listener);
 	}
 
 	@Override
 	public void close() {
 		super.close();
-		this.frame.getContentPane().removeMouseListener(this.listener);
+		this.viewport.removeMouseListener(this.listener);
 	}
 	
 }

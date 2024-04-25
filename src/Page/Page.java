@@ -6,6 +6,7 @@ import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.Arrays;
 import javax.swing.JFrame;
+import javax.swing.JPanel;
 
 import components.BannerComponent;
 import components.HTMLComponent;
@@ -13,7 +14,7 @@ import components.ThumbnailComponent;
 
 public class Page {
 
-	private JFrame frame;
+	private JPanel viewport;
 	private BannerComponent banner;
 	private String name;
 	private ThumbnailComponent thumbnail;
@@ -23,19 +24,19 @@ public class Page {
 
 	/**
 	 * ensures: The default constructor for the Page class. Calls a list of thumbnails and content based on its given name
-	 * @param frame - The JFrame that the Page will be added to
+	 * @param viewport - The JFrame that the Page will be added to
 	 * @param name - The name of the Page. IMPORTANT - Must match the name in the file structure with its associated data.
 	 */
-	public Page(JFrame frame, String name) {
+	public Page(JPanel viewport, String name) {
 		super();
 		this.name = name;
-		this.frame = frame;
-		this.banner = new BannerComponent(this.frame);
-		this.thumbnail = new ThumbnailComponent("thumbnail", this.name, this.frame);
+		this.viewport = viewport;
+		this.banner = new BannerComponent(this.viewport);
+		this.thumbnail = new ThumbnailComponent("thumbnail", this.name, this.viewport);
 		this.thumbnail.setPage(this);
 		this.pages = new ArrayList<Page>();
 		this.pageNames = new ArrayList<String>();
-		this.content = new HTMLComponent("content", this.name, this.frame);
+		this.content = new HTMLComponent("content", this.name, this.viewport);
 
 	}
 	
@@ -56,14 +57,14 @@ public class Page {
 		}
 		if (!(this.pageNames.isEmpty())) {
 			for (String pageName : this.pageNames) {
-				this.pages.add(new Page(this.frame, pageName));
+				this.pages.add(new Page(this.viewport, pageName));
 			}
 			for (Page page : this.pages) {
 				page.thumbnailOpen(this);
 			}
 
 		}
-		this.frame.repaint();
+		this.viewport.repaint();
 
 	}
 
@@ -74,7 +75,7 @@ public class Page {
 	public void thumbnailOpen(Page page) {
 		this.thumbnail.open();
 		this.thumbnail.setPageDisplayedOn(page);
-		this.frame.repaint();
+		this.viewport.repaint();
 	}
 	
 	/**
@@ -82,7 +83,7 @@ public class Page {
 	 */
 	public void thumbnailClose() {
 		this.thumbnail.close();
-		this.frame.repaint();
+		this.viewport.repaint();
 	}
 
 	/**
@@ -92,7 +93,7 @@ public class Page {
 	public void thumbnailPressed() {
 		this.thumbnail.getPageDisplayedOn().close();
 		this.open();
-		this.frame.repaint();
+		this.viewport.repaint();
 	}
 
 	/**
@@ -105,7 +106,7 @@ public class Page {
 		for (Page page : this.pages) {
 			page.thumbnailClose();
 		}
-		this.frame.repaint();
+		this.viewport.repaint();
 	}
 
 

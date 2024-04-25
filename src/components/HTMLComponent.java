@@ -1,6 +1,7 @@
 package components;
 
 import java.awt.BorderLayout;
+import java.awt.Dimension;
 import java.awt.Graphics;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -19,7 +20,7 @@ public class HTMLComponent extends JComponent {
 	protected JPanel panel;
 	protected String fileName;
 	protected String filePath;
-	protected JFrame frame;
+	protected JPanel viewport;
 	protected String txtFileData;
 	protected String htmlFileData;
 	protected JLabel label;
@@ -30,7 +31,7 @@ public class HTMLComponent extends JComponent {
 	protected int htmlHeight;
 	protected int htmlX;
 	protected int htmlY;
-	public HTMLComponent(String fileName, String filePath, JFrame frame) {
+	public HTMLComponent(String fileName, String filePath, JPanel viewport) {
 		super();
 		this.setOpaque(false);
 		this.panel = new JPanel();
@@ -38,7 +39,7 @@ public class HTMLComponent extends JComponent {
 		this.label = new JLabel();
 		this.filePath = filePath;
 		this.fileName = fileName;
-		this.frame = frame;
+		this.viewport = viewport;
 		this.htmlWidth = 0;
 		this.htmlHeight = 0;
 		this.htmlX = 0;
@@ -115,6 +116,7 @@ public class HTMLComponent extends JComponent {
 		this.add(this.panel, BorderLayout.NORTH);
 		this.setLocation(this.htmlX, this.htmlY);
 		this.setSize(this.htmlWidth, this.htmlHeight);
+		this.setPreferredSize(new Dimension(this.htmlWidth, this.htmlHeight));
 	}
 	public static int extractIntegerAfter(String target, String text) throws Exception {
 		Pattern pattern = Pattern.compile(target + "(\\d+)");
@@ -128,7 +130,7 @@ public class HTMLComponent extends JComponent {
 	}
 
 	public void open() {
-		this.frame.add(this);
+		this.viewport.add(this);
 		this.revalidate();
 		this.repaint();
 	}
@@ -290,13 +292,13 @@ public class HTMLComponent extends JComponent {
 		this.htmlY = htmlY;
 	}
 	/**
-	 * @param frame the frame to set
+	 * @param viewport the frame to set
 	 */
-	public void setFrame(JFrame frame) {
-		this.frame = frame;
+	public void setFrame(JPanel viewport) {
+		this.viewport = viewport;
 	}
 	public void close() {
-		this.frame.remove(this);
+		this.viewport.remove(this);
 		this.revalidate();
 		this.repaint();
 	}
@@ -308,8 +310,8 @@ public class HTMLComponent extends JComponent {
 		this.panel.update(g);
 	}
 
-	public JFrame getFrame() {
-		return frame;
+	public JPanel getFrame() {
+		return viewport;
 	}
 
 
