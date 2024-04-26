@@ -1,4 +1,4 @@
-
+package place;
 public class Trail extends Attraction {
 
 	private boolean canUseBike;

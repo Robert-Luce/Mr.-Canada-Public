@@ -1,3 +1,5 @@
+package place;
+
 import java.util.ArrayList;
 
 public class Place {

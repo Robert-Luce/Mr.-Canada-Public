@@ -1,3 +1,4 @@
+package place;
 
 public abstract class Attraction extends Place {
 

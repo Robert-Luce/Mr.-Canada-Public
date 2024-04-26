@@ -1,3 +1,4 @@
+package place;
 
 public class Landmark extends Attraction {
 

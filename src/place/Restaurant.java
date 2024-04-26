@@ -1,3 +1,4 @@
+package place;
 
 public class Restaurant extends Place {
 

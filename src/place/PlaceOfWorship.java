@@ -1,3 +1,4 @@
+package place;
 
 public class PlaceOfWorship extends Place {
 
