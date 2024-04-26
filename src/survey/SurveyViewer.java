@@ -14,7 +14,7 @@ public class SurveyViewer {
 
 	public static void main(String[] args) {
 		JFrame frame = new JFrame();
-		frame.setLayout(null);
+//		frame.setLayout(null);
 		
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
@@ -27,7 +27,7 @@ public class SurveyViewer {
 		surveyPanel.setPreferredSize(new Dimension(1080, 1000));
 		surveyPanel.setLocation(100, 100);
 		
-		surveyPanel.setLayout(null);
+//		surveyPanel.setLayout(null);
 //		frame.pack();
 		frame.setSize(new Dimension(1080, 1000));
 		JScrollPane scroll = new JScrollPane(surveyPanel);
