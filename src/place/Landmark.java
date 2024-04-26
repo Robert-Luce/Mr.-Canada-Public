@@ -2,15 +2,17 @@ package place;
 
 public class Landmark extends Attraction {
 
-	private boolean isManmade;
+	private String type;
 
-	public Landmark(String name, String city, boolean isAccessible, boolean isManmade, String priceLevel) {
+	public Landmark(String name, String city, boolean isAccessible, String type, String priceLevel) {
 		super(name, city, isAccessible, priceLevel);
-		this.isManmade = isManmade;
+		this.type = type;
 	}
-
-	public boolean isManmade() {
-		return isManmade;
+	
+	public void checkCriteria(String criteria, boolean isChecked) {
+		super.checkCriteria(criteria, isChecked);
+		if(criteria.equals(type)) {
+			score = score + (2 * multiplier);
+		}
 	}
-
 }

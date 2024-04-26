@@ -21,12 +21,12 @@ public class SurveyComponent extends JPanel implements ActionListener{
 	ArrayList<String> questionTitles = new ArrayList<String>();
 	ArrayList<ArrayList<String>> responses = new ArrayList<ArrayList<String>>();
 	ArrayList<Place> places = new ArrayList<Place>();
-	private JFrame frame;
+
 	
 	public SurveyComponent(JFrame frame) {
 //		super(new BorderLayout());
 //		this.setLayout(null);
-		this.frame = frame;
+
 		
 		this.generateQuestions();
 		this.generateQuestionResponses();
