@@ -22,10 +22,10 @@ public class SurveyViewer {
 		
 		SurveyPanel surveyPanel = new SurveyPanel(frame, questions, responses, places);
 //		surveyPanel.setLayout(null);
-		surveyPanel.setPreferredSize(new Dimension(500, 500));
+		surveyPanel.setPreferredSize(new Dimension(1080, 1000));
 		surveyPanel.setLocation(100, 100);
-		frame.pack();
-		frame.setSize(new Dimension(500, 500));
+//		frame.pack();
+		frame.setSize(new Dimension(1080, 1000));
 		JScrollPane scroll = new JScrollPane(surveyPanel);
 		frame.add(scroll);
 		frame.setVisible(true);

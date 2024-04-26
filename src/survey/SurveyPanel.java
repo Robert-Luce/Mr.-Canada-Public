@@ -41,7 +41,8 @@ public class SurveyPanel extends JPanel implements ActionListener{
 		for(int i = 0; i < this.questionTitles.size(); i++) {
 			JLabel label = new JLabel(this.questionTitles.get(i));
 			JPanel tempPanel = new JPanel();
-//			label.setLocation(200, 100*i);
+			label.setPreferredSize(new Dimension(500, 50));
+			label.setLocation(200, 100*i);
 			tempPanel.add(label);
 			for(int j = 0; j < this.responses.get(i).size(); j++) {
 				JPanel tempPanelInner = new JPanel();
