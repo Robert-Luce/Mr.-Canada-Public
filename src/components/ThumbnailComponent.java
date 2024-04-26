@@ -4,8 +4,8 @@ import java.awt.Rectangle;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
-import Page.Page;
 import listeners.MouseListeners;
+import page.Page;
 
 public class ThumbnailComponent extends HTMLComponent {
 	private Page pageToGoTo;

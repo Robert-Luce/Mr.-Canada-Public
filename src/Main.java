@@ -1,12 +1,10 @@
-import java.awt.Component;
 import java.awt.Dimension;
 
-import javax.swing.JComponent;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 
-import Page.Page;
+import page.Page;
 
 public class Main {
 	public static void main(String[] args) {

@@ -1,4 +1,4 @@
-package Page;
+package page;
 
 
 import java.nio.file.Files;

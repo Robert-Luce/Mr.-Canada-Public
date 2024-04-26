@@ -7,7 +7,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 
-import Page.Page;
+import page.Page;
 import place.*;
 
 public class SurveyViewer {
