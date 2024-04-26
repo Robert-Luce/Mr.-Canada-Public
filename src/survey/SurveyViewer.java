@@ -20,7 +20,7 @@ public class SurveyViewer {
 		ArrayList<ArrayList<String>> responses = new ArrayList<>();
 		ArrayList<Place> places = new ArrayList<>();
 		
-		SurveyPanel surveyPanel = new SurveyPanel(questions, responses, places);
+		SurveyPanel surveyPanel = new SurveyPanel(frame, questions, responses, places);
 //		surveyPanel.setLayout(null);
 		surveyPanel.setPreferredSize(new Dimension(500, 500));
 		surveyPanel.setLocation(100, 100);
