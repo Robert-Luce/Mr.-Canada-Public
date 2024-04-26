@@ -5,6 +5,7 @@ public class Restaurant extends Place {
 	private String cuisineType;
 	private boolean vegetarian;
 	private boolean halal;
+	private boolean vegan;
 
 	/**
 	 * ensures: default constructor for the Restaurant class
@@ -18,11 +19,12 @@ public class Restaurant extends Place {
 	 * @param halal        - boolean - whether the food is halal or haram
 	 */
 	public Restaurant(String name, String city, boolean isAccessible, String cuisine, boolean vegetarian,
-			boolean halal) {
+			boolean halal, boolean vegan) {
 		super(name, city, isAccessible);
 		this.cuisineType = cuisine;
 		this.vegetarian = vegetarian;
 		this.halal = halal;
+		this.vegan = vegan;
 	}
 
 	/**
@@ -48,5 +50,25 @@ public class Restaurant extends Place {
 	public boolean isHalal() {
 		return halal;
 	}
+	
+	public boolean isVegan() {
+		return vegan;
+	}
 
+	public int getScore() {
+		return score;
+	}
+	
+	public void checkCriteria(String criteria, boolean isChecked) {
+		super.checkCriteria(criteria, isChecked);
+		if(criteria.equals("Vegan") && this.isVegan()) {
+			this.score = this.score + (1 * multiplier);
+		} else if(criteria.equals("Vegetarian") && this.isVegetarian()) {
+			this.score = this.score + (1 * multiplier);
+		} else if(criteria.equals("Halal") && this.isHalal()) {
+			this.score = this.score + (1 * multiplier);
+		} else if(criteria.equals(cuisineType)) {
+			this.score = this.score + (1 * multiplier);
+		}
+	}
 }

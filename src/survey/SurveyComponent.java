@@ -10,6 +10,7 @@ import java.util.Arrays;
 
 import javax.swing.JPanel;
 import javax.swing.JTable;
+import javax.swing.JButton;
 import javax.swing.JCheckBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -19,6 +20,7 @@ import place.*;
 public class SurveyComponent extends JPanel implements ActionListener{
 	ArrayList<String> questionTitles = new ArrayList<String>();
 	ArrayList<ArrayList<String>> responses = new ArrayList<ArrayList<String>>();
+	ArrayList<Place> places = new ArrayList<Place>();
 	private JFrame frame;
 	
 	public SurveyComponent(JFrame frame) {
@@ -28,7 +30,12 @@ public class SurveyComponent extends JPanel implements ActionListener{
 		
 		this.generateQuestions();
 		this.generateQuestionResponses();
-
+		
+		places.add(new Restaurant("test 1", "Montreal", true, "Moroccan", true, true, false));
+		places.add(new Restaurant("test 2", "Toronto", false, "Canadian", true, false, true));
+		places.add(new Restaurant("test 3", "Quebec City", true, "Other", false, true, true));
+		places.add(new Restaurant("test 4", "Montreal", false, "Canadian", false, false, false));
+		places.add(new Restaurant("test 5", "Quebec City", true, "Moroccan", true, false, true));
 		
 //		JTable table = new JTable();
 		for(int i = 0; i < this.questionTitles.size(); i++) {
@@ -52,9 +59,13 @@ public class SurveyComponent extends JPanel implements ActionListener{
 						if(!checked) {
 							checked = true;
 							System.out.println(text + " is checked");
+							
 						} else {
 							checked = false;
 							System.out.println(text + " is unchecked");
+						}
+						for(Place p: places) {
+							p.checkCriteria(text, checked);	
 						}
 					} });
 				checkbox.setLocation(200, 100*i + 50*j);
@@ -67,6 +78,18 @@ public class SurveyComponent extends JPanel implements ActionListener{
 				this.add(tempPanel);
 		}
 		
+		JButton checkButton = new JButton("Check");
+		checkButton.addActionListener(new ActionListener(){
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				for(Place p: places) {
+					System.out.println("Place " + p.getName() + " has score of " + p.getScore());
+				}
+			}
+			
+		});
+		this.add(checkButton);
 	}
 
 	@Override
@@ -99,6 +122,10 @@ public class SurveyComponent extends JPanel implements ActionListener{
 				System.out.println("Please add text to MrCanadaData\\\\SurveyQuestions\\\\" + q + ".txt");
 			}
 		}
+	}
+	
+	public void generatePlaces() {
+		
 	}
 	
 }

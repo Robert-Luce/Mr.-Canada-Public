@@ -2,7 +2,7 @@ package place;
 
 import java.util.ArrayList;
 
-public class Place {
+public class Place{
 	private String name;
 	private String city;
 	private boolean isAccessible;
@@ -10,6 +10,8 @@ public class Place {
 	private ArrayList<Place> walkableFrom = new ArrayList<>();
 	private ArrayList<Place> bikeableFrom = new ArrayList<>();
 	private ArrayList<Place> driveableFrom = new ArrayList<>();
+	protected int score = 0;
+	protected int multiplier;
 
 	/**
 	 * ensures: constructs the Place with the correct information
@@ -82,6 +84,25 @@ public class Place {
 	 */
 	public boolean getAccessibility() {
 		return isAccessible;
+	}
+	
+	public int getScore() {
+		return score;
+	}
+
+	public void checkCriteria(String criteria, boolean isSelected) {
+		if(!isSelected) {
+			multiplier = -1;
+		} else {
+			multiplier = 1;
+		}
+		
+		if(criteria.equals(this.getCity())) {
+			this.score = this.score + (10 * multiplier);
+		} else if(criteria.equals("Mobility (Ramps, Elevators)") && isAccessible) {
+			this.score = this.score + (1 * multiplier);
+		}
+		
 	}
 
 }

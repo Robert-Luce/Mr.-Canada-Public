@@ -1,0 +1,7 @@
+Name
+City
+Accesible
+Cuisine
+Vegetarian
+Halal
+Vegan
