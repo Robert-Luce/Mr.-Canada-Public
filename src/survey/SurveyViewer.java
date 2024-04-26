@@ -22,7 +22,7 @@ public class SurveyViewer {
 		ArrayList<ArrayList<String>> responses = new ArrayList<>();
 		ArrayList<Place> places = new ArrayList<>();
 		
-		SurveyComponent surveyPanel = new SurveyComponent(frame, questions, responses, places);
+		SurveyComponent surveyPanel = new SurveyComponent(frame);
 
 		surveyPanel.setPreferredSize(new Dimension(1080, 1000));
 		surveyPanel.setLocation(100, 100);

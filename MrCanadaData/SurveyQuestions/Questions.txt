@@ -1,0 +1,9 @@
+What city would you like to visit
+What type of cuisine are you interested in
+What kind of activities do you enjoy
+What do you like when sightseeing
+What forms of transportation do you have access to
+What is your budget
+What are your accessibility needs
+What are your dietary restrictions
+What religion do you practice
