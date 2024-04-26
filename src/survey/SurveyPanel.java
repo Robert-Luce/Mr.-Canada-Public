@@ -38,9 +38,18 @@ public class SurveyPanel extends JPanel implements ActionListener{
 				JCheckBox checkbox = new JCheckBox();
 				checkbox.setText(text);
 				checkbox.addActionListener(new ActionListener() {
+					boolean checked = false;
+					
 					@Override
 					public void actionPerformed(ActionEvent e) {
-						System.out.println(text);
+						
+						if(!checked) {
+							checked = true;
+							System.out.println(text + " is checked");
+						} else {
+							checked = false;
+							System.out.println(text + " is unchecked");
+						}
 					} });
 				this.add(checkbox, BorderLayout.NORTH);
 			
