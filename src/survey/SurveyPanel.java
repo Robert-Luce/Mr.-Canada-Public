@@ -20,6 +20,7 @@ public class SurveyPanel extends JPanel implements ActionListener{
 	
 	public SurveyPanel(JFrame frame, ArrayList<String> questionTitles, ArrayList<ArrayList<String>> responses, ArrayList<Place> places) {
 //		super(new BorderLayout());
+		this.setLayout(null);
 		this.frame = frame;
 		this.questionTitles = questionTitles;
 		this.responses = responses;
@@ -42,7 +43,9 @@ public class SurveyPanel extends JPanel implements ActionListener{
 			JLabel label = new JLabel(this.questionTitles.get(i));
 			JPanel tempPanel = new JPanel();
 			label.setPreferredSize(new Dimension(500, 50));
+			label.setSize(new Dimension(500, 50));
 			label.setLocation(200, 100*i);
+			label.setLayout(null);
 			tempPanel.add(label);
 			for(int j = 0; j < this.responses.get(i).size(); j++) {
 				JPanel tempPanelInner = new JPanel();
@@ -65,6 +68,8 @@ public class SurveyPanel extends JPanel implements ActionListener{
 					} });
 				checkbox.setLocation(200, 100*i + 50*j);
 				checkbox.setPreferredSize(new Dimension(100, 25));
+				checkbox.setSize(new Dimension(100, 25));
+				checkbox.setLayout(null);
 				tempPanelInner.add(checkbox);
 				tempPanel.add(tempPanelInner);
 			}
