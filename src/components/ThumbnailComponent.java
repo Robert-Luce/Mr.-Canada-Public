@@ -10,7 +10,7 @@ import page.Page;
 public class ThumbnailComponent extends HTMLComponent {
 	private Page pageToGoTo;
 	private Page pageDisplayedOn;
-	MouseListeners listener;
+	private MouseListeners listener;
 
 	/**
 	 * @param fileName
@@ -36,7 +36,7 @@ public class ThumbnailComponent extends HTMLComponent {
 
 	@Override
 	public Rectangle getBounds() {
-		return new Rectangle(this.htmlX, this.htmlY, this.htmlWidth, this.htmlHeight);
+		return new Rectangle(this.getHtmlX(), this.getHtmlY(), this.getHtmlWidth(), this.getHtmlHeight());
 	}
 
 	public void setPageDisplayedOn(Page pageDisplayedOn) {
@@ -50,13 +50,13 @@ public class ThumbnailComponent extends HTMLComponent {
 	@Override
 	public void open() {
 		super.open();
-		this.viewport.addMouseListener(this.listener);
+		this.getViewport().addMouseListener(this.listener);
 	}
 
 	@Override
 	public void close() {
 		super.close();
-		this.viewport.removeMouseListener(this.listener);
+		this.getViewport().removeMouseListener(this.listener);
 	}
 	
 }

@@ -17,20 +17,20 @@ import listeners.MouseListeners;
 
 public class HTMLComponent extends JComponent {
 
-	protected JPanel panel;
-	protected String fileName;
-	protected String filePath;
-	protected JPanel viewport;
-	protected String txtFileData;
-	protected String htmlFileData;
-	protected JLabel label;
-	protected String txtAbsolutePath;
-	protected String pngAbsolutePath;
-	protected String htmlAbsolutePath;
-	protected int htmlWidth;
-	protected int htmlHeight;
-	protected int htmlX;
-	protected int htmlY;
+	private JPanel panel;
+	private String fileName;
+	private String filePath;
+	private JPanel viewport;
+	private String txtFileData;
+	private String htmlFileData;
+	private JLabel label;
+	private String txtAbsolutePath;
+	private String pngAbsolutePath;
+	private String htmlAbsolutePath;
+	private int htmlWidth;
+	private int htmlHeight;
+	private int htmlX;
+	private int htmlY;
 	public HTMLComponent(String fileName, String filePath, JPanel viewport) {
 		super();
 		this.setOpaque(false);
@@ -114,9 +114,9 @@ public class HTMLComponent extends JComponent {
 
 		this.panel.add(this.label, BorderLayout.NORTH);
 		this.add(this.panel, BorderLayout.NORTH);
-		this.setLocation(this.htmlX, this.htmlY);
-		this.setSize(this.htmlWidth, this.htmlHeight);
-		this.setPreferredSize(new Dimension(this.htmlWidth, this.htmlHeight));
+		this.setLocation(this.getHtmlX(), this.getHtmlY());
+		this.setSize(this.getHtmlWidth(), this.getHtmlHeight());
+		this.setPreferredSize(new Dimension(this.getHtmlWidth(), this.getHtmlHeight()));
 	}
 	public static int extractIntegerAfter(String target, String text) throws Exception {
 		Pattern pattern = Pattern.compile(target + "(\\d+)");
@@ -130,175 +130,14 @@ public class HTMLComponent extends JComponent {
 	}
 
 	public void open() {
-		this.viewport.add(this);
+		this.getViewport().add(this);
 		this.revalidate();
 		this.repaint();
 	}
 
-	/**
-	 * @return the panel
-	 */
-	public JPanel getPanel() {
-		return panel;
-	}
-	/**
-	 * @param panel the panel to set
-	 */
-	public void setPanel(JPanel panel) {
-		this.panel = panel;
-	}
-	/**
-	 * @return the fileName
-	 */
-	public String getFileName() {
-		return fileName;
-	}
-	/**
-	 * @param fileName the fileName to set
-	 */
-	public void setFileName(String fileName) {
-		this.fileName = fileName;
-	}
-	/**
-	 * @return the filePath
-	 */
-	public String getFilePath() {
-		return filePath;
-	}
-	/**
-	 * @param filePath the filePath to set
-	 */
-	public void setFilePath(String filePath) {
-		this.filePath = filePath;
-	}
-	/**
-	 * @return the txtFileData
-	 */
-	public String getTxtFileData() {
-		return txtFileData;
-	}
-	/**
-	 * @param txtFileData the txtFileData to set
-	 */
-	public void setTxtFileData(String txtFileData) {
-		this.txtFileData = txtFileData;
-	}
-	/**
-	 * @return the htmlFileData
-	 */
-	public String getHtmlFileData() {
-		return htmlFileData;
-	}
-	/**
-	 * @param htmlFileData the htmlFileData to set
-	 */
-	public void setHtmlFileData(String htmlFileData) {
-		this.htmlFileData = htmlFileData;
-	}
-	/**
-	 * @return the label
-	 */
-	public JLabel getLabel() {
-		return label;
-	}
-	/**
-	 * @param label the label to set
-	 */
-	public void setLabel(JLabel label) {
-		this.label = label;
-	}
-	/**
-	 * @return the txtAbsolutePath
-	 */
-	public String getTxtAbsolutePath() {
-		return txtAbsolutePath;
-	}
-	/**
-	 * @param txtAbsolutePath the txtAbsolutePath to set
-	 */
-	public void setTxtAbsolutePath(String txtAbsolutePath) {
-		this.txtAbsolutePath = txtAbsolutePath;
-	}
-	/**
-	 * @return the pngAbsolutePath
-	 */
-	public String getPngAbsolutePath() {
-		return pngAbsolutePath;
-	}
-	/**
-	 * @param pngAbsolutePath the pngAbsolutePath to set
-	 */
-	public void setPngAbsolutePath(String pngAbsolutePath) {
-		this.pngAbsolutePath = pngAbsolutePath;
-	}
-	/**
-	 * @return the htmlAbsolutePath
-	 */
-	public String getHtmlAbsolutePath() {
-		return htmlAbsolutePath;
-	}
-	/**
-	 * @param htmlAbsolutePath the htmlAbsolutePath to set
-	 */
-	public void setHtmlAbsolutePath(String htmlAbsolutePath) {
-		this.htmlAbsolutePath = htmlAbsolutePath;
-	}
-	/**
-	 * @return the htmlWidth
-	 */
-	public int getHtmlWidth() {
-		return htmlWidth;
-	}
-	/**
-	 * @param htmlWidth the htmlWidth to set
-	 */
-	public void setHtmlWidth(int htmlWidth) {
-		this.htmlWidth = htmlWidth;
-	}
-	/**
-	 * @return the htmlHeight
-	 */
-	public int getHtmlHeight() {
-		return htmlHeight;
-	}
-	/**
-	 * @param htmlHeight the htmlHeight to set
-	 */
-	public void setHtmlHeight(int htmlHeight) {
-		this.htmlHeight = htmlHeight;
-	}
-	/**
-	 * @return the htmlX
-	 */
-	public int getHtmlX() {
-		return htmlX;
-	}
-	/**
-	 * @param htmlX the htmlX to set
-	 */
-	public void setHtmlX(int htmlX) {
-		this.htmlX = htmlX;
-	}
-	/**
-	 * @return the htmlY
-	 */
-	public int getHtmlY() {
-		return htmlY;
-	}
-	/**
-	 * @param htmlY the htmlY to set
-	 */
-	public void setHtmlY(int htmlY) {
-		this.htmlY = htmlY;
-	}
-	/**
-	 * @param viewport the frame to set
-	 */
-	public void setFrame(JPanel viewport) {
-		this.viewport = viewport;
-	}
+	
 	public void close() {
-		this.viewport.remove(this);
+		this.getViewport().remove(this);
 		this.revalidate();
 		this.repaint();
 	}
@@ -309,8 +148,19 @@ public class HTMLComponent extends JComponent {
 		this.label.update(g);
 		this.panel.update(g);
 	}
-
-	public JPanel getFrame() {
+	public int getHtmlX() {
+		return htmlX;
+	}
+	public int getHtmlY() {
+		return htmlY;
+	}
+	public int getHtmlWidth() {
+		return htmlWidth;
+	}
+	public int getHtmlHeight() {
+		return htmlHeight;
+	}
+	public JPanel getViewport() {
 		return viewport;
 	}
 
