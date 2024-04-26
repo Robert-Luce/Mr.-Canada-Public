@@ -13,12 +13,12 @@ import javax.swing.JLabel;
 
 import place.*;
 
-public class SurveyPanel extends JPanel implements ActionListener{
+public class SurveyComponent extends JPanel implements ActionListener{
 	ArrayList<String> questionTitles;
 	ArrayList<ArrayList<String>> responses;
 	private JFrame frame;
 	
-	public SurveyPanel(JFrame frame, ArrayList<String> questionTitles, ArrayList<ArrayList<String>> responses, ArrayList<Place> places) {
+	public SurveyComponent(JFrame frame, ArrayList<String> questionTitles, ArrayList<ArrayList<String>> responses, ArrayList<Place> places) {
 //		super(new BorderLayout());
 //		this.setLayout(null);
 		this.frame = frame;
