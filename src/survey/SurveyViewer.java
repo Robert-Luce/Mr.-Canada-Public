@@ -14,6 +14,8 @@ public class SurveyViewer {
 
 	public static void main(String[] args) {
 		JFrame frame = new JFrame();
+		frame.setLayout(null);
+		
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
 		ArrayList<String> questions = new ArrayList<>();
@@ -29,8 +31,11 @@ public class SurveyViewer {
 //		frame.pack();
 		frame.setSize(new Dimension(1080, 1000));
 		JScrollPane scroll = new JScrollPane(surveyPanel);
+		
 		frame.add(scroll);
+		
 		frame.setVisible(true);
+
 		frame.repaint();
 	}
 
