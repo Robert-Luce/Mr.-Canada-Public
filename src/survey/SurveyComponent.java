@@ -140,7 +140,7 @@ public class SurveyComponent extends JPanel{
 			
 			if(placeInfo.get(0).equals("Restaurant")) {
 				
-				handleRestaurant(placeInfo, placeName);
+				buildRestaurant(placeInfo, placeName);
 				
 			}
 			
@@ -150,7 +150,7 @@ public class SurveyComponent extends JPanel{
 		
 	}
 
-	private void handleRestaurant(ArrayList<String> placeInfo, String placeName) {
+	private void buildRestaurant(ArrayList<String> placeInfo, String placeName) {
 		boolean isAccessible = false;
 		boolean isVegetarian = false;
 		boolean isHalal = false;

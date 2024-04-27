@@ -1,8 +1,8 @@
 Restaurant
-City
+Toronto
 Accessible
-Cuisine
+Canadian
 Vegetarian
-Halal
+
 Vegan
-Price Level
+High($40+)
