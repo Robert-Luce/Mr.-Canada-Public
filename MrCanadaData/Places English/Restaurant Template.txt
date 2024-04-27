@@ -1,0 +1,8 @@
+Type
+City
+Accesible
+Cuisine
+Vegetarian
+Halal
+Vegan
+Price Level

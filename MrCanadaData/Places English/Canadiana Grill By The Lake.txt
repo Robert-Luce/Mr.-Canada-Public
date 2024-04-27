@@ -1,7 +1,8 @@
-Name
-City
+Restaurant
+Toronto
 Accesible
 Cuisine
 Vegetarian
-Halal
-Vegan
+
+
+Low

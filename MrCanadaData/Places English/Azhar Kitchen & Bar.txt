@@ -1,0 +1,8 @@
+Restaurant
+Toronto
+Accesible
+Other
+Vegetarian
+Halal
+
+High($40+)

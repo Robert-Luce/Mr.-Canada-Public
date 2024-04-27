@@ -17,7 +17,7 @@ import javax.swing.JLabel;
 
 import place.*;
 
-public class SurveyComponent extends JPanel implements ActionListener{
+public class SurveyComponent extends JPanel{
 	ArrayList<String> questionTitles = new ArrayList<String>();
 	ArrayList<ArrayList<String>> responses = new ArrayList<ArrayList<String>>();
 	ArrayList<Place> places = new ArrayList<Place>();
@@ -30,12 +30,7 @@ public class SurveyComponent extends JPanel implements ActionListener{
 		
 		this.generateQuestions();
 		this.generateQuestionResponses();
-		
-		places.add(new Restaurant("test 1", "Montreal", true, "Moroccan", true, true, false));
-		places.add(new Restaurant("test 2", "Toronto", false, "Canadian", true, false, true));
-		places.add(new Restaurant("test 3", "Quebec City", true, "Other", false, true, true));
-		places.add(new Restaurant("test 4", "Montreal", false, "Canadian", false, false, false));
-		places.add(new Restaurant("test 5", "Quebec City", true, "Moroccan", true, false, true));
+		this.generatePlaces();
 		
 //		JTable table = new JTable();
 		for(int i = 0; i < this.questionTitles.size(); i++) {
@@ -91,12 +86,6 @@ public class SurveyComponent extends JPanel implements ActionListener{
 		});
 		this.add(checkButton);
 	}
-
-	@Override
-	public void actionPerformed(ActionEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
 	
 	public void generateQuestions() {
 		try {
@@ -125,7 +114,64 @@ public class SurveyComponent extends JPanel implements ActionListener{
 	}
 	
 	public void generatePlaces() {
+		ArrayList<String> placeNames = new ArrayList<String>();
+		try {
+			ArrayList<String> ps = new ArrayList<String>(Arrays.asList(Files
+					.readString(Path
+							.of(Path.of("MrCanadaData\\Places English\\PlacesList.txt").toAbsolutePath().toString()))
+					.split("\r\n")));
+			placeNames.addAll(ps);
+		} catch (Exception e) {
+			System.out.println("Please add text to MrCanadaData\\\\SurveyQuestions\\\\PlacesList.txt");
+		}
 		
+		for(String placeName : placeNames) {
+			ArrayList<String> placeInfo = new ArrayList<String>();
+			try {
+				ArrayList<String> info = new ArrayList<String>(Arrays.asList(Files
+						.readString(Path
+								.of(Path.of("MrCanadaData\\Places English\\" + placeName + ".txt").toAbsolutePath().toString()))
+						.split("\r\n")));
+				placeInfo.addAll(info);
+			} catch (Exception e) {
+				System.out.println("Please add text to MrCanadaData\\\\Places English\\\\" + placeName + ".txt");
+			}
+			
+			
+			if(placeInfo.get(0).equals("Restaurant")) {
+				
+				handleRestaurant(placeInfo, placeName);
+				
+			}
+			
+			
+			
+		}
+		
+	}
+
+	private void handleRestaurant(ArrayList<String> placeInfo, String placeName) {
+		boolean isAccessible = false;
+		boolean isVegetarian = false;
+		boolean isHalal = false;
+		boolean isVegan = false;
+		
+		if(placeInfo.get(2).equals("Accessible")) {
+			isAccessible = true;
+		}
+		if(placeInfo.get(4).equals("Vegetarian")) {
+			isVegetarian = true;
+		}
+		if(placeInfo.get(5).equals("Halal")) {
+			isHalal = true;
+		}
+		if(placeInfo.get(6).equals("Vegan")) {
+			isVegan = true;
+		}
+		
+		Restaurant r = new Restaurant(placeName, placeInfo.get(1), isAccessible, placeInfo.get(3), isVegetarian, isHalal, isVegan);
+		
+		places.add(r);
 	}
 	
 }
