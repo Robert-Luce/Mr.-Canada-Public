@@ -15,9 +15,7 @@ import listeners.MouseListeners;
 public class HTMLComponent extends HTML {
 
 	private JPanel panel;
-	private String txtFileData;
 	private JLabel label;
-	private String txtAbsolutePath;
 	private int htmlX;
 	private int htmlY;
 	public HTMLComponent(String fileName, String filePath, JPanel viewport) {
@@ -26,41 +24,17 @@ public class HTMLComponent extends HTML {
 		this.label = new JLabel();
 		this.htmlX = 0;
 		this.htmlY = 0;
-		try {
-			this.txtAbsolutePath = Path.of("MrCanadaData\\" + this.getFilePath() + "\\" + this.getFileName() + ".txt")
-					.toAbsolutePath().toString();
-		} catch (Exception e) {
-			System.out.println("Please add " + "MrCanadaData\\" + this.getFilePath() + "\\" + this.getFileName() + ".txt");
-		}
-	
-		try {
-			this.txtFileData = Files.readString(Path.of(this.txtAbsolutePath));
-		} catch (Exception e) {
-			System.out
-					.println("Please add text to " + "MrCanadaData\\" + this.getFilePath() + "\\" + this.getFileName() + ".txt");
-		}
-		if (!(this.txtFileData == null)) {
-			try {
-				this.setHtmlWidth(extractIntegerAfter("width=", this.txtFileData));
-			} catch (Exception e) {
-				System.out.println("Please add width location to " + "MrCanadaData\\" + this.getFilePath() + "\\"
-						+ this.getFileName() + ".txt");
-			}
-			try {
-				this.setHtmlHeight(extractIntegerAfter("height=", this.txtFileData));
-			} catch (Exception e) {
-				System.out.println("Please add height location to " + "MrCanadaData\\" + this.getFilePath() + "\\"
-						+ this.getFileName() + ".txt");
-			}
+		
+		if (!(this.getTxtFileData() == null)) {
 
 			try {
-				this.htmlX = extractIntegerAfter("x=", this.txtFileData);
+				this.htmlX = extractIntegerAfter("x=", this.getTxtFileData());
 			} catch (Exception e) {
 				System.out.println(
 						"Please add x location to " + "MrCanadaData\\" + this.getFilePath() + "\\" + this.getFileName() + ".txt");
 			}
 			try {
-				this.htmlY = extractIntegerAfter("y=", this.txtFileData);
+				this.htmlY = extractIntegerAfter("y=", this.getTxtFileData());
 			} catch (Exception e) {
 				System.out.println(
 						"Please add y location to " + "MrCanadaData\\" + this.getFilePath() + "\\" + this.getFileName() + ".txt");

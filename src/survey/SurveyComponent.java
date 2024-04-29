@@ -24,48 +24,10 @@ public class SurveyComponent extends JPanel{
 
 	
 	public SurveyComponent(JFrame frame) {
-//		super(new BorderLayout());
-//		this.setLayout(null);
-
 		
 		this.generateQuestions();
 		this.generateQuestionResponses();
 		this.generatePlaces();
-		
-//		JTable table = new JTable();
-		for(int i = 0; i < this.questions.size(); i++) {
-			for(int j = 0; j < this.responses.get(i).size(); j++) {
-				JPanel tempPanelInner = new JPanel();
-				String text = this.responses.get(i).get(j);
-				JCheckBox checkbox = new JCheckBox();
-				checkbox.setText(text);
-				checkbox.addActionListener(new ActionListener() {
-					boolean checked = false;
-					
-					@Override
-					public void actionPerformed(ActionEvent e) {
-						
-						if(!checked) {
-							checked = true;
-							System.out.println(text + " is checked");
-							
-						} else {
-							checked = false;
-							System.out.println(text + " is unchecked");
-						}
-						for(Place p: places) {
-							p.checkCriteria(text, checked);	
-						}
-					} });
-				checkbox.setLocation(200, 100*i + 50*j);
-				checkbox.setPreferredSize(new Dimension(175, 25));
-				checkbox.setSize(new Dimension(175, 25));
-//				checkbox.setLayout(null);
-				tempPanelInner.add(checkbox);
-				tempPanel.add(tempPanelInner);
-			}
-				this.add(tempPanel);
-		}
 		
 		JButton checkButton = new JButton("Check");
 		checkButton.addActionListener(new ActionListener(){
