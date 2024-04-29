@@ -18,7 +18,7 @@ import javax.swing.JLabel;
 import place.*;
 
 public class SurveyComponent extends JPanel{
-	ArrayList<String> questionTitles = new ArrayList<String>();
+	ArrayList<Question> questions = new ArrayList<Question>();
 	ArrayList<ArrayList<String>> responses = new ArrayList<ArrayList<String>>();
 	ArrayList<Place> places = new ArrayList<Place>();
 
@@ -33,13 +33,7 @@ public class SurveyComponent extends JPanel{
 		this.generatePlaces();
 		
 //		JTable table = new JTable();
-		for(int i = 0; i < this.questionTitles.size(); i++) {
-			JLabel label = new JLabel(this.questionTitles.get(i)+ "?");
-			JPanel tempPanel = new JPanel();
-			label.setPreferredSize(new Dimension(500, 50));
-			label.setSize(new Dimension(500, 50));
-			label.setLocation(200, 100*i);
-			tempPanel.add(label, BorderLayout.WEST);
+		for(int i = 0; i < this.questions.size(); i++) {
 			for(int j = 0; j < this.responses.get(i).size(); j++) {
 				JPanel tempPanelInner = new JPanel();
 				String text = this.responses.get(i).get(j);

@@ -7,7 +7,7 @@ import javax.swing.JPanel;
 import listeners.MouseListeners;
 import page.Page;
 
-public class ThumbnailComponent extends HTMLComponent {
+public class ThumbnailComponent extends HTMLComponent implements PressableComponent {
 	private Page pageToGoTo;
 	private Page pageDisplayedOn;
 	private MouseListeners listener;
