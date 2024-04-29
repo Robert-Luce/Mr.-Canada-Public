@@ -21,12 +21,12 @@ public class SurveyViewer {
 		ArrayList<String> questions = new ArrayList<>();
 		ArrayList<ArrayList<String>> responses = new ArrayList<>();
 		ArrayList<Place> places = new ArrayList<>();
-		
-		SurveyComponent surveyPanel = new SurveyComponent(frame);
+		JPanel panel = new JPanel();
+		SurveyComponent surveyPanel = new SurveyComponent(panel);		
 
 		surveyPanel.setPreferredSize(new Dimension(1080, 1000));
 		surveyPanel.setLocation(100, 100);
-		
+
 //		surveyPanel.setLayout(null);
 //		frame.pack();
 		frame.setSize(new Dimension(1080, 1000));

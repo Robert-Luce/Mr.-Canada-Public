@@ -20,113 +20,35 @@ import place.*;
 public class SurveyComponent extends JPanel{
 	ArrayList<Question> questions = new ArrayList<Question>();
 	ArrayList<Place> places = new ArrayList<Place>();
+	private JPanel viewport;
+	private ArrayList<String> questionNames;
 
 	
-	public SurveyComponent(JFrame frame) {
-		
-		this.generateQuestions();
-		this.generateQuestionResponses();
-		this.generatePlaces();
-		
-		JButton checkButton = new JButton("Check");
-		checkButton.addActionListener(new ActionListener(){
-
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				for(Place p: places) {
-					System.out.println("Place " + p.getName() + " has score of " + p.getScore());
-				}
-			}
-			
-		});
-		this.add(checkButton);
-	}
-	
-	public void generateQuestions() {
+	public SurveyComponent(JPanel viewport) {
+		this.viewport = viewport;
 		try {
-			ArrayList<String> questions = new ArrayList<String>(Arrays.asList(Files
-					.readString(Path
-							.of(Path.of("MrCanadaData\\SurveyQuestions\\Questions.txt").toAbsolutePath().toString()))
+			this.questionNames = new ArrayList<String>(Arrays.asList(Files
+					.readString(Path.of(Path.of("MrCanadaData\\Question Names.txt")
+							.toAbsolutePath().toString()))
 					.split("\r\n")));
-			this.questionTitles = questions;
 		} catch (Exception e) {
-			System.out.println("Please add text to MrCanadaData\\\\SurveyQuestions\\\\Questions.txt");
+			System.out.println(
+					"Please add text to " + "MrCanadaData\\Question Names.txt");
+			this.questionNames = new ArrayList<String>();
+		}
+		for (String questionName : questionNames) {
+			this.questions.add(new Question(this.viewport, questionName));
+		}
+		for (int i = 0; i < this.questions.size(); i++) {
+			this.add(this.questions.get(i));
 		}
 	}
-	
-	public void generateQuestionResponses() {
-		for(String q : questionTitles) {
-			try {
-				ArrayList<String> fileResponses = new ArrayList<String>(Arrays.asList(Files
-						.readString(Path
-								.of(Path.of("MrCanadaData\\SurveyQuestions\\" + q + ".txt").toAbsolutePath().toString()))
-						.split("\r\n")));
-				this.responses.add(fileResponses);
-			} catch (Exception e) {
-				System.out.println("Please add text to MrCanadaData\\\\SurveyQuestions\\\\" + q + ".txt");
-			}
-		}
+	public void open() {
+		this.viewport.add(this);
 	}
-	
-	public void generatePlaces() {
-		ArrayList<String> placeNames = new ArrayList<String>();
-		try {
-			ArrayList<String> ps = new ArrayList<String>(Arrays.asList(Files
-					.readString(Path
-							.of(Path.of("MrCanadaData\\Places English\\PlacesList.txt").toAbsolutePath().toString()))
-					.split("\r\n")));
-			placeNames.addAll(ps);
-		} catch (Exception e) {
-			System.out.println("Please add text to MrCanadaData\\\\SurveyQuestions\\\\PlacesList.txt");
-		}
-		
-		for(String placeName : placeNames) {
-			ArrayList<String> placeInfo = new ArrayList<String>();
-			try {
-				ArrayList<String> info = new ArrayList<String>(Arrays.asList(Files
-						.readString(Path
-								.of(Path.of("MrCanadaData\\Places English\\" + placeName + ".txt").toAbsolutePath().toString()))
-						.split("\r\n")));
-				placeInfo.addAll(info);
-			} catch (Exception e) {
-				System.out.println("Please add text to MrCanadaData\\\\Places English\\\\" + placeName + ".txt");
-			}
-			
-			
-			if(placeInfo.get(0).equals("Restaurant")) {
-				
-				buildRestaurant(placeInfo, placeName);
-				
-			}
-			
-			
-			
-		}
-		
+	public void close() {
+		this.viewport.remove(this);
 	}
 
-	private void buildRestaurant(ArrayList<String> placeInfo, String placeName) {
-		boolean isAccessible = false;
-		boolean isVegetarian = false;
-		boolean isHalal = false;
-		boolean isVegan = false;
-		
-		if(placeInfo.get(2).equals("Accessible")) {
-			isAccessible = true;
-		}
-		if(placeInfo.get(4).equals("Vegetarian")) {
-			isVegetarian = true;
-		}
-		if(placeInfo.get(5).equals("Halal")) {
-			isHalal = true;
-		}
-		if(placeInfo.get(6).equals("Vegan")) {
-			isVegan = true;
-		}
-		
-		Restaurant r = new Restaurant(placeName, placeInfo.get(1), isAccessible, placeInfo.get(3), isVegetarian, isHalal, isVegan);
-		
-		places.add(r);
-	}
 	
 }

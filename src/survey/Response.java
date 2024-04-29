@@ -15,11 +15,17 @@ public class Response extends HTML {
 	private JCheckBox checkbox;
 	private int responseNumber;
 
-	public Response(String fileName, String filePath, JPanel viewport, int questionNumber, int responseNumber) {
-		super(fileName, "Question" + questionNumber + "\\Response" + responseNumber, viewport);
+	public Response(JPanel viewport, int questionNumber, String responseName) {
+		super("Response", "Question" + questionNumber + "\\" + responseName, viewport);
+		this.responseNumber = Integer.getInteger(responseName);
 		this.checkbox = new JCheckBox();
 		this.checkbox.setText(this.getHtmlFileData());
-		this.responseNumber = responseNumber;
+		try {
+			this.responseNumber = super.extractIntegerAfter("Response", responseName);
+		} catch (Exception e) {
+			System.out.println("No response name given");
+			e.printStackTrace();
+		}
 		checkbox.setLocation(200 + this.responseNumber, 0);
 		checkbox.setPreferredSize(new Dimension(175, 25));
 		checkbox.setSize(new Dimension(175, 25));
