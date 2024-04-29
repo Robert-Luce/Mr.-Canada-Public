@@ -19,7 +19,6 @@ import place.*;
 
 public class SurveyComponent extends JPanel{
 	ArrayList<Question> questions = new ArrayList<Question>();
-	ArrayList<ArrayList<String>> responses = new ArrayList<ArrayList<String>>();
 	ArrayList<Place> places = new ArrayList<Place>();
 
 	
