@@ -37,11 +37,13 @@ public class HTML extends JComponent {
 		this.viewport = viewport;
 		this.setHtmlWidth(0);
 		this.setHtmlHeight(0);
+		this.fileName = fileName;
+		this.filePath = filePath;
 		try {
 			this.txtAbsolutePath = Path.of("MrCanadaData\\" + this.getFilePath() + "\\" + this.getFileName() + ".txt")
 					.toAbsolutePath().toString();
 		} catch (Exception e) {
-			System.out.println("Please add " + "MrCanadaData\\" + this.getFilePath() + "\\" + this.getFileName() + ".txt");
+			System.out.println("Please add " + "MrCanadaData\\" + this.getFilePath() + "\\" + this.getFileName() + ".txt");;
 		}
 	
 		try {
@@ -49,6 +51,7 @@ public class HTML extends JComponent {
 		} catch (Exception e) {
 			System.out
 					.println("Please add text to " + "MrCanadaData\\" + this.getFilePath() + "\\" + this.getFileName() + ".txt");
+			e.printStackTrace();
 		}
 		try {
 			this.pngAbsolutePath = Path.of("MrCanadaData\\" + this.getFilePath() + "\\" + this.getFileName() + ".png")

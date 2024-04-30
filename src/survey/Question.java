@@ -24,17 +24,17 @@ public class Question extends HTML {
 	private ArrayList<String> responseNames;
 
 	public Question(JPanel viewport, String questionName) {
-		super("Question", questionName, viewport);
+		super(questionName, questionName, viewport);
 		this.responses = new ArrayList<Response>();
 		this.label = new JLabel(this.getHtmlFileData());
 		try {
-			this.questionNumber = super.extractIntegerAfter("Response", questionName);
+			this.questionNumber = super.extractIntegerAfter("Question", questionName);
 		} catch (Exception e) {
 			System.out.println("No question name given");
-			e.printStackTrace();
 		}
 		this.label.setPreferredSize(new Dimension(500, 50));
 		this.label.setSize(new Dimension(500, 50));
+		this.label.setLocation(0, 0);
 		this.setLocation(0, 100 * this.questionNumber);
 		try {
 			this.responseNames = new ArrayList<String>(Arrays.asList(Files
@@ -43,7 +43,7 @@ public class Question extends HTML {
 					.split("\r\n")));
 		} catch (Exception e) {
 			System.out.println(
-					"Please add text to " + "MrCanadaData\\Question" + this.questionNumber + "\\Questions.txt");
+					"Please add text to MrCanadaData\\Question" + this.questionNumber + "\\Response Names.txt");
 			this.responseNames = new ArrayList<String>();
 		}
 		for (String responseName : responseNames) {
@@ -51,9 +51,13 @@ public class Question extends HTML {
 		}
 		for (int i = 0; i < this.responses.size(); i++) {
 			this.add(this.responses.get(i));
+			this.responses.get(i).setPreferredSize(new Dimension(100, 100));
+			this.responses.get(i).setSize(100, 100);
+			this.responses.get(i).setLocation(500, 0);;
+			this.add(this.responses.get(i));
 		}
-		this.setPreferredSize(new Dimension(500, 50));
-		this.setSize(new Dimension(500, 50));
+		this.setPreferredSize(new Dimension(1000, 50));
+		this.setSize(new Dimension(1000, 50));
 		this.add(this.label);
 	}
 

@@ -33,7 +33,7 @@ public class SurveyComponent extends JPanel{
 					.split("\r\n")));
 		} catch (Exception e) {
 			System.out.println(
-					"Please add text to " + "MrCanadaData\\Question Names.txt");
+					"Please add text to MrCanadaData\\Question Names.txt");
 			this.questionNames = new ArrayList<String>();
 		}
 		for (String questionName : questionNames) {
