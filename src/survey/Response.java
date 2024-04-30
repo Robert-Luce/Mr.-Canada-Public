@@ -37,12 +37,14 @@ public class Response extends HTML {
 		this.criteria = new ArrayList<String>(Arrays.asList(this.getTxtFileData().split("\r\n")));
 		for (int i = 0; i < criteria.size(); i++) {
 			if(this.criteria.get(i).contains("Criteria=")){
+				
 				this.criteria.set(i, this.criteria.get(i).replace("Criteria=", ""));
 			} else {
 				this.criteria.remove(i);
+				i--;
 			}
 			
 		}
-		this.checkbox.addItemListener(new ResponseCheckBoxListener());
+		this.checkbox.addItemListener(new ResponseCheckBoxListener(this.criteria, "Criteria Test.txt"));
 	}
 }

@@ -1,1 +1,3 @@
 width=175 height=25
+Criteria=test1
+Criteria=test2
