@@ -19,7 +19,7 @@ public class HTMLComponent extends HTML {
 	private int htmlX;
 	private int htmlY;
 	public HTMLComponent(String fileName, String filePath, JPanel viewport) {
-		super(filePath, filePath, viewport);
+		super(fileName, filePath, viewport);
 		this.panel = new JPanel();
 		this.label = new JLabel();
 		this.htmlX = 0;

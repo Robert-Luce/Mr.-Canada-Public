@@ -51,7 +51,6 @@ public class HTML extends JComponent {
 		} catch (Exception e) {
 			System.out
 					.println("Please add text to " + "MrCanadaData\\" + this.getFilePath() + "\\" + this.getFileName() + ".txt");
-			e.printStackTrace();
 		}
 		try {
 			this.pngAbsolutePath = Path.of("MrCanadaData\\" + this.getFilePath() + "\\" + this.getFileName() + ".png")

@@ -17,8 +17,8 @@ public class ThumbnailComponent extends HTMLComponent implements PressableCompon
 	 * @param filePath
 	 * @param viewport
 	 */
-	public ThumbnailComponent(String fileName, String filePath, JPanel viewport) {
-		super(fileName, filePath, viewport);
+	public ThumbnailComponent(String filePath, JPanel viewport) {
+		super("thumbnail", filePath, viewport);
 		this.listener = new MouseListeners(this);
 	}
 

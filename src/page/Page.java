@@ -32,7 +32,7 @@ public class Page {
 		this.name = name;
 		this.viewport = viewport;
 		this.banner = new BannerComponent(this.viewport);
-		this.thumbnail = new ThumbnailComponent("thumbnail", this.name, this.viewport);
+		this.thumbnail = new ThumbnailComponent(this.name, this.viewport);
 		this.thumbnail.setPage(this);
 		this.pages = new ArrayList<Page>();
 		this.pageNames = new ArrayList<String>();
