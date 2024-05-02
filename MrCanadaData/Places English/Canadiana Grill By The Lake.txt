@@ -1,8 +1,5 @@
-Restaurant
 Toronto
 Accesible
 Cuisine
 Vegetarian
-
-
-Low
+LowCost

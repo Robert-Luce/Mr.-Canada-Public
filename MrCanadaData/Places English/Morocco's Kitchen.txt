@@ -1,8 +1,6 @@
-Restaurant
 Toronto
-Accesible
+Accessible
 Moroccan
 Vegetarian
 Halal
 Vegan
-Price Level

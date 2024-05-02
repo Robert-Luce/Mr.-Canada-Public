@@ -61,40 +61,15 @@ public class PlaceManager {
 				System.out.println("Please add text to MrCanadaData\\\\Places English\\\\" + placeName + ".txt");
 			}
 
+			ArrayList<String> truncInfo = new ArrayList<String>();
 
-			if(placeInfo.get(0).equals("Restaurant")) {
-
-				handleRestaurant(placeInfo, placeName);
-
+			for(int i = 1; i < placeInfo.size()-1; i++) {
+				truncInfo.add(placeInfo.get(i));
 			}
-
-
-
+			places.add(new Place(placeName, placeInfo.get(0), truncInfo));
 		}
+		
+		
 
-	}
-
-	private void handleRestaurant(ArrayList<String> placeInfo, String placeName) {
-		boolean isAccessible = false;
-		boolean isVegetarian = false;
-		boolean isHalal = false;
-		boolean isVegan = false;
-
-		if(placeInfo.get(2).equals("Accessible")) {
-			isAccessible = true;
-		}
-		if(placeInfo.get(4).equals("Vegetarian")) {
-			isVegetarian = true;
-		}
-		if(placeInfo.get(5).equals("Halal")) {
-			isHalal = true;
-		}
-		if(placeInfo.get(6).equals("Vegan")) {
-			isVegan = true;
-		}
-
-		Restaurant r = new Restaurant(placeName, placeInfo.get(1), isAccessible, placeInfo.get(3), isVegetarian, isHalal, isVegan);
-
-		places.add(r);
 	}
 }

@@ -1,8 +1,6 @@
-Restaurant
 Toronto
 Accessible
 Canadian
 Vegetarian
-
 Vegan
-High($40+)
+HighCost

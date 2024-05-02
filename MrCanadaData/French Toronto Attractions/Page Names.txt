@@ -1,5 +1,5 @@
-Toronto
-Toronto Restaurants
-Toronto Attractions
-Toronto PlacesOfWorship
-DestinationCatalog
+French Toronto
+French Toronto Restaurants
+French Toronto Attractions
+French Toronto PlacesOfWorship
+French DestinationCatalog

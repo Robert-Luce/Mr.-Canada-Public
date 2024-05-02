@@ -5,13 +5,10 @@ import java.util.ArrayList;
 public class Place{
 	private String name;
 	private String city;
-	private boolean isAccessible;
 
-	private ArrayList<Place> walkableFrom = new ArrayList<>();
-	private ArrayList<Place> bikeableFrom = new ArrayList<>();
-	private ArrayList<Place> driveableFrom = new ArrayList<>();
 	protected int score = 0;
 	protected int multiplier;
+	private ArrayList<String> criteriaList;
 
 	/**
 	 * ensures: constructs the Place with the correct information
@@ -21,41 +18,10 @@ public class Place{
 	 * @param address      - the address of the Place
 	 * @param isAccessible - whether or not the Place has handicapped accessibility
 	 */
-	public Place(String name, String city, boolean isAccessible) {
+	public Place(String name, String city, ArrayList<String> criteriaList) {
 		this.name = name;
 		this.city = city;
-		this.isAccessible = isAccessible;
-	}
-
-	/**
-	 * ensures: passes along another Place that is close enough to walk to.
-	 * 
-	 * @param p - the Place to be added to this Place's lists.
-	 */
-	public void addWalkablePlace(Place p) {
-		walkableFrom.add(p);
-		bikeableFrom.add(p);
-		driveableFrom.add(p);
-	}
-
-	/**
-	 * ensures: passes along another Place that is close enough to bike to.
-	 * 
-	 * @param p - the Place to be added to this Place's lists.
-	 */
-	public void addBikeablePlace(Place p) {
-		bikeableFrom.add(p);
-		driveableFrom.add(p);
-	}
-
-	/**
-	 * ensures: passes along another Place that is close enough to drive to (within
-	 * the same city).
-	 * 
-	 * @param p - the Place to be added to this Place's list.
-	 */
-	public void addDriveablePlace(Place p) {
-		driveableFrom.add(p);
+		this.criteriaList = criteriaList;
 	}
 
 	/**
@@ -75,16 +41,6 @@ public class Place{
 	public String getCity() {
 		return city;
 	}
-
-	/**
-	 * ensures: allows other classes to access this Place's accessibility
-	 * information
-	 * 
-	 * @return - whether or not this Place has mobility accessibility
-	 */
-	public boolean getAccessibility() {
-		return isAccessible;
-	}
 	
 	public int getScore() {
 		return score;
@@ -95,13 +51,14 @@ public class Place{
 	}
 
 	public void checkCriteria(String criteria) {
-		
-		multiplier = 1;
-		
-		if(criteria.equals(this.getCity())) {
-			this.score = this.score + (10 * multiplier);
-		} else if(criteria.equals("Mobility (Ramps, Elevators)") && isAccessible) {
-			this.score = this.score + (1 * multiplier);
+		if(criteria.equals(city)) {
+			score = score + 10;
+		} else {
+			for(String c : criteriaList) {
+				if(criteria.equals(c)) {
+					score = score + 1; 
+				}
+			}
 		}
 		
 	}

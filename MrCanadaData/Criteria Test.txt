@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 Moroccan
 Biking
@@ -9,3 +10,7 @@ Toronto
 Montreal
 Halal
 Vegan
+=======
+Vegetarian
+City Walking
+>>>>>>> branch 'main' of https://github.com/Robert-Luce/Mr.-Canada.git
