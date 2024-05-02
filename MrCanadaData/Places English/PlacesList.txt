@@ -1,10 +1,20 @@
-The Sultan's Tent and Cafe Moroc
-Azhar Kitchen & Bar
-Morocco's Kitchen
-Canadiana Grill By The Lake
-Richmond Station
-Gaspar Brasserie Francaise
-Biosphere
-Place d'Armes
-Queen Street
-Scarborough Bluffs
+Restaurant - The Sultan's Tent and Cafe Moroc
+Restaurant - Azhar Kitchen & Bar
+Restaurant - Morocco's Kitchen
+Restaurant - Canadiana Grill By The Lake
+Restaurant - Richmond Station
+Attraction - Queen Street
+Attraction - Scarborough Bluffs
+Attraction - Casa Loma
+Attraction - CN Tower
+Attraction - Toronto Island Park
+PlaceOfWorship - Masjid Toronto
+PlaceOfWorship - Muslim Prayer Room
+PlaceOfWorship - St Michael's Cathedral Basilica
+Restaurant - Gaspar Brasserie Francaise
+Restaurant - Restaurant Meridional
+Restaurant - Restaurant Au-Tarot
+Restaurant - Vieux-Port Steakhouse
+Restaurant - Delhi Kabab
+Attraction - Biosphere
+Attraction - Place d'Armes
