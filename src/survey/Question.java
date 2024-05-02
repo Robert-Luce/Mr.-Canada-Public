@@ -51,9 +51,9 @@ public class Question extends HTML {
 		}
 		for (int i = 0; i < this.responses.size(); i++) {
 			this.add(this.responses.get(i));
-			this.responses.get(i).setPreferredSize(new Dimension(100, 100));
-			this.responses.get(i).setSize(100, 100);
-			this.responses.get(i).setLocation(500, 0);;
+			this.responses.get(i).setPreferredSize(new Dimension(200, 75));
+			this.responses.get(i).setSize(200, 75);
+			this.responses.get(i).setLocation(500 + 200*i, 0);;
 			this.add(this.responses.get(i));
 		}
 		this.setPreferredSize(new Dimension(1000, 50));

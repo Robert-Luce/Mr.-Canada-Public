@@ -42,6 +42,9 @@ public class SurveyComponent extends JPanel{
 		for (int i = 0; i < this.questions.size(); i++) {
 			this.add(this.questions.get(i));
 		}
+		
+		PlaceManager placeManager = new PlaceManager(places);
+		placeManager.generatePlaces();
 	}
 	public void open() {
 		this.viewport.add(this);
