@@ -1,0 +1,2 @@
+width=175 height=25
+Criteria=Hiking
