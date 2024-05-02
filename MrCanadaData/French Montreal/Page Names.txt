@@ -2,4 +2,4 @@ French Montreal PlacesOfWorship
 French Montreal Attractions
 French Montreal Restaurants
 French Montreal
-DestinationCatalog
+French DestinationCatalog
