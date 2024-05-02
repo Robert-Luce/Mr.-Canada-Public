@@ -9,8 +9,8 @@ public class Landmark extends Attraction {
 		this.type = type;
 	}
 	
-	public void checkCriteria(String criteria, boolean isChecked) {
-		super.checkCriteria(criteria, isChecked);
+	public void checkCriteria(String criteria) {
+		super.checkCriteria(criteria);
 		if(criteria.equals(type)) {
 			score = score + (2 * multiplier);
 		}

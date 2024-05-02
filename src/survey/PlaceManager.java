@@ -14,6 +14,29 @@ public class PlaceManager {
 		this.places = places;
 	}
 	
+	
+	public void assessLocations() {
+		for(Place p: places) {
+			p.setScore(1);
+		}
+		ArrayList<String> criteria = new ArrayList<String>();
+		try {
+			ArrayList<String> cs = new ArrayList<String>(Arrays.asList(Files
+					.readString(Path
+							.of(Path.of("MrCanadaData\\Criteria Test.txt").toAbsolutePath().toString()))
+					.split("\r\n")));
+			criteria.addAll(cs);
+		} catch (Exception e) {
+			System.out.println("Please select a criteria");
+		}
+		
+		for(Place p : places) {
+			for(String c : criteria) {
+				p.checkCriteria(c);
+			}
+		}
+	}
+	
 	public void generatePlaces() {
 		ArrayList<String> placeNames = new ArrayList<String>();
 		try {

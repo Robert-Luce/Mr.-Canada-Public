@@ -8,8 +8,8 @@ public abstract class Attraction extends Place {
 		this.priceLevel = priceLevel;
 	}
 	
-	public void checkCriteria(String criteria, boolean isChecked) {
-		super.checkCriteria(criteria, isChecked);
+	public void checkCriteria(String criteria) {
+		super.checkCriteria(criteria);
 		if(criteria.equals(priceLevel)) {
 		  score = score + (1*multiplier);
 		}

@@ -59,15 +59,15 @@ public class Restaurant extends Place {
 		return score;
 	}
 	
-	public void checkCriteria(String criteria, boolean isChecked) {
-		super.checkCriteria(criteria, isChecked);
+	public void checkCriteria(String criteria) {
+		super.checkCriteria(criteria);
 		if(criteria.equals("Vegan") && this.isVegan()) {
 			this.score = this.score + (1 * multiplier);
 		} else if(criteria.equals("Vegetarian") && this.isVegetarian()) {
 			this.score = this.score + (1 * multiplier);
 		} else if(criteria.equals("Halal") && this.isHalal()) {
 			this.score = this.score + (1 * multiplier);
-		} else if(criteria.equals(cuisineType)) {
+		} else if(cuisineType.contains(criteria)) {
 			this.score = this.score + (1 * multiplier);
 		}
 	}

@@ -89,13 +89,14 @@ public class Place{
 	public int getScore() {
 		return score;
 	}
+	
+	public void setScore(int score) {
+		this.score = score;
+	}
 
-	public void checkCriteria(String criteria, boolean isSelected) {
-		if(!isSelected) {
-			multiplier = -1;
-		} else {
-			multiplier = 1;
-		}
+	public void checkCriteria(String criteria) {
+		
+		multiplier = 1;
 		
 		if(criteria.equals(this.getCity())) {
 			this.score = this.score + (10 * multiplier);

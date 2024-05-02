@@ -45,6 +45,22 @@ public class SurveyComponent extends JPanel{
 		
 		PlaceManager placeManager = new PlaceManager(places);
 		placeManager.generatePlaces();
+		
+		JButton checkButton = new JButton("Check");
+		checkButton.addActionListener(new ActionListener(){
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				placeManager.assessLocations();
+				for(Place p: places) {
+					System.out.println("Place " + p.getName() + " has score of " + p.getScore());
+				}
+			}
+			
+		});
+		checkButton.setPreferredSize(new Dimension(100, 50));
+		checkButton.setSize(100, 50);
+		checkButton.setLocation(450, 850);
+		this.add(checkButton);
 	}
 	public void open() {
 		this.viewport.add(this);
