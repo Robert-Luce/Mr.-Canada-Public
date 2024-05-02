@@ -14,8 +14,10 @@ public class LoginComponent extends JComponent {
 	private JTextField usernameField;
 	private JTextField passwordField;
 	private LoginButtonComponent button;
+	private JPanel viewport;
 	public LoginComponent(JPanel viewport) {
 		super();
+		this.viewport = viewport;
 		this.passwordLabel = new HTMLComponent(PASSWORD_LABEL_FILE_NAME, PASSWORD_LABEL_FILE_PATH, viewport);
 		this.usernameLabel = new HTMLComponent(USERNAME_LABEL_FILE_NAME, USERNAME_LABEL_FILE_PATH, viewport);
 		this.passwordField = new JTextField();
@@ -26,6 +28,8 @@ public class LoginComponent extends JComponent {
 		this.add(this.passwordField);
 		this.add(this.usernameField);
 		this.add(this.button);
-		
+	}
+	public void open() {
+		this.viewport.add(this);
 	}
 }
