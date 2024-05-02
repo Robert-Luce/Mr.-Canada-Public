@@ -8,7 +8,7 @@ import page.Page;
 
 public class Main {
 	public static void main(String[] args) {
-		JFrame frame = new JFrame();
+		JFrame frame = new JFrame("Mr. Canada");
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		JPanel panel = new JPanel();
 		panel.setLayout(null);

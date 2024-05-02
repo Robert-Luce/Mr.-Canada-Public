@@ -1,8 +1,7 @@
+package user;
 import java.io.FileReader;
 import java.io.File;
 import java.io.FileWriter;
-
-import hashingAlgorithm.Hash;
 
 public class Password {
 	private String username;

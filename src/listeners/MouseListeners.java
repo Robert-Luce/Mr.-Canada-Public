@@ -3,14 +3,15 @@ package listeners;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
+import components.ButtonComponent;
 import components.ThumbnailComponent;
 
 public class MouseListeners implements MouseListener {
 
-	private ThumbnailComponent component;
+	private ButtonComponent component;
 
-	public MouseListeners(ThumbnailComponent component) {
-		this.component = component;
+	public MouseListeners(ButtonComponent buttonComponent) {
+		this.component = buttonComponent;
 	}
 
 	@Override

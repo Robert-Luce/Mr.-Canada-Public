@@ -73,7 +73,7 @@ public class Page {
 	 * @param page - the Page that the thumbnail should be displayed on.
 	 */
 	public void thumbnailOpen(Page page) {
-		this.thumbnail.open();
+		this.thumbnail.open(this.thumbnail);
 		this.thumbnail.setPageDisplayedOn(page);
 		this.viewport.repaint();
 	}
@@ -82,7 +82,7 @@ public class Page {
 	 * ensures: Makes the thumbnail for this page disappear from where it was originally displayed.
 	 */
 	public void thumbnailClose() {
-		this.thumbnail.close();
+		this.thumbnail.close(this.thumbnail);
 		this.viewport.repaint();
 	}
 

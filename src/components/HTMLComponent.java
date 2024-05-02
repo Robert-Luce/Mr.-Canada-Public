@@ -3,6 +3,7 @@ package components;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.Graphics;
+import java.awt.Rectangle;
 import java.nio.file.Files;
 import java.nio.file.Path;
 
@@ -76,8 +77,9 @@ public class HTMLComponent extends HTML {
 	public int getHtmlY() {
 		return htmlY;
 	}
-	public JPanel getViewport() {
-		return super.getViewport();
+
+	public Rectangle getBounds(ButtonComponent buttonComponent) {
+		return new Rectangle(this.htmlX, this.htmlY, this.getHtmlWidth(), this.getHtmlHeight());
 	}
 
 

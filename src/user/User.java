@@ -1,3 +1,4 @@
+package user;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -6,9 +7,8 @@ public class User {
 	private String username;
 	private Password password;
 
-	public User(String username, String inputPassword) {
+	public User(String username, String inputPassword) throws Exception {
 		this.username = username;
-		try {
 			Path path = Paths.get(this.username);
 			if (!Files.exists(path)) {
 				Files.createDirectories(path);
@@ -17,12 +17,10 @@ public class User {
 			} else {
 				this.password = new Password(this.username);
 				if (!this.password.checkPassword(inputPassword)) {
-					System.out.println("Incorrect password");
+					throw new Exception();
 				}
 			}
-		} catch (Exception e) {
-			System.out.println("Error: " + e);
-		}
+		
 	}
 
 }

@@ -1,4 +1,4 @@
-package hashingAlgorithm;
+package user;
 
 import java.util.ArrayList;
 

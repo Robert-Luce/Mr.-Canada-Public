@@ -1,17 +1,14 @@
 package components;
 
-import java.awt.Rectangle;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 import listeners.MouseListeners;
 import page.Page;
 
-public class ThumbnailComponent extends HTMLComponent implements PressableComponent {
-	private Page pageToGoTo;
+public class ThumbnailComponent extends ButtonComponent implements PressableComponent {
+	Page pageToGoTo;
 	private Page pageDisplayedOn;
-	private MouseListeners listener;
-
 	/**
 	 * @param fileName
 	 * @param filePath
@@ -19,7 +16,6 @@ public class ThumbnailComponent extends HTMLComponent implements PressableCompon
 	 */
 	public ThumbnailComponent(String filePath, JPanel viewport) {
 		super("thumbnail", filePath, viewport);
-		this.listener = new MouseListeners(this);
 	}
 
 	public void setPage(Page page) {
@@ -30,15 +26,6 @@ public class ThumbnailComponent extends HTMLComponent implements PressableCompon
 		return this.pageToGoTo;
 	}
 
-	public void pressed() {
-			this.pageToGoTo.thumbnailPressed();
-	}
-
-	@Override
-	public Rectangle getBounds() {
-		return new Rectangle(this.getHtmlX(), this.getHtmlY(), this.getHtmlWidth(), this.getHtmlHeight());
-	}
-
 	public void setPageDisplayedOn(Page pageDisplayedOn) {
 		this.pageDisplayedOn = pageDisplayedOn;
 	}
@@ -47,16 +34,18 @@ public class ThumbnailComponent extends HTMLComponent implements PressableCompon
 		return this.pageDisplayedOn;
 	}
 
-	@Override
-	public void open() {
-		super.open();
-		this.getViewport().addMouseListener(this.listener);
+	public void pressed() {
+			this.pageToGoTo.thumbnailPressed();
 	}
 
-	@Override
-	public void close() {
+	public void open(ThumbnailComponent thumbnailComponent) {
+		super.open();
+		thumbnailComponent.getViewport().addMouseListener(this.listener);
+	}
+
+	public void close(ThumbnailComponent thumbnailComponent) {
 		super.close();
-		this.getViewport().removeMouseListener(this.listener);
+		thumbnailComponent.getViewport().removeMouseListener(this.listener);
 	}
 	
 }
