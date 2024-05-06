@@ -1,3 +1,3 @@
-Toronto FromDestinationCatalog
-Montreal FromDestinationCatalog
-Quebec City
+Arabic Toronto FromDestinationCatalog
+Arabic Montreal FromDestinationCatalog
+Arabic Quebec City

@@ -1,3 +1,5 @@
-Toronto FromDestinationCatalog
-Montreal FromDestinationCatalog
-Quebec City
+Arabic Montreal PlacesOfWorship
+Arabic Montreal Attractions
+Arabic Montreal Restaurants
+Arabic Montreal
+Arabic DestinationCatalog
