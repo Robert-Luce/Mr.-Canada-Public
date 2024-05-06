@@ -1,1 +1,1 @@
-x=600 y=157 width=384 height=45
+x=537 y=160 width=450 height=60

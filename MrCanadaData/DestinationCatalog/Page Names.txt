@@ -1,3 +1,4 @@
 Toronto FromDestinationCatalog
 Montreal FromDestinationCatalog
 Quebec City
+CurrencyConverter
