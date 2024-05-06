@@ -14,7 +14,7 @@ public class Main {
 		panel.setLayout(null);
 		panel.setPreferredSize(new Dimension(1080, 1000));
 		panel.setLocation(0, 0);
-		Page page = new Page(panel, "DestinationCatalog");
+		Page page = new Page(panel, "French DestinationCatalog");
 		page.open();
 		frame.setSize(new Dimension(1080, 1000));
 		JScrollPane scroll = new JScrollPane(panel);
