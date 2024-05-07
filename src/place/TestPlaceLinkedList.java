@@ -13,7 +13,7 @@ import components.HTMLComponent;
 
 
 public class TestPlaceLinkedList {
-
+//	PlaceLinkedList list1;
 
 	@Test
 	public void testAddN01(){
@@ -36,8 +36,7 @@ public class TestPlaceLinkedList {
 	@Test
 	public void testSortN01(){
 		PlaceLinkedList list1 = new PlaceLinkedList();
-
-		assertEquals("[]", list1.toString());
+		list1.first = list1.mergeSort(list1.first);
+		assertEquals("[13, 10, 4, 3] first=[13]", list1.toString());
 	}
 }
-

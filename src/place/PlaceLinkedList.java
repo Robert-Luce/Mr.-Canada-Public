@@ -1,5 +1,8 @@
 package place;
 
+import java.util.Collections;
+import java.util.Comparator;
+
 import components.HTMLComponent;
 
 public class PlaceLinkedList {
@@ -82,37 +85,109 @@ public class PlaceLinkedList {
 		return count;
 	}
 	
-	public void sort(PlaceLinkedList list) {
-		final int n = this.length();
-		if(n<=1) {
-			return;
-		}
+	public PlaceNode sortedMerge(PlaceNode a, PlaceNode b)
+    {
+		PlaceNode result = null;
+ 
+        // Base cases
+        if (a == null)
+            return b;
+        if (b == null)
+            return a;
+ 
+        // Pick either a or b, and recur
+        if (a.getScore() > b.getScore()) {
+            result = a;
+            result.next = sortedMerge(a.next, b);
+        }
+        else {
+            result = b;
+            result.next = sortedMerge(a, b.next);
+        }
+ 
+        return result;
+    }
+ 
+	public PlaceNode mergeSort(PlaceNode h) {
+
+		// Base case : if head is null
+        if (h == null || h.next == null) {
+            return h;
+        }
+
+        // get the middle of the list
+        PlaceNode middle = getMiddle(h);
+        PlaceNode nextofmiddle = middle.next;
+ 
+        // set the next of middle node to null
+        middle.next = null;
+ 
+        // Apply mergeSort on left list
+        PlaceNode left = mergeSort(h);
+ 
+        // Apply mergeSort on right list
+        PlaceNode right = mergeSort(nextofmiddle);
+ 
+        // Merge the left and right lists
+        PlaceNode sortedlist = sortedMerge(left, right);
+ 
+        return sortedlist;
+    }
+ 
+    // Utility function to get the middle of the linked list
+    public static PlaceNode getMiddle(PlaceNode head)
+    {
+        if (head == null)
+            return head;
+ 
+        PlaceNode slow = head, fast = head;
+ 
+        while (fast.next != null
+               && fast.next.next != null) {
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+ 
+        return slow;
+    }
+	
+//	public void sort(PlaceLinkedList list) {
+//		final int n = this.length();
+//		if(n<=1) {
+//			return;
+//		}
+//		
+//		PlaceLinkedList lower = new PlaceLinkedList();
+//		PlaceLinkedList upper = new PlaceLinkedList();
+//		
+//		// Splitting the list in half
+//		PlaceNode current = this.first;
+//		for(int i=0; i<n/2; i++) {
+//			lower.addAtBeginning(current.getHTML(), current.getScore());
+//			current = current.next;
+//		}
+//		for(int i=0; i<(n-n/2); i++) {
+//			upper.addAtBeginning(current.getHTML(), current.getScore());
+//		}
+//		
+//		sort(lower);
+//		sort(upper);
 		
-		PlaceLinkedList lower = new PlaceLinkedList();
-		PlaceLinkedList upper = new PlaceLinkedList();
-		
-		// Splitting the list in half
-		PlaceNode current = this.first;
-		for(int i=0; i<n/2; i++) {
-			lower.addAtBeginning(current.getHTML(), current.getScore());
-			current = current.next;
-		}
-		for(int i=0; i<(n-n/2); i++) {
-			upper.addAtBeginning(current.getHTML(), current.getScore());
-		}
-		
-		sort(lower);
-		sort(upper);
+//		Collections.sort(this, new Comparator<PlaceNode>() {
+//			@Override
+//			public int compare(PlaceNode place1, PlaceNode place2) {
+//				return place2.getScore()-place1.getScore();
+//			}
+//		});
 		
 		// Sort
-		PlaceNode lowercurrent = lower.first;
-		PlaceNode uppercurrent = upper.first;
-		while(lowercurrent!=null) {
-			if(lowercurrent.getScore()>uppercurrent.getScore()){
-				
-			}
-		}
-		
-
-	}
+//		PlaceNode lowercurrent = lower.first;
+//		PlaceNode uppercurrent = upper.first;
+//		while(lowercurrent!=null) {
+//			if(lowercurrent.getScore()>uppercurrent.getScore()){
+//				
+//			}
+//		}
 }
+	
+	
