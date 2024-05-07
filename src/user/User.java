@@ -13,14 +13,14 @@ public class User {
 
 	public User(String username, String inputPassword) throws Exception {
 		this.username = username;
+		this.password = new Password(this.username);
 		Path path = Paths.get("MrCanadaData\\Users\\" + this.username);
 		if (!Files.exists(path)) {
 			Files.createDirectories(path);
-			this.password = new Password(this.username);
 			this.password.newPassword(inputPassword);
 		} else {
-			this.password = new Password(this.username);
 			if (!this.password.checkPassword(inputPassword)) {
+				System.out.println(this.password.checkPassword(inputPassword));
 				throw new Exception();
 			}
 		}
@@ -37,6 +37,5 @@ public class User {
 			return false;
 		}
 	}
-
 
 }

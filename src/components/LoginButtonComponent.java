@@ -40,6 +40,7 @@ public class LoginButtonComponent extends ButtonComponent {
 				survey.open();
 			}
 		} catch (Exception e) {
+			e.printStackTrace();
 			JFrame frame = new JFrame("Mr. Canada");
 			frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 			JPanel panel = new JPanel();

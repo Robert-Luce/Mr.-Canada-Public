@@ -89,7 +89,7 @@ public class Word {
 
 	public Word rightShift(int number) {
 		Word output = new Word(this.bits.length);
-		for (int i = this.bits.length - 1; i >= number; i--) {
+		for (int i = this.bits.length - 1; i - number >= 0; i--) {
 			output.bits[i] = this.bits[i - number];
 		}
 		return output;

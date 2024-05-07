@@ -8,9 +8,9 @@ public class Hash {
 	private Word[] hashValues;
 
 	public Hash(String input) {
-		this.hashValues = new HashValue[8];
+		this.hashValues = new Word[8];
 		for (int i = 0; i < this.hashValues.length; i++) {
-			this.hashValues[i] = new Word(i);
+			this.hashValues[i] = new HashValue(i);
 		}
 		Message message = new Message(input);
 		this.blocks = message.getBlocks();
@@ -42,12 +42,12 @@ public class Hash {
 				h = g;
 				g = f;
 				f = e;
-				HashValue temp = (HashValue) Word.moduloAddition(d, T2);
+				Word temp = Word.moduloAddition(d, T2);
 				e = temp;
 				d = c;
 				c = b;
 				b = a;
-				HashValue temp2 = (HashValue) Word.moduloAddition(T1, a);
+				Word temp2 = Word.moduloAddition(T1, a);
 				a = temp2;
 			}
 			this.hashValues[0] = Word.moduloAddition(a, this.hashValues[0]);
