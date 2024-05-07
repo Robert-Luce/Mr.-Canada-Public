@@ -1,5 +1,7 @@
 package components;
 
+import java.awt.Dimension;
+
 import javax.swing.JComponent;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
@@ -22,12 +24,22 @@ public class LoginComponent extends JComponent {
 		this.usernameLabel = new HTMLComponent(USERNAME_LABEL_FILE_NAME, USERNAME_LABEL_FILE_PATH, viewport);
 		this.passwordField = new JTextField();
 		this.usernameField = new JTextField();
+		this.passwordField.setLocation(this.passwordLabel.getHtmlX()+this.passwordLabel.getHtmlWidth(), this.passwordLabel.getHtmlY());
+		this.passwordField.setSize(this.passwordLabel.getHtmlWidth(), this.passwordLabel.getHtmlHeight());
+		this.passwordField.setPreferredSize(new Dimension(this.passwordLabel.getHtmlWidth(), this.passwordLabel.getHtmlHeight()));
+		this.usernameField.setLocation(this.usernameLabel.getHtmlX()+this.usernameLabel.getHtmlWidth(), this.usernameLabel.getHtmlY());
+		this.usernameField.setSize(this.usernameLabel.getHtmlWidth(), this.usernameLabel.getHtmlHeight());
+		this.usernameField.setPreferredSize(new Dimension(this.usernameLabel.getHtmlWidth(), this.usernameLabel.getHtmlHeight()));
 		this.button = new LoginButtonComponent(viewport, this.usernameField, this.passwordField);
+		
 		this.add(this.passwordLabel);
 		this.add(this.usernameLabel);
 		this.add(this.passwordField);
 		this.add(this.usernameField);
 		this.add(this.button);
+		this.setSize(this.viewport.getSize());
+		this.setPreferredSize(this.viewport.getPreferredSize());
+		this.setLocation(0, 0);
 	}
 	public void open() {
 		this.viewport.add(this);
