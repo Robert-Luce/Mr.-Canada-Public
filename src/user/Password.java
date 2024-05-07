@@ -18,10 +18,8 @@ public class Password {
 			BufferedReader reader = new BufferedReader(
 					new FileReader("MrCanadaData\\Users\\" + this.username + "\\password.txt"));
 			String line = reader.readLine();
-			Hash fileHash = new Hash(line);
 			reader.close();
-			return fileHash.equals(inputHash.getHash());
-
+			return line.equals(inputHash.getHash());
 		} catch (Exception e) {
 			return false;
 		}

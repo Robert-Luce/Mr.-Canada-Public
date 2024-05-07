@@ -9,6 +9,7 @@ import javax.swing.JScrollPane;
 import javax.swing.JTextField;
 
 import page.Page;
+import survey.SurveyComponent;
 import user.User;
 
 public class LoginButtonComponent extends ButtonComponent {
@@ -33,9 +34,12 @@ public class LoginButtonComponent extends ButtonComponent {
 			if (this.user.hasCriteria()) {
 				
 			} else {
-
+				
+				SurveyComponent survey = new SurveyComponent(this.getViewport());
+				survey.open();
 			}
 		} catch (Exception e) {
+			e.printStackTrace();
 			JFrame frame = new JFrame("Mr. Canada");
 			frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 			JPanel panel = new JPanel();
