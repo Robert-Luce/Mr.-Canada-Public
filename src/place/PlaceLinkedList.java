@@ -47,14 +47,16 @@ public class PlaceLinkedList {
 	}
 	
 	public String toString() {
-		PlaceNode current = this.first;
-		String result = "";
-		while(current != null) {
-			result += current.getScore();
-			result += "->";
-			current = current.next;
+		if (this.first == null) {
+			return "[]";
 		}
-		result += "null";
+		String result = "[";
+		PlaceNode current = this.first;
+		while (current.next != null) {
+			result += (current.getScore() + ", ");
+			current = current.next;
+		} // end while
+		result += current.getScore() + "] first=[" + this.first.getScore() + "]";
 		return result;
 	}
 	
@@ -80,6 +82,8 @@ public class PlaceLinkedList {
 		return count;
 	}
 	
-	
+	public PlaceLinkedList sort() {
+		return null;
+	}
 	
 }
