@@ -6,7 +6,7 @@ import listeners.MouseListeners;
 
 public class ButtonComponent extends HTMLComponent implements PressableComponent{
 
-	protected MouseListeners listener;
+	private MouseListeners listener;
 
 	public ButtonComponent(String fileName, String filePath, JPanel viewport) {
 		super(fileName, filePath, viewport);
@@ -19,6 +19,12 @@ public class ButtonComponent extends HTMLComponent implements PressableComponent
 	public void pressed() {
 		// TODO Auto-generated method stub
 		
+	}
+
+
+
+	public MouseListeners getListener() {
+		return listener;
 	}
 
 }
