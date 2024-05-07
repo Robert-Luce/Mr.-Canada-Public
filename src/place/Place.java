@@ -8,7 +8,7 @@ public class Place{
 
 	protected int score = 0;
 	protected int multiplier;
-	private ArrayList<String> placeAttributes;
+	private ArrayList<String> criteriaList;
 
 	/**
 	 * ensures: constructs the Place with the correct information
@@ -18,10 +18,10 @@ public class Place{
 	 * @param address      - the address of the Place
 	 * @param isAccessible - whether or not the Place has handicapped accessibility
 	 */
-	public Place(String name, String city, ArrayList<String> PlaceAttributes) {
+	public Place(String name, String city, ArrayList<String> criteriaList) {
 		this.name = name;
 		this.city = city;
-		this.placeAttributes = PlaceAttributes;
+		this.criteriaList = criteriaList;
 	}
 
 	/**
@@ -50,12 +50,12 @@ public class Place{
 		this.score = score;
 	}
 
-	public void checkCriteria(String criteriaToCheck) {
-		if(criteriaToCheck.equals(city)) {
+	public void checkCriteria(String criteria) {
+		if(criteria.equals(city)) {
 			score = score + 10;
 		} else {
-			for(String a : placeAttributes) {
-				if(criteriaToCheck.equals(a)) {
+			for(String c : criteriaList) {
+				if(criteria.equals(c)) {
 					score = score + 1; 
 				}
 			}

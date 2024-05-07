@@ -43,7 +43,7 @@ public class SurveyComponent extends JPanel{
 			this.add(this.questions.get(i));
 		}
 		
-		PlaceManager placeManager = new PlaceManager(places, viewport);
+		PlaceManager placeManager = new PlaceManager(places);
 		placeManager.generatePlaces();
 		
 		JButton checkButton = new JButton("Check");

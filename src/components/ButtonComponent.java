@@ -8,12 +8,6 @@ public class ButtonComponent extends HTMLComponent implements PressableComponent
 
 	private MouseListeners listener;
 
-	/**
-	 * ensures: ButtonComponent is constructed
-	 * @param fileName
-	 * @param filePath
-	 * @param viewport
-	 */
 	public ButtonComponent(String fileName, String filePath, JPanel viewport) {
 		super(fileName, filePath, viewport);
 		this.listener = new MouseListeners(this);
@@ -21,7 +15,6 @@ public class ButtonComponent extends HTMLComponent implements PressableComponent
 
 
 
-	
 	@Override
 	public void pressed() {
 		// TODO Auto-generated method stub
@@ -29,7 +22,7 @@ public class ButtonComponent extends HTMLComponent implements PressableComponent
 	}
 
 
-	
+
 	public MouseListeners getListener() {
 		return listener;
 	}

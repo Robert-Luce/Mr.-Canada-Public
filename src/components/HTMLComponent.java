@@ -13,7 +13,6 @@ import javax.swing.JPanel;
 
 import listeners.MouseListeners;
 
-
 public class HTMLComponent extends HTMLReaderComponent {
 
 	private JPanel panel;
@@ -53,47 +52,32 @@ public class HTMLComponent extends HTMLReaderComponent {
 		this.setSize(this.getHtmlWidth(), this.getHtmlHeight());
 		this.setPreferredSize(new Dimension(this.getHtmlWidth(), this.getHtmlHeight()));
 	}
-	/**
-	 * ensures: The HTML opens and repaints (resets) the frame
-	 */
 	public void open() {
 		super.open();
 		this.revalidate();
 		this.repaint();
 	}
 
-	/**
-	 * ensures: The HTML is removed from the frame and repaints (resets) the frame to display this change
-	 */
+	
 	public void close() {
 		this.getViewport().remove(this);
 		this.revalidate();
 		this.repaint();
 	}
 
-	/**
-	 * ensures: Sets the label text on the frame from the HTML file
-	 */
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
 		this.label.setText(this.getHtmlFileData());
 		this.label.update(g);
 		this.panel.update(g);
 	}
-	
 	public int getHtmlX() {
 		return htmlX;
 	}
-	
 	public int getHtmlY() {
 		return htmlY;
 	}
 
-	/**
-	 * ensures: A new rectangle is created based on the buttonComponent passed in 
-	 * @param buttonComponent
-	 * @return
-	 */
 	public Rectangle getBounds(ButtonComponent buttonComponent) {
 		return new Rectangle(this.htmlX, this.htmlY, this.getHtmlWidth(), this.getHtmlHeight());
 	}
