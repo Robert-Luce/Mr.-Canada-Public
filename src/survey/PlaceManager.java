@@ -5,6 +5,10 @@ import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.Arrays;
 
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+
+import components.HTMLComponent;
 import place.*;
 
 public class PlaceManager {
@@ -71,5 +75,10 @@ public class PlaceManager {
 		
 		
 
+	}
+	
+	public HTMLComponent generateHTML(String placeName, JPanel panel) {
+		HTMLComponent h = new HTMLComponent("", placeName, panel);
+		return h;
 	}
 }
