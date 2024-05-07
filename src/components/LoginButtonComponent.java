@@ -31,7 +31,7 @@ public class LoginButtonComponent extends ButtonComponent {
 	public void pressed() {
 		try {
 			this.user = new User(this.username.getText(), this.password.getText());
-<<<<<<< HEAD
+
 			if (this.user.hasCriteria()) {
 				
 			} else {
@@ -39,9 +39,6 @@ public class LoginButtonComponent extends ButtonComponent {
 				SurveyComponent survey = new SurveyComponent(this.getViewport());
 				survey.open();
 			}
-=======
-			//TODO go to next page
->>>>>>> branch 'main' of https://github.com/Robert-Luce/Mr.-Canada.git
 		} catch (Exception e) {
 			e.printStackTrace();
 			JFrame frame = new JFrame("Mr. Canada");

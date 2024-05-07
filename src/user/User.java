@@ -3,10 +3,13 @@ package user;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.ArrayList;
+import java.util.Arrays;
 
 public class User {
 	private String username;
 	private Password password;
+	private ArrayList<String> criterias;
 
 	public User(String username, String inputPassword) throws Exception {
 		this.username = username;
@@ -24,7 +27,6 @@ public class User {
 
 	}
 
-<<<<<<< HEAD
 	public boolean hasCriteria() {
 		try {
 			this.criterias = new ArrayList<String>(Arrays.asList(Files.readString(Path
@@ -36,6 +38,5 @@ public class User {
 		}
 	}
 
-=======
->>>>>>> branch 'main' of https://github.com/Robert-Luce/Mr.-Canada.git
+
 }
