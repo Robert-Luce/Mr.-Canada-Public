@@ -14,12 +14,13 @@ public class Password {
 
 	public boolean checkPassword(String password) {
 		try {
-			File passwordFile = new File("MrCanadaData\\Users\\" + this.username + "\\password.txt");
 			Hash inputHash = new Hash(password);
 			BufferedReader reader = new BufferedReader(
 			new FileReader("MrCanadaData\\Users\\" + this.username + "\\password.txt"));
 			String line = reader.readLine();
 			reader.close();
+			System.out.println(inputHash.getHash());
+			System.out.println(line);
 			return line.equals(inputHash.getHash());
 		} catch (Exception e) {
 			return false;
@@ -33,6 +34,7 @@ public class Password {
 			writer.write(inputHash.getHash());
 			writer.close();
 		} catch (Exception e) {
+			e.printStackTrace();
 			System.out.println("Error making new password");
 		}
 	}
