@@ -51,11 +51,11 @@ public class PlaceManager {
 		try {
 			ArrayList<String> ps = new ArrayList<String>(Arrays.asList(Files
 					.readString(Path
-							.of(Path.of("MrCanadaData\\Places English\\PlacesList.txt").toAbsolutePath().toString()))
+							.of(Path.of("MrCanadaData\\Separate Locations English\\PlacesList.txt").toAbsolutePath().toString()))
 					.split("\r\n")));
 			placeNames.addAll(ps);
 		} catch (Exception e) {
-			System.out.println("Please add text to MrCanadaData\\\\SurveyQuestions\\\\PlacesList.txt");
+			System.out.println("Please add text to MrCanadaData\\\\Separate Locations English\\\\PlacesList.txt");
 		}
 
 		for(String placeName : placeNames) {
@@ -63,11 +63,11 @@ public class PlaceManager {
 			try {
 				ArrayList<String> info = new ArrayList<String>(Arrays.asList(Files
 						.readString(Path
-								.of(Path.of("MrCanadaData\\Places English\\" + placeName + ".txt").toAbsolutePath().toString()))
+								.of(Path.of("MrCanadaData\\Separate Locations English\\" + placeName + "\\" + placeName +" Info.txt").toAbsolutePath().toString()))
 						.split("\r\n")));
 				placeInfo.addAll(info);
 			} catch (Exception e) {
-				System.out.println("Please add text to MrCanadaData\\\\Places English\\\\" + placeName + ".txt");
+				System.out.println("Please add text to MrCanadaData\\\\Separate Locations English\\\\" + placeName + "\\\\" + placeName +" Info.txt" );
 			}
 
 			ArrayList<String> truncInfo = new ArrayList<String>();
@@ -83,7 +83,7 @@ public class PlaceManager {
 	}
 	
 	public HTMLComponent generateHTML(String placeName, JPanel panel) {
-		HTMLComponent h = new HTMLComponent(placeName, "Separate Locations\\" + placeName, panel);
+		HTMLComponent h = new HTMLComponent(placeName, "Separate Locations English\\" + placeName, panel);
 		return h;
 	}
 }
