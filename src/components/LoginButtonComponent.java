@@ -15,7 +15,7 @@ import user.User;
 public class LoginButtonComponent extends ButtonComponent {
 	private static final String LOGIN_BUTTON_FILE_PATH = "Login Button";
 	private static final String LOGIN_BUTTON_FILE_NAME = "Login Button";
-	private static final String INCORRECT_PASSWORD_FILE_PATH = "Incorrent Password";
+	private static final String INCORRECT_PASSWORD_FILE_PATH = "Incorrect Password";
 	private static final String INCORRECT_PASSWORD_FILE_NAME = "Incorrect Password";
 	private JTextField password;
 	private JTextField username;
@@ -35,19 +35,20 @@ public class LoginButtonComponent extends ButtonComponent {
 			if (this.user.hasCriteria()) {
 				
 			} else {
-				
+				this.getViewport().removeAll();
+				this.getViewport().repaint();
+				this.getViewport().revalidate();
 				SurveyComponent survey = new SurveyComponent(this.getViewport());
 				survey.open();
 			}
 		} catch (Exception e) {
-			e.printStackTrace();
 			JFrame frame = new JFrame("Mr. Canada");
 			frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 			JPanel panel = new JPanel();
-			panel.setLayout(null);
-			panel.setPreferredSize(new Dimension(1080, 1000));
-			panel.setLocation(0, 0);
 			HTMLComponent component = new HTMLComponent(INCORRECT_PASSWORD_FILE_NAME, INCORRECT_PASSWORD_FILE_PATH, panel);
+			panel.setLayout(null);
+			panel.setPreferredSize(new Dimension(component.getHtmlWidth(), component.getHtmlHeight()));
+			panel.setLocation(0, 0);
 			component.open();
 			frame.setSize(new Dimension(1080, 1000));
 			JScrollPane scroll = new JScrollPane(panel);

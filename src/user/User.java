@@ -20,8 +20,9 @@ public class User {
 			this.password.newPassword(inputPassword);
 		} else {
 			if (!this.password.checkPassword(inputPassword)) {
-				System.out.println(this.password.checkPassword(inputPassword));
 				throw new Exception();
+			} else {
+				
 			}
 		}
 

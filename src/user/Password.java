@@ -15,11 +15,16 @@ public class Password {
 		try {
 			Hash inputHash = new Hash(password);
 			BufferedReader reader = new BufferedReader(
-			new FileReader("MrCanadaData\\Users\\" + this.username + "\\password.txt"));
+					new FileReader("MrCanadaData\\Users\\" + this.username + "\\password.txt"));
 			String line = reader.readLine();
 			reader.close();
-			
-			return false;
+
+			if (inputHash.equals(line)) {
+				return true;
+
+			} else {
+				return false;
+			}
 		} catch (Exception e) {
 			return false;
 		}

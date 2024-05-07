@@ -65,4 +65,14 @@ public class Hash {
 		}
 		return output;
 	}
+	public boolean equals(String inputString) {
+		char[] inputCharArray = inputString.toCharArray();
+		char[] hashCharArray = this.getHash().toCharArray();
+		for (int i = 0; i < hashCharArray.length; i++) {
+			if(inputCharArray[i] != hashCharArray[i]) {
+				return false;
+			}
+		}
+		return true;
+	}
 }
