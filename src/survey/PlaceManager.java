@@ -13,9 +13,12 @@ import place.*;
 
 public class PlaceManager {
 	private ArrayList<Place> places;
+	private PlaceLinkedList pLL;
+	private JPanel viewport;
 	
-	public PlaceManager(ArrayList<Place> places) {
+	public PlaceManager(ArrayList<Place> places, JPanel viewport) {
 		this.places = places;
+		this.viewport = viewport;
 	}
 	
 	
@@ -34,10 +37,12 @@ public class PlaceManager {
 			System.out.println("Please select a criteria");
 		}
 		
+		pLL = new PlaceLinkedList();
 		for(Place p : places) {
 			for(String c : criteria) {
 				p.checkCriteria(c);
 			}
+			pLL.addAtBeginning(generateHTML(p.getName(), viewport), p.getScore());
 		}
 	}
 	
@@ -78,7 +83,7 @@ public class PlaceManager {
 	}
 	
 	public HTMLComponent generateHTML(String placeName, JPanel panel) {
-		HTMLComponent h = new HTMLComponent("", placeName, panel);
+		HTMLComponent h = new HTMLComponent(placeName, "Separate Locations\\" + placeName, panel);
 		return h;
 	}
 }
