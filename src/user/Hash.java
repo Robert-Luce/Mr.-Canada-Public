@@ -5,12 +5,12 @@ import java.util.ArrayList;
 public class Hash {
 	private ArrayList<Block> blocks;
 	private Word[] messageSchedule;
-	private HashValue[] hashValues;
+	private Word[] hashValues;
 
 	public Hash(String input) {
 		this.hashValues = new HashValue[8];
 		for (int i = 0; i < this.hashValues.length; i++) {
-			this.hashValues[i] = new HashValue(i);
+			this.hashValues[i] = new Word(i);
 		}
 		Message message = new Message(input);
 		this.blocks = message.getBlocks();
@@ -18,14 +18,14 @@ public class Hash {
 	}
 
 	public String getHash() {
-		HashValue a = this.hashValues[0];
-		HashValue b = this.hashValues[1];
-		HashValue c = this.hashValues[2];
-		HashValue d = this.hashValues[3];
-		HashValue e = this.hashValues[4];
-		HashValue f = this.hashValues[5];
-		HashValue g = this.hashValues[6];
-		HashValue h = this.hashValues[7];
+		Word a = this.hashValues[0];
+		Word b = this.hashValues[1];
+		Word c = this.hashValues[2];
+		Word d = this.hashValues[3];
+		Word e = this.hashValues[4];
+		Word f = this.hashValues[5];
+		Word g = this.hashValues[6];
+		Word h = this.hashValues[7];
 		for (Block block : this.blocks) {
 			for (int i = 0; i < 16; i++) {
 				this.messageSchedule[i] = block.getWord(i);
@@ -50,17 +50,17 @@ public class Hash {
 				HashValue temp2 = (HashValue) Word.moduloAddition(T1, a);
 				a = temp2;
 			}
-			this.hashValues[0] = (HashValue) Word.moduloAddition(a, this.hashValues[0]);
-			this.hashValues[1] = (HashValue) Word.moduloAddition(b, this.hashValues[1]);
-			this.hashValues[2] = (HashValue) Word.moduloAddition(c, this.hashValues[2]);
-			this.hashValues[3] = (HashValue) Word.moduloAddition(d, this.hashValues[3]);
-			this.hashValues[4] = (HashValue) Word.moduloAddition(e, this.hashValues[4]);
-			this.hashValues[5] = (HashValue) Word.moduloAddition(f, this.hashValues[5]);
-			this.hashValues[6] = (HashValue) Word.moduloAddition(g, this.hashValues[6]);
-			this.hashValues[7] = (HashValue) Word.moduloAddition(h, this.hashValues[7]);
+			this.hashValues[0] = Word.moduloAddition(a, this.hashValues[0]);
+			this.hashValues[1] = Word.moduloAddition(b, this.hashValues[1]);
+			this.hashValues[2] = Word.moduloAddition(c, this.hashValues[2]);
+			this.hashValues[3] = Word.moduloAddition(d, this.hashValues[3]);
+			this.hashValues[4] = Word.moduloAddition(e, this.hashValues[4]);
+			this.hashValues[5] = Word.moduloAddition(f, this.hashValues[5]);
+			this.hashValues[6] = Word.moduloAddition(g, this.hashValues[6]);
+			this.hashValues[7] = Word.moduloAddition(h, this.hashValues[7]);
 		}
 		String output = "";
-		for (HashValue hashValue : this.hashValues) {
+		for (Word hashValue : this.hashValues) {
 			output += hashValue.toString();
 		}
 		return output;
