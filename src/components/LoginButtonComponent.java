@@ -42,19 +42,20 @@ public class LoginButtonComponent extends ButtonComponent {
 				survey.open();
 			}
 		} catch (Exception e) {
-			JFrame frame = new JFrame("Mr. Canada");
-			frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+			JFrame errorFrame = new JFrame("Mr. Canada");
+			errorFrame.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
 			JPanel panel = new JPanel();
 			HTMLComponent component = new HTMLComponent(INCORRECT_PASSWORD_FILE_NAME, INCORRECT_PASSWORD_FILE_PATH, panel);
 			panel.setLayout(null);
 			panel.setPreferredSize(new Dimension(component.getHtmlWidth(), component.getHtmlHeight()));
 			panel.setLocation(0, 0);
 			component.open();
-			frame.setSize(new Dimension(1080, 1000));
+			errorFrame.setSize(new Dimension(1080, 1000));
+			errorFrame.setPreferredSize(new Dimension(1080, 1000));
 			JScrollPane scroll = new JScrollPane(panel);
-			frame.add(scroll);
-			frame.setVisible(true);
-			frame.repaint();
+			errorFrame.add(scroll);
+			errorFrame.setVisible(true);
+			errorFrame.repaint();
 		}
 	}
 
