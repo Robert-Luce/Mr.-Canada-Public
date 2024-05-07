@@ -82,8 +82,37 @@ public class PlaceLinkedList {
 		return count;
 	}
 	
-	public PlaceLinkedList sort() {
-		return null;
+	public void sort(PlaceLinkedList list) {
+		final int n = this.length();
+		if(n<=1) {
+			return;
+		}
+		
+		PlaceLinkedList lower = new PlaceLinkedList();
+		PlaceLinkedList upper = new PlaceLinkedList();
+		
+		// Splitting the list in half
+		PlaceNode current = this.first;
+		for(int i=0; i<n/2; i++) {
+			lower.addAtBeginning(current.getHTML(), current.getScore());
+			current = current.next;
+		}
+		for(int i=0; i<(n-n/2); i++) {
+			upper.addAtBeginning(current.getHTML(), current.getScore());
+		}
+		
+		sort(lower);
+		sort(upper);
+		
+		// Sort
+		PlaceNode lowercurrent = lower.first;
+		PlaceNode uppercurrent = upper.first;
+		while(lowercurrent!=null) {
+			if(lowercurrent.getScore()>uppercurrent.getScore()){
+				
+			}
+		}
+		
+
 	}
-	
 }
