@@ -8,6 +8,7 @@ import java.util.regex.Pattern;
 import javax.swing.JComponent;
 import javax.swing.JPanel;
 
+/
 public class HTMLReaderComponent extends JComponent {
 
 	private String fileName;
@@ -32,6 +33,12 @@ public class HTMLReaderComponent extends JComponent {
 		}
 	}
 
+	/**
+	 * ensures: HTMLReaderComponent is constructed and if files are not present will notify the user 
+	 * @param fileName
+	 * @param filePath
+	 * @param viewport
+	 */
 	public HTMLReaderComponent(String fileName, String filePath, JPanel viewport) {
 		super();
 		this.viewport = viewport;
@@ -128,6 +135,9 @@ public class HTMLReaderComponent extends JComponent {
 		return this.viewport;
 	}
 
+	/**
+	 * ensures: The HTML opens and adds the component and then repaints (resets) the frame
+	 */
 	public void open() {
 		this.getViewport().add(this);
 		this.revalidate();
