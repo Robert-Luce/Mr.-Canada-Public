@@ -30,7 +30,11 @@ public class LoginButtonComponent extends ButtonComponent {
 	public void pressed() {
 		try {
 			this.user = new User(this.username.getText(), this.password.getText());
-			//TODO go to next page
+			if (this.user.hasCriteria()) {
+				
+			} else {
+
+			}
 		} catch (Exception e) {
 			JFrame frame = new JFrame("Mr. Canada");
 			frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
