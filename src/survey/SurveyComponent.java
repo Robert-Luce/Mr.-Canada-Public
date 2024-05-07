@@ -61,12 +61,20 @@ public class SurveyComponent extends JPanel{
 		checkButton.setSize(100, 50);
 		checkButton.setLocation(450, 850);
 		this.add(checkButton);
+		this.setPreferredSize(new Dimension(1080, 1000));
+		this.setSize(1080, 1000);
+		this.setLocation(100, 100);
+		this.setLayout(null);
 	}
 	public void open() {
 		this.viewport.add(this);
+		this.viewport.repaint();
+		this.viewport.revalidate();
 	}
 	public void close() {
 		this.viewport.remove(this);
+		this.viewport.repaint();
+		this.viewport.revalidate();
 	}
 
 	

@@ -21,10 +21,6 @@ public class SurveyViewer {
 		JPanel panel = new JPanel();
 		SurveyComponent surveyPanel = new SurveyComponent(panel);		
 		
-		surveyPanel.setPreferredSize(new Dimension(1080, 1000));
-		surveyPanel.setLocation(100, 100);
-
-		surveyPanel.setLayout(null);
 //		frame.pack();
 		surveyPanel.open();
 		frame.setSize(new Dimension(1080, 1000));
