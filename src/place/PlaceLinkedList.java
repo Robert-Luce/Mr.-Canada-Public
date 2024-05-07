@@ -82,6 +82,8 @@ public class PlaceLinkedList {
 		return count;
 	}
 	
-	
+	public PlaceLinkedList sort() {
+		return null;
+	}
 	
 }
