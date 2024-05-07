@@ -18,9 +18,6 @@ public class SurveyViewer {
 		
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
-		ArrayList<String> questions = new ArrayList<>();
-		ArrayList<ArrayList<String>> responses = new ArrayList<>();
-		ArrayList<Place> places = new ArrayList<>();
 		JPanel panel = new JPanel();
 		SurveyComponent surveyPanel = new SurveyComponent(panel);		
 		
