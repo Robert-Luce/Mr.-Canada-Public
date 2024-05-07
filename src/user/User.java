@@ -9,7 +9,7 @@ public class User {
 
 	public User(String username, String inputPassword) throws Exception {
 		this.username = username;
-			Path path = Paths.get(this.username);
+			Path path = Paths.get("MrCanadaData\\Users\\" + this.username);
 			if (!Files.exists(path)) {
 				Files.createDirectories(path);
 				this.password = new Password(this.username);

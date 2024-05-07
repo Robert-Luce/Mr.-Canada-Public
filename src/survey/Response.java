@@ -10,11 +10,11 @@ import java.util.Arrays;
 import javax.swing.JCheckBox;
 import javax.swing.JPanel;
 
-import components.HTML;
+import components.HTMLReaderComponent;
 import listeners.ResponseCheckBoxListener;
 import place.Place;
 
-public class Response extends HTML {
+public class Response extends HTMLReaderComponent {
 
 	private JCheckBox checkbox;
 	private int responseNumber;

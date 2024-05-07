@@ -19,7 +19,6 @@ public class MouseListeners implements MouseListener {
 		if(component.getBounds().contains(e.getX(), e.getY())) {
 			this.component.pressed();
 		}
-		System.out.println(e.getX() + ", " + e.getY());
 	}
 
 	@Override

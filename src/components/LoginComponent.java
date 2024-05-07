@@ -31,7 +31,6 @@ public class LoginComponent extends JComponent {
 		this.usernameField.setSize(this.usernameLabel.getHtmlWidth(), this.usernameLabel.getHtmlHeight());
 		this.usernameField.setPreferredSize(new Dimension(this.usernameLabel.getHtmlWidth(), this.usernameLabel.getHtmlHeight()));
 		this.button = new LoginButtonComponent(viewport, this.usernameField, this.passwordField);
-		
 		this.add(this.passwordLabel);
 		this.add(this.usernameLabel);
 		this.add(this.passwordField);
@@ -43,5 +42,10 @@ public class LoginComponent extends JComponent {
 	}
 	public void open() {
 		this.viewport.add(this);
+		this.viewport.addMouseListener(this.button.getListener());
+	}
+	public void close() {
+		this.viewport.remove(this);
+		this.viewport.removeMouseListener(this.button.getListener());
 	}
 }

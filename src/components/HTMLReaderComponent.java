@@ -8,7 +8,7 @@ import java.util.regex.Pattern;
 import javax.swing.JComponent;
 import javax.swing.JPanel;
 
-public class HTML extends JComponent {
+public class HTMLReaderComponent extends JComponent {
 
 	private String fileName;
 	private String filePath;
@@ -32,7 +32,7 @@ public class HTML extends JComponent {
 		}
 	}
 
-	public HTML(String fileName, String filePath, JPanel viewport) {
+	public HTMLReaderComponent(String fileName, String filePath, JPanel viewport) {
 		super();
 		this.viewport = viewport;
 		this.setHtmlWidth(0);

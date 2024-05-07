@@ -1,4 +1,5 @@
 package user;
+
 import java.io.FileReader;
 import java.io.File;
 import java.io.FileWriter;
@@ -30,13 +31,12 @@ public class Password {
 
 	public void newPassword(String password) {
 		try {
-			File passwordFile = new File(this.username + "\\passwords.txt");
+			FileWriter writer = new FileWriter("MrCanadaData\\Users\\" + this.username + "\\password.txt");
 			Hash inputHash = new Hash(password);
-			FileWriter writer = new FileWriter(passwordFile);
 			writer.write(inputHash.getHash());
 			writer.close();
 		} catch (Exception e) {
-			System.out.println("Error: " + e);
+			System.out.println("Error making new password");
 		}
 	}
 }

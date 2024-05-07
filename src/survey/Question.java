@@ -13,10 +13,10 @@ import javax.swing.JCheckBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-import components.HTML;
+import components.HTMLReaderComponent;
 import place.Place;
 
-public class Question extends HTML {
+public class Question extends HTMLReaderComponent {
 
 	private JLabel label;
 	private int questionNumber;
