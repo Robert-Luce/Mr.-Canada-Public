@@ -13,6 +13,7 @@ import javax.swing.JPanel;
 
 import listeners.MouseListeners;
 
+
 public class HTMLComponent extends HTMLReaderComponent {
 
 	private JPanel panel;
