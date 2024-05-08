@@ -46,4 +46,27 @@ public class TestPlaceLinkedList {
 		System.out.println(list1);
 		assertEquals("[13, 10, 4, 3] first=[13]", list1.toString());
 	}
+	
+	@Test
+	public void testSortN02(){
+		PlaceLinkedList list2 = new PlaceLinkedList();
+
+		list2.sort();
+		assertEquals("[]", list2.toString());
+	}
+	
+	@Test
+	public void testIdiotProofN03(){
+		PlaceLinkedList list1 = new PlaceLinkedList();
+		HTMLComponent HTMLPlaceHolder = new HTMLComponent(null, null, null);
+		list1.addAtBeginning(HTMLPlaceHolder, 3);
+		list1.addAtBeginning(HTMLPlaceHolder, 4);
+		list1.addAtEnd(HTMLPlaceHolder, 10);
+		list1.addAtBeginning(HTMLPlaceHolder, 13);
+		System.out.println(list1);
+		for(int i=0; i<10; i++) {
+			list1.sort();
+		}
+		assertEquals("[13, 10, 4, 3] first=[13]", list1.toString());
+	}
 }
