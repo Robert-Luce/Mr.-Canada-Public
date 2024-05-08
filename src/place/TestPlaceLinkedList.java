@@ -36,7 +36,14 @@ public class TestPlaceLinkedList {
 	@Test
 	public void testSortN01(){
 		PlaceLinkedList list1 = new PlaceLinkedList();
-		list1.first = list1.mergeSort(list1.first);
+		HTMLComponent HTMLPlaceHolder = new HTMLComponent(null, null, null);
+		list1.addAtBeginning(HTMLPlaceHolder, 3);
+		list1.addAtBeginning(HTMLPlaceHolder, 4);
+		list1.addAtEnd(HTMLPlaceHolder, 10);
+		list1.addAtBeginning(HTMLPlaceHolder, 13);
+		System.out.println(list1);
+		list1.sort();
+		System.out.println(list1);
 		assertEquals("[13, 10, 4, 3] first=[13]", list1.toString());
 	}
 }
