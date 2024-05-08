@@ -10,6 +10,10 @@ import java.util.Arrays;
 
 import javax.swing.JPanel;
 import javax.swing.JTable;
+
+import components.ButtonComponent;
+import components.SurveyButtonComponent;
+
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
 import javax.swing.JFrame;
@@ -46,20 +50,7 @@ public class SurveyComponent extends JPanel{
 		PlaceManager placeManager = new PlaceManager(places, viewport);
 		placeManager.generatePlaces();
 		
-		JButton checkButton = new JButton("Check");
-		checkButton.addActionListener(new ActionListener(){
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				placeManager.assessLocations();
-				for(Place p: places) {
-					System.out.println("Place " + p.getName() + " has score of " + p.getScore());
-				}
-			}
-			
-		});
-		checkButton.setPreferredSize(new Dimension(100, 50));
-		checkButton.setSize(100, 50);
-		checkButton.setLocation(450, 850);
+		SurveyButtonComponent checkButton = new SurveyButtonComponent(viewport, null);
 		this.add(checkButton);
 		this.setPreferredSize(new Dimension(1080, 1000));
 		this.setSize(1080, 1000);
