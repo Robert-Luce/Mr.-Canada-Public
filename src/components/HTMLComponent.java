@@ -81,6 +81,9 @@ public class HTMLComponent extends HTMLReaderComponent {
 	public Rectangle getBounds(ButtonComponent buttonComponent) {
 		return new Rectangle(this.htmlX, this.htmlY, this.getHtmlWidth(), this.getHtmlHeight());
 	}
+	public void setHtmlY(int htmlY) {
+		this.htmlY = htmlY;
+	}
 
 
 }
