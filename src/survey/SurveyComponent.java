@@ -50,13 +50,14 @@ public class SurveyComponent extends JPanel {
 		
 		PlaceManager placeManager = new PlaceManager(places, viewport, language);
 		placeManager.generatePlaces();
-		
+		placeManager.assessLocations();
 		this.checkButton = new SurveyButtonComponent(viewport, placeManager.getResults());
 		this.add(this.checkButton);
 		this.setPreferredSize(new Dimension(1080, 1000));
 		this.setSize(1080, 1000);
 		this.setLocation(0, 0);
 		this.setLayout(null);
+		
 	}
 
 	public void open() {

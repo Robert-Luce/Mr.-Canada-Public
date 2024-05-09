@@ -25,6 +25,7 @@ public class PlaceLinkedList {
 		}
 
 		public HTMLComponent getHTML() {
+			System.out.println("got to getHTML");
 			return this.placeHTML;
 		}
 	}
@@ -35,6 +36,8 @@ public class PlaceLinkedList {
 
 	public void addAtBeginning(HTMLComponent placeHTML, int score) {
 		this.first = new PlaceNode(placeHTML, score, this.first);
+		System.out.println("got to Ccc");
+		return;
 	}
 
 	public void addAtEnd(HTMLComponent placeHTML, int score) {
@@ -72,6 +75,8 @@ public class PlaceLinkedList {
 		for (int i = 0; i < ind; i++) {
 			current = current.next;
 		}
+		System.out.println(current);
+		System.out.println(current.getHTML());
 		return current.getHTML();
 	}
 
@@ -97,7 +102,10 @@ public class PlaceLinkedList {
     }
 
 	 public void sort() {
+			System.out.println("got to s");
 		 this.first = sortHelper(this.first);
+			System.out.println("got to sa");
+		 return;
 	 }
 
 	 private PlaceNode sortHelper(PlaceNode first) {

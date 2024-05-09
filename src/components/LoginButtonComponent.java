@@ -34,17 +34,15 @@ public class LoginButtonComponent extends ButtonComponent {
 	public void pressed() {
 		try {
 			this.user = new User(this.username.getText(), this.password.getText(), this.language.getSelectedItem().toString());
-
-			if (this.user.hasCriteria()) {
-				
-			} else {
+			if (this.user.hasCriteria()) { // checks if user has already done the survey
+			} else { // if user hasn't done survey, starts the survey
 				this.getViewport().removeAll();
 				this.getViewport().repaint();
 				this.getViewport().revalidate();
 				SurveyComponent survey = new SurveyComponent(this.getViewport(), this.language.getSelectedItem().toString());
 				survey.open();
 			}
-		} catch (Exception e) {
+		} catch (Exception e) { // if any of the above fails (i.e. wrong password), displays error message
 			JFrame errorFrame = new JFrame("Mr. Canada");
 			errorFrame.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
 			JPanel panel = new JPanel();
