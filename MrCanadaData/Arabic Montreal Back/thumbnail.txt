@@ -1,1 +1,1 @@
-x=850 y=157 width=200 height=60
+x=850 y=180 width=219 height=19
