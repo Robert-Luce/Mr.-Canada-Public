@@ -42,15 +42,9 @@ public class HTMLReaderComponent extends JComponent {
 		try {
 			this.txtAbsolutePath = Path.of("MrCanadaData\\" + this.getFilePath() + "\\" + this.getFileName() + ".txt")
 					.toAbsolutePath().toString();
-		} catch (Exception e) {
-			System.out.println("Please add " + "MrCanadaData\\" + this.getFilePath() + "\\" + this.getFileName() + ".txt");;
-		}
-	
-		try {
 			this.txtFileData = Files.readString(Path.of(this.txtAbsolutePath));
 		} catch (Exception e) {
-			System.out
-					.println("Please add text to " + "MrCanadaData\\" + this.getFilePath() + "\\" + this.getFileName() + ".txt");
+			System.out.println("Error reading" + "MrCanadaData\\" + this.getFilePath() + "\\" + this.getFileName() + ".txt");;
 		}
 		try {
 			this.pngAbsolutePath = Path.of("MrCanadaData\\" + this.getFilePath() + "\\" + this.getFileName() + ".png")
@@ -62,15 +56,10 @@ public class HTMLReaderComponent extends JComponent {
 		try {
 			this.htmlAbsolutePath = Path.of("MrCanadaData\\" + this.getFilePath() + "\\" + this.getFileName() + ".html")
 					.toAbsolutePath().toString();
-		} catch (Exception e) {
-			System.out.println(
-					"Please add " + "MrCanadaData\\" + this.getFilePath() + "\\" + this.getFileName() + ".html");
-		}
-		try {
 			this.htmlFileData = Files.readString(Path.of(this.htmlAbsolutePath));
 		} catch (Exception e) {
-			System.out.println("Please add text to " + "MrCanadaData\\" + this.getFilePath() + "\\" + this.getFileName()
-					+ ".html");
+			System.out.println(
+					"Error reading " + "MrCanadaData\\" + this.getFilePath() + "\\" + this.getFileName() + ".html");
 		}
 		if (!(this.getTxtFileData() == null)) {
 			try {

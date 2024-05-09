@@ -4,10 +4,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.Arrays;
-
-import javax.swing.JFrame;
 import javax.swing.JPanel;
-
 import components.HTMLComponent;
 import place.*;
 
