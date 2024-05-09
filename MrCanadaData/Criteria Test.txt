@@ -1,5 +1,4 @@
 
-<<<<<<< Upstream, based on origin/main
 <<<<<<< HEAD
 Vegan
 Montreal
@@ -11,9 +10,3 @@ Toronto
 >>>>>>> branch 'main' of https://github.com/Robert-Luce/Mr.-Canada.git
 
 Biking
-=======
-Montreal
-Vegan
-Biking
-Canadian
->>>>>>> 2379253 Merge branch 'main' of https://github.com/Robert-Luce/Mr.-Canada.git into main
