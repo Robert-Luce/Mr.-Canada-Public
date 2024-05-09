@@ -97,14 +97,14 @@ public class PlaceManager {
 		return h;
 	}
 	
-	public ArrayList<HTMLComponent> getResults(){
-		ArrayList<HTMLComponent> componentList = new ArrayList<>();
+	public PlaceLinkedList getResults(){
+		PlaceLinkedList componentList = new PlaceLinkedList();
 		aLL.sort();
-		componentList.add(aLL.getHTMLAtIndex(0));
+		componentList.addAtBeginning(aLL.getHTMLAtIndex(0), 1);
 		powLL.sort();
-		componentList.add(powLL.getHTMLAtIndex(0));
+		componentList.addAtBeginning(powLL.getHTMLAtIndex(0), 1);
 		rLL.sort();
-		componentList.add(rLL.getHTMLAtIndex(0));
+		componentList.addAtBeginning(rLL.getHTMLAtIndex(0), 1);
 		
 		return componentList;
 	}
