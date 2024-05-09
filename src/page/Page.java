@@ -94,7 +94,7 @@ public class Page {
 	}
 
 	public void openPLL(int count, int maxY) {
-		if (count == 5) {
+		if (count == this.pLL.length()-1) {
 			return;
 		} else {
 			this.pLL.getHTMLAtIndex(count).open();
