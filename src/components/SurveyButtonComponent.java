@@ -23,7 +23,6 @@ public class SurveyButtonComponent extends ButtonComponent {
 	}
 	
 	public void pressed() {
-		System.out.println("hi");
 		this.getViewport().removeAll();
 		this.page.open();
 	}
