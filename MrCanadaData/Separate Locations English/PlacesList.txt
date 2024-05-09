@@ -36,6 +36,3 @@ PlaceOfWorship - Quebec Islamic Cultural Centre
 PlaceOfWorship - Shearith Israel
 PlaceOfWorship - St. Michael’s Cathedral Basilica
 PlaceOfWorship - The Chevra
-
-
-

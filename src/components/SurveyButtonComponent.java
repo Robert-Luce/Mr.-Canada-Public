@@ -7,17 +7,19 @@ import javax.swing.JPanel;
 import page.Page;
 import place.Place;
 import place.PlaceLinkedList;
+import survey.PlaceManager;
 
 public class SurveyButtonComponent extends ButtonComponent {
 	private static final String SURVEY_BUTTON_FILE_PATH = "Survey Button";
 	private static final String SURVEY_BUTTON_FILE_NAME = "Survey Button";
 	private static final String RESULTS_FILE_NAME = "Results";
-	private PlaceLinkedList pLL;
+	private PlaceLinkedList pLL = new PlaceLinkedList();
 	private Page page;
+	private PlaceManager pM;
 
-	public SurveyButtonComponent(JPanel viewport, PlaceLinkedList places) {
+	public SurveyButtonComponent(JPanel viewport, PlaceManager placeManager) {
 		super(SURVEY_BUTTON_FILE_NAME, SURVEY_BUTTON_FILE_PATH, viewport);
-		this.pLL = places;
+		this.pM = placeManager;
 		this.page = new Page(viewport, RESULTS_FILE_NAME);
 		this.page.setPLL(this.pLL);
 	}
@@ -25,6 +27,7 @@ public class SurveyButtonComponent extends ButtonComponent {
 	public void pressed() {
 		this.getViewport().removeAll();
 		this.page.open();
+		pM.getResults(pLL);
 	}
 
 }

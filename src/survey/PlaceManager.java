@@ -97,19 +97,14 @@ public class PlaceManager {
 		return h;
 	}
 	
-	public PlaceLinkedList getResults(){
-		PlaceLinkedList componentList = new PlaceLinkedList();
+	public void getResults(PlaceLinkedList componentList){
 		aLL.sort();
 		componentList.addAtBeginning(aLL.getHTMLAtIndex(1), 1);
 		rLL.sort();
 		componentList.addAtBeginning(rLL.getHTMLAtIndex(0), 1);
 		powLL.sort();
-//		componentList.addAtBeginning(powLL.getHTMLAtIndex(0), 1);
+		componentList.addAtBeginning(powLL.getHTMLAtIndex(0), 1);
 		// ^^ this is causing issues for some reason, just with powLL, so I temporarily commented it out to run the survey
-		
-		
-
-		return componentList;
 	}
 	
 	
