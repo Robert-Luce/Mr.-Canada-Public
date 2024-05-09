@@ -1,1 +1,1 @@
-width=1080 height=701
+x=360 y=215 width=360 height=234
