@@ -14,11 +14,11 @@ public class Main2 {
 		JPanel panel = new JPanel();
 		panel.setLayout(null);
 		panel.setPreferredSize(new Dimension(1080, 1000)); // sets size of scroll
-		panel.setSize(1080, 1000); // sets size of window
+		panel.setSize(1080, 1000); // sets size of panel
 		panel.setLocation(0, 0);
 		LoginComponent login = new LoginComponent(panel);
 		login.open();
-		frame.setSize(new Dimension(1080, 1000));
+		frame.setSize(new Dimension(1080, 1000)); // sets size of frame
 		JScrollPane scroll = new JScrollPane(panel);
 		frame.add(scroll);
 		frame.setVisible(true);
