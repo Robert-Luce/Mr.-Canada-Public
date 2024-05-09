@@ -34,7 +34,7 @@ public class TestPlaceLinkedList {
 	}
 	
 	@Test
-	public void testSortN01(){
+	public void testSortN03(){
 		PlaceLinkedList list1 = new PlaceLinkedList();
 		HTMLComponent HTMLPlaceHolder = new HTMLComponent(null, null, null);
 		list1.addAtBeginning(HTMLPlaceHolder, 3);
@@ -48,7 +48,7 @@ public class TestPlaceLinkedList {
 	}
 	
 	@Test
-	public void testSortN02(){
+	public void testSortN04(){
 		PlaceLinkedList list2 = new PlaceLinkedList();
 
 		list2.sort();
@@ -56,7 +56,7 @@ public class TestPlaceLinkedList {
 	}
 	
 	@Test
-	public void testIdiotProofN03(){
+	public void testIdiotProofN05(){
 		PlaceLinkedList list1 = new PlaceLinkedList();
 		HTMLComponent HTMLPlaceHolder = new HTMLComponent(null, null, null);
 		list1.addAtBeginning(HTMLPlaceHolder, 3);
