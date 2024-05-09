@@ -100,7 +100,7 @@ public class PlaceManager {
 	public PlaceLinkedList getResults(){
 		PlaceLinkedList componentList = new PlaceLinkedList();
 		aLL.sort();
-		componentList.addAtBeginning(aLL.getHTMLAtIndex(0), 1);
+		componentList.addAtBeginning(aLL.getHTMLAtIndex(1), 1);
 		rLL.sort();
 		componentList.addAtBeginning(rLL.getHTMLAtIndex(0), 1);
 		powLL.sort();

@@ -13,3 +13,5 @@ Attraction - Queen Street
 Attraction - Scarborough Bluffs
 Attraction - Toronto Island Park
 Restaurant - À La Marocaine
+Restaurant - Buffet de lAntiquaire
+Restaurant - Canadiana Grill By the Lake
