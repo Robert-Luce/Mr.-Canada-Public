@@ -17,10 +17,12 @@ public class PlaceManager {
 	private PlaceLinkedList aLL;
 	private PlaceLinkedList powLL;
 	private JPanel viewport;
+	private String language;
 	
-	public PlaceManager(ArrayList<Place> places, JPanel viewport) {
+	public PlaceManager(ArrayList<Place> places, JPanel viewport, String language) {
 		this.places = places;
 		this.viewport = viewport;
+		this.language = language;
 	}
 	
 	
@@ -40,6 +42,8 @@ public class PlaceManager {
 		}
 		
 		rLL = new PlaceLinkedList();
+		aLL = new PlaceLinkedList();
+		powLL = new PlaceLinkedList();
 		for(Place p : places) {
 			for(String c : criteria) {
 				p.checkCriteria(c);
@@ -60,7 +64,7 @@ public class PlaceManager {
 		try {
 			ArrayList<String> ps = new ArrayList<String>(Arrays.asList(Files
 					.readString(Path
-							.of(Path.of("MrCanadaData\\Separate Locations English\\PlacesList.txt").toAbsolutePath().toString()))
+							.of(Path.of("MrCanadaData\\Separate Locations " + language + "\\PlacesList.txt").toAbsolutePath().toString()))
 					.split("\r\n")));
 			placeNames.addAll(ps);
 		} catch (Exception e) {
@@ -72,7 +76,7 @@ public class PlaceManager {
 			try {
 				ArrayList<String> info = new ArrayList<String>(Arrays.asList(Files
 						.readString(Path
-								.of(Path.of("MrCanadaData\\Separate Locations English\\" + placeName + "\\" + placeName +" Info.txt").toAbsolutePath().toString()))
+								.of(Path.of("MrCanadaData\\Separate Locations " + language + "\\" + placeName + "\\" + placeName +" Info.txt").toAbsolutePath().toString()))
 						.split("\r\n")));
 				placeInfo.addAll(info);
 			} catch (Exception e) {
@@ -92,7 +96,9 @@ public class PlaceManager {
 	}
 	
 	public HTMLComponent generateHTML(String placeName, JPanel panel) {
-		HTMLComponent h = new HTMLComponent(placeName, "Separate Locations English\\" + placeName, panel);
+		HTMLComponent h = new HTMLComponent(placeName, "Separate Locations " + language + "\\" + placeName, panel);
 		return h;
 	}
+	
+	
 }
