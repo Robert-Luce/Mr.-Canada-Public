@@ -100,7 +100,17 @@ public class PlaceManager {
 		return h;
 	}
 	
-	
+	public ArrayList<HTMLComponent> getResults(){
+		ArrayList<HTMLComponent> componentList = new ArrayList<>();
+		aLL.sort();
+		componentList.add(aLL.getHTMLAtIndex(0));
+		powLL.sort();
+		componentList.add(powLL.getHTMLAtIndex(0));
+		rLL.sort();
+		componentList.add(rLL.getHTMLAtIndex(0));
+		
+		return componentList;
+	}
 	
 	
 }
