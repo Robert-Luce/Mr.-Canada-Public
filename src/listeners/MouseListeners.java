@@ -16,7 +16,7 @@ public class MouseListeners implements MouseListener {
 
 	@Override
 	public void mouseClicked(MouseEvent e) {
-		if(component.getBounds().contains(e.getX(), e.getY())) {
+		if(this.component.getBounds().contains(e.getX(), e.getY())) {
 			this.component.pressed();
 		}
 	}

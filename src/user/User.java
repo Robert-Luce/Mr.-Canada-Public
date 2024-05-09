@@ -1,5 +1,6 @@
 package user;
 
+import java.io.FileWriter;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -10,10 +11,12 @@ public class User {
 	private String username;
 	private Password password;
 	private ArrayList<String> criterias;
+	private String language;
 
-	public User(String username, String inputPassword) throws Exception {
+	public User(String username, String inputPassword, String language) throws Exception {
 		this.username = username;
 		this.password = new Password(this.username);
+		this.language = language;
 		Path path = Paths.get("MrCanadaData\\Users\\" + this.username);
 		if (!Files.exists(path)) {
 			Files.createDirectories(path);
@@ -21,9 +24,15 @@ public class User {
 		} else {
 			if (!this.password.checkPassword(inputPassword)) {
 				throw new Exception();
-			} else {
-				
 			}
+		}
+		try {
+			FileWriter writer = new FileWriter("MrCanadaData\\Users\\" + this.username + "\\language.txt");
+			writer.write(this.language);
+			writer.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.out.println("Error setting language");
 		}
 
 	}

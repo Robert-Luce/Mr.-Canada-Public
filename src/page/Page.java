@@ -10,6 +10,7 @@ import javax.swing.JPanel;
 import components.BannerComponent;
 import components.HTMLComponent;
 import components.ThumbnailComponent;
+import place.Place;
 import place.PlaceLinkedList;
 
 public class Page {
@@ -22,6 +23,13 @@ public class Page {
 	private ArrayList<String> pageNames;
 	private HTMLComponent content;
 	private PlaceLinkedList pLL;
+
+	/**
+	 * @param pLL the pLL to set
+	 */
+	public void setPLL(PlaceLinkedList pLL) {
+		this.pLL = pLL;
+	}
 
 	/**
 	 * ensures: The default constructor for the Page class. Calls a list of
@@ -139,8 +147,5 @@ public class Page {
 		this.viewport.repaint();
 	}
 
-	public void setPLL(PlaceLinkedList pLL) {
-		this.pLL = pLL;
-	}
 
 }

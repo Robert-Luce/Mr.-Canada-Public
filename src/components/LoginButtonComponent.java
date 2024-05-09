@@ -3,6 +3,7 @@ package components;
 import java.awt.Dimension;
 import java.awt.Graphics;
 
+import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
@@ -20,9 +21,11 @@ public class LoginButtonComponent extends ButtonComponent {
 	private JTextField password;
 	private JTextField username;
 	private User user;
+	private JComboBox<String> language;
 
-	public LoginButtonComponent(JPanel viewport, JTextField username, JTextField password) {
+	public LoginButtonComponent(JPanel viewport, JTextField username, JTextField password, JComboBox<String> language) {
 		super(LOGIN_BUTTON_FILE_NAME, LOGIN_BUTTON_FILE_PATH, viewport);
+		this.language = language;
 		this.username = username;
 		this.password = password;
 	}
@@ -30,7 +33,7 @@ public class LoginButtonComponent extends ButtonComponent {
 	@Override
 	public void pressed() {
 		try {
-			this.user = new User(this.username.getText(), this.password.getText());
+			this.user = new User(this.username.getText(), this.password.getText(), this.language.getSelectedItem().toString());
 
 			if (this.user.hasCriteria()) {
 				
@@ -38,7 +41,7 @@ public class LoginButtonComponent extends ButtonComponent {
 				this.getViewport().removeAll();
 				this.getViewport().repaint();
 				this.getViewport().revalidate();
-				SurveyComponent survey = new SurveyComponent(this.getViewport());
+				SurveyComponent survey = new SurveyComponent(this.getViewport(), this.language.getSelectedItem().toString());
 				survey.open();
 			}
 		} catch (Exception e) {
