@@ -21,13 +21,13 @@ public class SurveyButtonComponent extends ButtonComponent {
 		super(SURVEY_BUTTON_FILE_NAME, SURVEY_BUTTON_FILE_PATH, viewport);
 		this.pM = placeManager;
 		this.page = new Page(viewport, RESULTS_FILE_NAME);
-		this.page.setPLL(this.pLL);
 	}
 	
 	public void pressed() {
 		this.getViewport().removeAll();
 		this.page.open();
 		pM.getResults(pLL);
+		this.page.setPLL(pLL);
 	}
 
 }

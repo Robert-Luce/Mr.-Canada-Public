@@ -47,10 +47,16 @@ public class PlaceManager {
 			}
 			if(p.getName().contains("Restaurant")) {
 				rLL.addAtBeginning(generateHTML(p.getName(), viewport), p.getScore());
+				System.out.println("r in LL");
+				rLL.sort();
 			} else if (p.getName().contains("Attraction")) {
 				aLL.addAtBeginning(generateHTML(p.getName(), viewport), p.getScore());
+				System.out.println("a in LL");
+				aLL.sort();
 			} else if (p.getName().contains("PlaceOfWorship")) {
 				powLL.addAtBeginning(generateHTML(p.getName(), viewport), p.getScore());
+				System.out.println("pow in LL");
+				powLL.sort();
 			}
 			
 		}
@@ -99,6 +105,7 @@ public class PlaceManager {
 	
 	public void getResults(PlaceLinkedList componentList){
 		aLL.sort();
+		System.out.println("got to sort 1");
 		componentList.addAtBeginning(aLL.getHTMLAtIndex(1), 1);
 		rLL.sort();
 		componentList.addAtBeginning(rLL.getHTMLAtIndex(0), 1);
