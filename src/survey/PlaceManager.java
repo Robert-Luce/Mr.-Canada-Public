@@ -4,10 +4,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.Arrays;
-
-import javax.swing.JFrame;
 import javax.swing.JPanel;
-
 import components.HTMLComponent;
 import place.*;
 
@@ -100,7 +97,17 @@ public class PlaceManager {
 		return h;
 	}
 	
-	
+	public ArrayList<HTMLComponent> getResults(){
+		ArrayList<HTMLComponent> componentList = new ArrayList<>();
+		aLL.sort();
+		componentList.add(aLL.getHTMLAtIndex(0));
+		powLL.sort();
+		componentList.add(powLL.getHTMLAtIndex(0));
+		rLL.sort();
+		componentList.add(rLL.getHTMLAtIndex(0));
+		
+		return componentList;
+	}
 	
 	
 }

@@ -1,3 +1,10 @@
 
+<<<<<<< HEAD
 Vegan
 Montreal
+=======
+Moroccan
+CityWalking
+Halal
+Toronto
+>>>>>>> branch 'main' of https://github.com/Robert-Luce/Mr.-Canada.git
