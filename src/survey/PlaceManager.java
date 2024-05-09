@@ -13,7 +13,9 @@ import place.*;
 
 public class PlaceManager {
 	private ArrayList<Place> places;
-	private PlaceLinkedList pLL;
+	private PlaceLinkedList rLL;
+	private PlaceLinkedList aLL;
+	private PlaceLinkedList powLL;
 	private JPanel viewport;
 	
 	public PlaceManager(ArrayList<Place> places, JPanel viewport) {
@@ -37,12 +39,19 @@ public class PlaceManager {
 			System.out.println("Please select a criteria");
 		}
 		
-		pLL = new PlaceLinkedList();
+		rLL = new PlaceLinkedList();
 		for(Place p : places) {
 			for(String c : criteria) {
 				p.checkCriteria(c);
 			}
-			pLL.addAtBeginning(generateHTML(p.getName(), viewport), p.getScore());
+			if(p.getName().contains("Restaurant")) {
+				rLL.addAtBeginning(generateHTML(p.getName(), viewport), p.getScore());
+			} else if (p.getName().contains("Attraction")) {
+				aLL.addAtBeginning(generateHTML(p.getName(), viewport), p.getScore());
+			} else if (p.getName().contains("PlaceOfWorship")) {
+				powLL.addAtBeginning(generateHTML(p.getName(), viewport), p.getScore());
+			}
+			
 		}
 	}
 	
