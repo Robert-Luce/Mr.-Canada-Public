@@ -25,9 +25,9 @@ public class SurveyButtonComponent extends ButtonComponent {
 	
 	public void pressed() {
 		this.getViewport().removeAll();
-		this.page.open();
 		pM.getResults(pLL);
 		this.page.setPLL(pLL);
+		this.page.open();
 	}
 
 }
