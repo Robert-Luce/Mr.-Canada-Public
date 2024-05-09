@@ -75,7 +75,7 @@ public class PlaceLinkedList {
 		return current.getHTML();
 	}
 
-	private int length() {
+	public int length() {
 		PlaceNode current = this.first;
 		int count = 0;
 		while (current != null) {
