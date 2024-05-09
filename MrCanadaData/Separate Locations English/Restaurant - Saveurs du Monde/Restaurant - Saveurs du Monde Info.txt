@@ -1,6 +1,7 @@
 Quebec City
-HighCost 
-Halal
+Moroccan
+LowCost
 Accessible
 Vegetarian
-Moroccan
+Vegan
+Halal
