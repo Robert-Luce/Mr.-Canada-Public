@@ -23,6 +23,13 @@ public class Question extends HTMLReaderComponent {
 	private ArrayList<Response> responses;
 	private ArrayList<String> responseNames;
 
+	/**
+	 * @author lucerc
+	 * ensures: default constructor for the question class
+	 * @param viewport - the JPanel for which to display the Question
+	 * @param questionName - the associated name for the question in the file system
+	 * @param language - the language that the question should be displayed in
+	 */
 	public Question(JPanel viewport, String questionName, String language) {
 		
 		super(questionName, questionName, viewport);

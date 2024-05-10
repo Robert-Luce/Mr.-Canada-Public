@@ -20,6 +20,14 @@ public class Response extends HTMLReaderComponent {
 	private int responseNumber;
 	private ArrayList<String> criteria;
 
+	/**
+	 * @author lucerc
+	 * ensures: default constructor for the Response class.
+	 * @param viewport - the JPanel for which the Response should be displayed on.
+	 * @param questionNumber - the number of the associated question in the file system
+	 * @param responseName - the name of the response file in the file system
+	 * @param language - the language that the response should be displayed in
+	 */
 	public Response(JPanel viewport, int questionNumber, String responseName, String language) {
 		super(responseName, language + "Question" + questionNumber + "\\" + responseName, viewport);
 		this.checkbox = new JCheckBox();

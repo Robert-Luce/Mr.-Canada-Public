@@ -8,11 +8,16 @@ import javax.swing.JPanel;
 import components.HTMLComponent;
 import place.*;
 
+/**
+ * @author walindqg
+ * 
+ */
+
 public class PlaceManager {
 	private ArrayList<Place> places;
-	private PlaceLinkedList rLL;
-	private PlaceLinkedList aLL;
-	private PlaceLinkedList powLL;
+	private PlaceLinkedList restaurantLL;
+	private PlaceLinkedList attractionLL;
+	private PlaceLinkedList placeofworshipLL;
 	private JPanel viewport;
 	private String language;
 	
@@ -39,28 +44,31 @@ public class PlaceManager {
 			System.out.println("Please select a criteria");
 		}
 		
-		rLL = new PlaceLinkedList();
-		aLL = new PlaceLinkedList();
-		powLL = new PlaceLinkedList();
+		restaurantLL = new PlaceLinkedList();
+		attractionLL = new PlaceLinkedList();
+		placeofworshipLL = new PlaceLinkedList();
 		for(Place p : places) {
 			for(String c : criteria) {
 				System.out.println("criteria:" + c);
 				p.checkCriteria(c);
 			}
 			if(p.getName().contains("Restaurant")) {
-				rLL.addAtBeginning(generateHTML(p.getName(), viewport), p.getScore());
-				rLL.sort();
+				restaurantLL.addAtBeginning(generateHTML(p.getName(), viewport), p.getScore());
+				restaurantLL.sort();
 			} else if (p.getName().contains("Attraction")) {
-				aLL.addAtBeginning(generateHTML(p.getName(), viewport), p.getScore());
-				aLL.sort();
+				attractionLL.addAtBeginning(generateHTML(p.getName(), viewport), p.getScore());
+				attractionLL.sort();
 			} else if (p.getName().contains("PlaceOfWorship")) {
-				powLL.addAtBeginning(generateHTML(p.getName(), viewport), p.getScore());
-				powLL.sort();
+				placeofworshipLL.addAtBeginning(generateHTML(p.getName(), viewport), p.getScore());
+				placeofworshipLL.sort();
 			}
 			
 		}
 	}
 	
+	/**
+	 * ensures: manages the creation of Place classes based on information built into the file system.
+	 */
 	public void generatePlaces() {
 		ArrayList<String> placeNames = new ArrayList<String>();
 		try {
@@ -97,19 +105,29 @@ public class PlaceManager {
 
 	}
 	
+	/**
+	 * ensures: generates an HTMLComponent object for a given place name
+	 * @param placeName - the name of the place for which the HTMLComponent should be generated
+	 * @param panel - the panel on which the HTMLComponent will be placed
+	 * @return returns the constructed HTMLComponent
+	 */
 	public HTMLComponent generateHTML(String placeName, JPanel panel) {
 		HTMLComponent h = new HTMLComponent(placeName, "Separate Locations " + language + "\\" + placeName, panel);
 		return h;
 	}
 	
+	/**
+	 * ensures: creates a PlaceLinkedList of the top 3 results. It will have HTMLComponents for one attraction, one restaurant, and one place of worship.
+	 * @return returns a PlaceLinkedList containing the HTMLComponents to display.
+	 */
 	public PlaceLinkedList getResults(){
 		PlaceLinkedList resultsList = new PlaceLinkedList();
-		aLL.sort();
-		resultsList.addAtBeginning(aLL.getHTMLAtIndex(0), 1);
-		rLL.sort();
-		resultsList.addAtBeginning(rLL.getHTMLAtIndex(0), 1);
-		powLL.sort();
-		resultsList.addAtBeginning(powLL.getHTMLAtIndex(0), 1);
+		attractionLL.sort();
+		resultsList.addAtBeginning(attractionLL.getHTMLAtIndex(0), 1);
+		restaurantLL.sort();
+		resultsList.addAtBeginning(restaurantLL.getHTMLAtIndex(0), 1);
+		placeofworshipLL.sort();
+		resultsList.addAtBeginning(placeofworshipLL.getHTMLAtIndex(0), 1);
 		
 		// second row of results
 //		aLL.getHTMLAtIndex(1).setHtmlY(584);

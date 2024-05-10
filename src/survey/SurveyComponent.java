@@ -29,6 +29,11 @@ public class SurveyComponent extends JPanel {
 	private ArrayList<String> questionNames;
 	private SurveyButtonComponent checkButton;
 
+	/**
+	 * ensures: default constructor for the SurveyComponent.
+	 * @param viewport - the JPanel for which to add this SurveyComponent
+	 * @param language - the language that the survey must be displayed in
+	 */
 	public SurveyComponent(JPanel viewport, String language) {
 		this.viewport = viewport;
 		try {
@@ -60,6 +65,9 @@ public class SurveyComponent extends JPanel {
 		
 	}
 
+	/**
+	 * ensures: displays this SurveyComponent on the previously defined viewport (JComponent)
+	 */
 	public void open() {
 		this.viewport.addMouseListener(this.checkButton.getListener());
 		this.viewport.add(this);
@@ -67,6 +75,9 @@ public class SurveyComponent extends JPanel {
 		this.viewport.revalidate();
 	}
 
+	/**
+	 * ensures: removes this SurveyComponent from the previously defined viewport (JComponent)
+	 */
 	public void close() {
 		this.viewport.removeMouseListener(this.checkButton.getListener());
 		this.viewport.remove(this);
