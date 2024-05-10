@@ -27,7 +27,6 @@ public class DestinationCatalogButtonComponent extends ButtonComponent {
 	@Override
 	public void pressed() {
 		this.getViewport().removeAll();
-		System.out.println("test");
 		this.page.open();
 		
 		
