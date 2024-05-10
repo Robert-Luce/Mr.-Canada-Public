@@ -28,7 +28,6 @@ public class SurveyButtonComponent extends ButtonComponent {
 		this.user = user;
 		this.pM = placeManager;
 		this.page = new Page(viewport, language + RESULTS_FILE_NAME);
-		user.setResultsPage(this.page);
 		this.pLL = new PlaceLinkedList();
 	}
 	

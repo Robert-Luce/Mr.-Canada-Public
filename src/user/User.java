@@ -11,6 +11,7 @@ import java.util.Arrays;
 import page.Page;
 /**
  * @author lucerc
+ * @author leonemm
  */
 public class User {
 	private String username;

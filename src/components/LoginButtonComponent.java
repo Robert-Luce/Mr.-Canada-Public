@@ -17,6 +17,8 @@ import survey.SurveyComponent;
 import user.User;
 /**
  * @author lucerc
+ * @author leonemm
+ * @author walindqg
  */
 public class LoginButtonComponent extends ButtonComponent {
 	private static final String LOGIN_BUTTON_FILE_PATH = "Login Button";
