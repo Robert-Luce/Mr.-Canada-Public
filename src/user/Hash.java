@@ -1,7 +1,9 @@
 package user;
 
 import java.util.ArrayList;
-
+/**
+ * @author lucerc
+ */
 public class Hash {
 	private ArrayList<Block> blocks;
 	private Word[] messageSchedule;

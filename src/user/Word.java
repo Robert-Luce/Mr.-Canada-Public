@@ -1,5 +1,8 @@
 package user;
 
+/**
+ * @author lucerc
+ */
 public class Word {
 	protected Boolean[] bits;
 

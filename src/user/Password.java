@@ -3,7 +3,9 @@ package user;
 import java.io.FileReader;
 import java.io.BufferedReader;
 import java.io.FileWriter;
-
+/**
+ * @author lucerc
+ */
 public class Password {
 	private String username;
 

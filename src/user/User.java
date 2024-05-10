@@ -6,7 +6,9 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Arrays;
-
+/**
+ * @author lucerc
+ */
 public class User {
 	private String username;
 	private Password password;

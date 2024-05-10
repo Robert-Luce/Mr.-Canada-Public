@@ -1,5 +1,7 @@
 package user;
-
+/**
+ * @author lucerc
+ */
 public class Block {
 	private Word[] words = new Word[16];
 

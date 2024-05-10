@@ -1,7 +1,9 @@
 package user;
 
 import java.util.ArrayList;
-
+/**
+ * @author lucerc
+ */
 public class Message {
 	private ArrayList<Boolean> data = new ArrayList<Boolean>();
 	private int messageBits;
