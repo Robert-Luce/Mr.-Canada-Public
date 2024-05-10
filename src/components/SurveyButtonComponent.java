@@ -18,7 +18,7 @@ public class SurveyButtonComponent extends ButtonComponent {
 	private PlaceManager pM;
 
 	public SurveyButtonComponent(JPanel viewport, PlaceManager placeManager, String language) {
-		super(SURVEY_BUTTON_FILE_NAME, SURVEY_BUTTON_FILE_PATH, viewport);
+		super(language + SURVEY_BUTTON_FILE_NAME, language + SURVEY_BUTTON_FILE_PATH, viewport);
 		this.pM = placeManager;
 		this.page = new Page(viewport, language + RESULTS_FILE_NAME);
 		this.pLL = new PlaceLinkedList();
