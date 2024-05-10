@@ -1,1 +1,5 @@
 x=0 y=215 width=360 height=234
+Montreal
+CityWalking
+Accessible
+Biking
