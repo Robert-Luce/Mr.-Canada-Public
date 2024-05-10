@@ -71,6 +71,7 @@ public class LoginComponent extends JComponent {
 		
 		DestinationCatalogButtonComponent dcB = new DestinationCatalogButtonComponent(viewport, language.getSelectedItem().toString());
 		this.add(dcB);
+		this.viewport.addMouseListener(dcB.getListener());
 		
 		this.add(this.passwordLabel);
 		this.add(this.usernameLabel);
