@@ -58,6 +58,9 @@ public class LoginButtonComponent extends ButtonComponent {
 				pM.generatePlaces();
 				pM.assessLocations(user);
 				resultsPage.setPLL(pM.getResults());
+				this.getViewport().removeAll();
+				this.getViewport().repaint();
+				this.getViewport().revalidate();
 				resultsPage.open();
 			} else { // if user hasn't done survey, starts the survey
 				this.getViewport().removeAll();
