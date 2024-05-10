@@ -17,9 +17,9 @@ public class User {
 
 	public User(String username, String inputPassword, String language) throws Exception {
 		this.username = username;
-		this.password = new Password(this.username);
+		this.password = new Password(this.getUsername());
 		this.language = language;
-		Path path = Paths.get("MrCanadaData\\Users\\" + this.username);
+		Path path = Paths.get("MrCanadaData\\Users\\" + this.getUsername());
 		if (!Files.exists(path)) {
 			Files.createDirectories(path);
 			this.password.newPassword(inputPassword);
@@ -29,7 +29,7 @@ public class User {
 			}
 		}
 		try {
-			FileWriter writer = new FileWriter("MrCanadaData\\Users\\" + this.username + "\\language.txt");
+			FileWriter writer = new FileWriter("MrCanadaData\\Users\\" + this.getUsername() + "\\language.txt");
 			writer.write(this.language);
 			writer.close();
 		} catch (Exception e) {
@@ -42,12 +42,16 @@ public class User {
 	public boolean hasCriteria() {
 		try {
 			this.criterias = new ArrayList<String>(Arrays.asList(Files.readString(Path
-					.of(Path.of("MrCanadaData\\Users\\" + this.username + "criteria.txt").toAbsolutePath().toString()))
+					.of(Path.of("MrCanadaData\\Users\\" + this.getUsername() + "criteria.txt").toAbsolutePath().toString()))
 					.split("\r\n")));
 			return true;
 		} catch (Exception e) {
 			return false;
 		}
+	}
+
+	public String getUsername() {
+		return username;
 	}
 
 }

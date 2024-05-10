@@ -15,6 +15,7 @@ import javax.swing.JPanel;
 
 import components.HTMLReaderComponent;
 import place.Place;
+import user.User;
 
 public class Question extends HTMLReaderComponent {
 
@@ -29,8 +30,9 @@ public class Question extends HTMLReaderComponent {
 	 * @param viewport - the JPanel for which to display the Question
 	 * @param questionName - the associated name for the question in the file system
 	 * @param language - the language that the question should be displayed in
+	 * @param user 
 	 */
-	public Question(JPanel viewport, String questionName, String language) {
+	public Question(JPanel viewport, String questionName, String language, User user) {
 		
 		super(questionName, questionName, viewport);
 		
@@ -56,7 +58,7 @@ public class Question extends HTMLReaderComponent {
 			this.responseNames = new ArrayList<String>();
 		}
 		for (String responseName : responseNames) {
-			this.responses.add(new Response(this.getViewport(), this.questionNumber, responseName, language));
+			this.responses.add(new Response(this.getViewport(), this.questionNumber, responseName, language, user));
 		}
 		for (int i = 0; i < this.responses.size(); i++) {
 			this.add(this.responses.get(i));

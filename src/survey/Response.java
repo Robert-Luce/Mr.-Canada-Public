@@ -13,12 +13,14 @@ import javax.swing.JPanel;
 import components.HTMLReaderComponent;
 import listeners.ResponseCheckBoxListener;
 import place.Place;
+import user.User;
 
 public class Response extends HTMLReaderComponent {
 
 	private JCheckBox checkbox;
 	private int responseNumber;
 	private ArrayList<String> criteria;
+	private User user;
 
 	/**
 	 * @author lucerc
@@ -28,7 +30,7 @@ public class Response extends HTMLReaderComponent {
 	 * @param responseName - the name of the response file in the file system
 	 * @param language - the language that the response should be displayed in
 	 */
-	public Response(JPanel viewport, int questionNumber, String responseName, String language) {
+	public Response(JPanel viewport, int questionNumber, String responseName, String language, User user) {
 		super(responseName, language + "Question" + questionNumber + "\\" + responseName, viewport);
 		this.checkbox = new JCheckBox();
 		this.checkbox.setText(this.getHtmlFileData());
@@ -53,6 +55,7 @@ public class Response extends HTMLReaderComponent {
 			}
 			
 		}
-		this.checkbox.addItemListener(new ResponseCheckBoxListener(this.criteria, "Criteria Test.txt"));
+		this.user = user;
+		this.checkbox.addItemListener(new ResponseCheckBoxListener(this.criteria, this.user.getUsername() + "\\Criteria.txt"));
 	}
 }

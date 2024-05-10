@@ -8,6 +8,7 @@ import page.Page;
 import place.Place;
 import place.PlaceLinkedList;
 import survey.PlaceManager;
+import user.User;
 /**
  * @author lucerc
  * @author walindqg
@@ -20,9 +21,11 @@ public class SurveyButtonComponent extends ButtonComponent {
 	private PlaceLinkedList pLL = new PlaceLinkedList();
 	private Page page;
 	private PlaceManager pM;
+	private User user;
 
-	public SurveyButtonComponent(JPanel viewport, PlaceManager placeManager, String language) {
+	public SurveyButtonComponent(JPanel viewport, PlaceManager placeManager, String language, User user) {
 		super(language + SURVEY_BUTTON_FILE_NAME, language + SURVEY_BUTTON_FILE_PATH, viewport);
+		this.user = user;
 		this.pM = placeManager;
 		this.page = new Page(viewport, language + RESULTS_FILE_NAME);
 		this.pLL = new PlaceLinkedList();
@@ -30,7 +33,7 @@ public class SurveyButtonComponent extends ButtonComponent {
 	
 	@Override
 	public void pressed() {
-		pM.assessLocations();
+		pM.assessLocations(user);
 		pLL = pM.getResults();
 		this.page.setPLL(pLL);
 		this.getViewport().removeAll();

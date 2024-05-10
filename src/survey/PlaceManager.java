@@ -7,6 +7,7 @@ import java.util.Arrays;
 import javax.swing.JPanel;
 import components.HTMLComponent;
 import place.*;
+import user.User;
 
 /**
  * @author walindqg
@@ -28,7 +29,7 @@ public class PlaceManager {
 	}
 	
 	
-	public void assessLocations() {
+	public void assessLocations(User user) {
 		for(Place p: places) {
 			p.setScore(1);
 		}
@@ -36,7 +37,7 @@ public class PlaceManager {
 		try {
 			ArrayList<String> cs = new ArrayList<String>(Arrays.asList(Files
 					.readString(Path
-							.of(Path.of("MrCanadaData\\Criteria Test.txt").toAbsolutePath().toString()))
+							.of(Path.of("MrCanadaData\\"+user.getUsername()+"\\Criteria.txt").toAbsolutePath().toString()))
 					.split("\r\n")));
 			criteria.addAll(cs);
 			System.out.println("Criteria:" + criteria);
@@ -78,7 +79,7 @@ public class PlaceManager {
 					.split("\r\n")));
 			placeNames.addAll(ps);
 		} catch (Exception e) {
-			System.out.println("Please add text to MrCanadaData\\\\Separate Locations English\\\\PlacesList.txt");
+			System.out.println("Please add MrCanadaData\\Separate Locations English\\PlacesList.txt");
 		}
 
 		for(String placeName : placeNames) {
@@ -90,7 +91,7 @@ public class PlaceManager {
 						.split("\r\n")));
 				placeInfo.addAll(info);
 			} catch (Exception e) {
-				System.out.println("Please add text to MrCanadaData\\\\Separate Locations English\\\\" + placeName + "\\\\" + placeName +".txt" );
+				System.out.println("Please add MrCanadaData\\Separate Locations English\\" + placeName + "\\" + placeName +".txt" );
 			}
 			places.add(new Place(placeName, placeInfo.get(1), placeInfo));
 		}
