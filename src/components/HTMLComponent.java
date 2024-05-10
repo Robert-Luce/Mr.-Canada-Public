@@ -82,7 +82,6 @@ public class HTMLComponent extends HTMLReaderComponent {
 	}
 	public void setHtmlY(int htmlY) {
 		this.htmlY = htmlY;
-		this.setLocation(this.htmlX, this.htmlY);
 	}
 
 
