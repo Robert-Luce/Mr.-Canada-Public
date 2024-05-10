@@ -1,6 +1,7 @@
 package survey;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -42,6 +43,7 @@ public class SurveyComponent extends JPanel {
 	 */
 	public SurveyComponent(JPanel viewport, String language, User user) {
 		this.viewport = viewport;
+		this.setBackground(Color.WHITE);
 		try {
 			this.questionNames = new ArrayList<String>(Arrays.asList(Files
 					.readString(Path.of(Path.of("MrCanadaData\\" + language + "Question Names.txt")
