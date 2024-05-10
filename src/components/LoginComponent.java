@@ -10,6 +10,8 @@ import javax.swing.JComponent;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
+import page.Page;
+
 public class LoginComponent extends JComponent {
 	private static final String PASSWORD_LABEL_FILE_PATH = "Password Label";
 	private static final String PASSWORD_LABEL_FILE_NAME = "Password Label";
@@ -69,6 +71,11 @@ public class LoginComponent extends JComponent {
 		this.setPreferredSize(this.viewport.getPreferredSize());
 		this.setLocation(0, 0);
 		
+		
+//		Page destinationFromLog = new Page(viewport, "DestinationCatalog FromHomepage");
+//		destinationFromLog.thumbnailOpen();
+//		
+//		
 //		ThumbnailComponent DestinationCatalogThumbnail = new ThumbnailComponent("DestinationCatalog FromHomepage", viewport);
 //		this.add(DestinationCatalogThumbnail);
 	}
