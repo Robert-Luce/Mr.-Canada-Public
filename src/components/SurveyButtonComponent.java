@@ -8,7 +8,10 @@ import page.Page;
 import place.Place;
 import place.PlaceLinkedList;
 import survey.PlaceManager;
-
+/**
+ * @author lucerc
+ * @author walindqg
+ */
 public class SurveyButtonComponent extends ButtonComponent {
 	private static final String SURVEY_BUTTON_FILE_PATH = "Survey Button";
 	private static final String SURVEY_BUTTON_FILE_NAME = "Survey Button";

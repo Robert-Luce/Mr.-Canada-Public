@@ -12,7 +12,9 @@ import javax.swing.JTextField;
 import page.Page;
 import survey.SurveyComponent;
 import user.User;
-
+/**
+ * @author lucerc
+ */
 public class LoginButtonComponent extends ButtonComponent {
 	private static final String LOGIN_BUTTON_FILE_PATH = "Login Button";
 	private static final String LOGIN_BUTTON_FILE_NAME = "Login Button";
@@ -23,6 +25,13 @@ public class LoginButtonComponent extends ButtonComponent {
 	private User user;
 	private JComboBox<String> language;
 
+	/**
+	 * ensures: LoginButtonComponent is constructed
+	 * @param viewport
+	 * @param username
+	 * @param password
+	 * @param language
+	 */
 	public LoginButtonComponent(JPanel viewport, JTextField username, JTextField password, JComboBox<String> language) {
 		super(LOGIN_BUTTON_FILE_NAME, LOGIN_BUTTON_FILE_PATH, viewport);
 		this.language = language;
@@ -30,6 +39,9 @@ public class LoginButtonComponent extends ButtonComponent {
 		this.password = password;
 	}
 
+	/**
+	 * ensures: 
+	 */
 	@Override
 	public void pressed() {
 		try {

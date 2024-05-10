@@ -7,7 +7,9 @@ import java.util.regex.Pattern;
 
 import javax.swing.JComponent;
 import javax.swing.JPanel;
-
+/**
+ * @author lucerc
+ */
 public class HTMLReaderComponent extends JComponent {
 
 	private String fileName;

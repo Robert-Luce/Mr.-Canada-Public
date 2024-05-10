@@ -11,7 +11,9 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 import page.Page;
-
+/**
+ * @author lucerc
+ */
 public class LoginComponent extends JComponent {
 	private static final String PASSWORD_LABEL_FILE_PATH = "Password Label";
 	private static final String PASSWORD_LABEL_FILE_NAME = "Password Label";
@@ -30,6 +32,10 @@ public class LoginComponent extends JComponent {
 	private JComboBox<String> language;
 	private HTMLComponent languageLabel;
 
+	/**
+	 * ensures:  LoginComponent is constructed 
+	 * @param viewport
+	 */
 	public LoginComponent(JPanel viewport) {
 		super();
 		this.viewport = viewport;
@@ -80,11 +86,17 @@ public class LoginComponent extends JComponent {
 //		this.add(DestinationCatalogThumbnail);
 	}
 
+	/**
+	 * ensures: the viewport Jpanel is added to the JScrollFrame and adds an associated MouseListener
+	 */
 	public void open() {
 		this.viewport.add(this);
 		this.viewport.addMouseListener(this.button.getListener());
 	}
 
+	/**
+	 * ensures: the viewport Jpanel is removed to the JScrollFrame and removes an associated MouseListener
+	 */
 	public void close() {
 		this.viewport.remove(this);
 		this.viewport.removeMouseListener(this.button.getListener());

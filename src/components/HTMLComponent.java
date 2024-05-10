@@ -13,6 +13,9 @@ import javax.swing.JPanel;
 
 import listeners.MouseListeners;
 
+/**
+ * @author lucerc
+ */
 public class HTMLComponent extends HTMLReaderComponent {
 	private JPanel panel;
 	private JLabel label;
@@ -51,19 +54,27 @@ public class HTMLComponent extends HTMLReaderComponent {
 		this.setSize(this.getHtmlWidth(), this.getHtmlHeight());
 		this.setPreferredSize(new Dimension(this.getHtmlWidth(), this.getHtmlHeight()));
 	}
+	/**
+	 * ensures: Adds the associated HTML component to the frame 
+	 */
 	public void open() {
 		super.open();
 		this.revalidate();
 		this.repaint();
 	}
 
-	
+	/**
+	 * ensures: associated HTMLComponent is removed from the Jpanel 
+	 */
 	public void close() {
 		this.getViewport().remove(this);
 		this.revalidate();
 		this.repaint();
 	}
 
+	/**
+	 * ensures: 
+	 */
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
 		this.label.setText(this.getHtmlFileData());

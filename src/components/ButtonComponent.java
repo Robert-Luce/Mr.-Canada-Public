@@ -3,7 +3,9 @@ package components;
 import javax.swing.JPanel;
 
 import listeners.MouseListeners;
-
+/**
+ * @author lucerc
+ */
 public class ButtonComponent extends HTMLComponent implements PressableComponent{
 
 	private MouseListeners listener;
