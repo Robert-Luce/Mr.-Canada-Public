@@ -1,7 +1,8 @@
 x=360 y=350 width=360 height=234
-Quebec City
-Other
+Toronto
+Moroccan
 Vegetarian
 Vegan
-Accessible
+Halal
 MediumCost
+Accessible
