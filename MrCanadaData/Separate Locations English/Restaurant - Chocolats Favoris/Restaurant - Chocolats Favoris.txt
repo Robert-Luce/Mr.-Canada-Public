@@ -1,1 +1,7 @@
 x=360 y=215 width=360 height=234
+Quebec City
+Other
+Vegetarian
+Vegan
+Accessible
+MediumCost
