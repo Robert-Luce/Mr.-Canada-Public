@@ -41,7 +41,6 @@ public class PlaceManager {
 							.of(Path.of("MrCanadaData\\Users\\"+user.getUsername()+"\\Criteria.txt").toAbsolutePath().toString()))
 					.split("\r\n")));
 			criteria.addAll(cs);
-			System.out.println("Criteria:" + criteria);
 		} catch (Exception e) {
 			System.out.println("Please select a criteria");
 		}
@@ -51,7 +50,6 @@ public class PlaceManager {
 		placeofworshipLL = new PlaceLinkedList();
 		for(Place p : places) {
 			for(String c : criteria) {
-				System.out.println("criteria:" + c);
 				p.checkCriteria(c);
 			}
 			if(p.getName().contains("Restaurant")) {

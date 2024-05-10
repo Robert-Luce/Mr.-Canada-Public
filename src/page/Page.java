@@ -131,8 +131,7 @@ public class Page {
 	 * Page it was originally displayed on and opens this Page.
 	 */
 	public void thumbnailPressed() {
-//		this.thumbnail.getPageDisplayedOn().close();
-		this.viewport.removeAll();
+		this.thumbnail.getPageDisplayedOn().close();
 		this.open();
 		this.viewport.repaint();
 	}
