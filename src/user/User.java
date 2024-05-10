@@ -1,13 +1,17 @@
 package user;
 
 import java.io.FileWriter;
+import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Arrays;
+
+import page.Page;
 /**
  * @author lucerc
+ * @author leonemm
  */
 public class User {
 	private String username;
@@ -42,10 +46,10 @@ public class User {
 	public boolean hasCriteria() {
 		try {
 			this.criterias = new ArrayList<String>(Arrays.asList(Files.readString(Path
-					.of(Path.of("MrCanadaData\\Users\\" + this.getUsername() + "criteria.txt").toAbsolutePath().toString()))
+					.of(Path.of("MrCanadaData\\Users\\" + this.getUsername() + "\\Criteria.txt").toAbsolutePath().toString()))
 					.split("\r\n")));
 			return true;
-		} catch (Exception e) {
+		} catch (IOException e) {
 			return false;
 		}
 	}
@@ -53,5 +57,6 @@ public class User {
 	public String getUsername() {
 		return username;
 	}
+
 
 }

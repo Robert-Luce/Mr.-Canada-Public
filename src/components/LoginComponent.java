@@ -13,6 +13,7 @@ import javax.swing.JTextField;
 import page.Page;
 /**
  * @author lucerc
+ * @author jaraczlo
  */
 public class LoginComponent extends JComponent {
 	private static final String PASSWORD_LABEL_FILE_PATH = "Password Label";
@@ -49,7 +50,7 @@ public class LoginComponent extends JComponent {
 		this.passwordField.setSize(this.passwordLabel.getHtmlWidth(), this.passwordLabel.getHtmlHeight());
 		this.passwordField
 				.setPreferredSize(new Dimension(this.passwordLabel.getHtmlWidth(), this.passwordLabel.getHtmlHeight()));
-		this.usernameField.setLocation(this.usernameLabel.getHtmlX() + this.usernameLabel.getHtmlWidth(),
+		this.usernameField.setLocation(this.passwordLabel.getHtmlX() + this.passwordLabel.getHtmlWidth(),
 				this.usernameLabel.getHtmlY());
 		this.usernameField.setSize(this.usernameLabel.getHtmlWidth(), this.usernameLabel.getHtmlHeight());
 		this.usernameField
@@ -67,6 +68,11 @@ public class LoginComponent extends JComponent {
 		this.language
 				.setPreferredSize(new Dimension(this.languageLabel.getHtmlWidth(), this.languageLabel.getHtmlHeight()));
 		this.button = new LoginButtonComponent(viewport, this.usernameField, this.passwordField, this.language);
+		
+		DestinationCatalogButtonComponent dcB = new DestinationCatalogButtonComponent(viewport, language.getSelectedItem().toString());
+		this.add(dcB);
+		this.viewport.addMouseListener(dcB.getListener());
+		
 		this.add(this.passwordLabel);
 		this.add(this.usernameLabel);
 		this.add(this.passwordField);
@@ -77,6 +83,8 @@ public class LoginComponent extends JComponent {
 		this.setSize(this.viewport.getSize());
 		this.setPreferredSize(this.viewport.getPreferredSize());
 		this.setLocation(0, 0);
+		
+
 		
 //		Page destinationFromLog = new Page(viewport, "DestinationCatalog FromHomepage");
 //		destinationFromLog.thumbnailOpen();

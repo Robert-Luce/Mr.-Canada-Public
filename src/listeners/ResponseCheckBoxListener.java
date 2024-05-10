@@ -47,18 +47,16 @@ public class ResponseCheckBoxListener implements ItemListener {
 			} catch (Exception error) {
 				System.out.println("Please add " + this.filePath);
 			}
-			try {
-				for (String textToAppend : criteria) {
-					try (BufferedWriter writer = new BufferedWriter(new FileWriter(this.filePath))) {
-						if (!currentCriteria.contains(textToAppend)) {
-							reader = new BufferedReader(new FileReader(this.filePath));
-							writer.newLine();
-							writer.write(textToAppend);
-						}
+			for (String textToAppend : criteria) {
+				if (!currentCriteria.contains(textToAppend)) {
+					try (BufferedWriter writer = new BufferedWriter(new FileWriter(this.filePath, true))) {
+						reader = new BufferedReader(new FileReader(filePath));
+						writer.newLine();
+						writer.write(textToAppend);
+					} catch (Exception error) {
+						System.out.println("Please add " + this.filePath);
 					}
 				}
-			} catch (Exception error) {
-				System.out.println("Please add " + this.filePath);
 			}
 		} else if (e.getStateChange() == ItemEvent.DESELECTED) {
 			BufferedReader reader;
@@ -75,9 +73,9 @@ public class ResponseCheckBoxListener implements ItemListener {
 				reader.close();
 				BufferedWriter writer = new BufferedWriter(new FileWriter(this.filePath));
 				for (String filteredLine : filteredLines) {
-					if (!filteredLine.trim().isEmpty()) {
-						writer.write(filteredLine);
-						writer.newLine();
+					if(!filteredLine.trim().isEmpty()) {
+					writer.write(filteredLine);
+					writer.newLine();
 					}
 				}
 				writer.close();

@@ -17,6 +17,8 @@ import survey.SurveyComponent;
 import user.User;
 /**
  * @author lucerc
+ * @author leonemm
+ * @author walindqg
  */
 public class LoginButtonComponent extends ButtonComponent {
 	private static final String LOGIN_BUTTON_FILE_PATH = "Login Button";
@@ -45,20 +47,24 @@ public class LoginButtonComponent extends ButtonComponent {
 	}
 
 	/**
-	 * ensures: 
+	 * ensures: checks if when the LoginButton is pressed if the user has already completed the survey. If they have
+	 * then they will be taken to the results page, otherwise they will be taken to the survey. If incorrect password
+	 * is entered, error message will be displayed. 
 	 */
 	@Override
 	public void pressed() {
 		try {
 			this.user = new User(this.username.getText(), this.password.getText(), this.language.getSelectedItem().toString());
 			if (this.user.hasCriteria()) { // checks if user has already done the survey
-				Page resultsPage = new Page(viewport, language + "Results");
+				System.out.println("user exists");
+				Page resultsPage = new Page(viewport, language.getSelectedItem() + "Results");
 				ArrayList<Place> placeList = new ArrayList<>();
 				PlaceManager pM = new PlaceManager(placeList, viewport, this.language.getSelectedItem().toString());
 				pM.generatePlaces();
 				pM.assessLocations(user);
-				resultsPage.setPLL(pM.getResults());
+
 				this.getViewport().removeAll();
+				resultsPage.setPLL(pM.getResults());
 				this.getViewport().repaint();
 				this.getViewport().revalidate();
 				resultsPage.open();
