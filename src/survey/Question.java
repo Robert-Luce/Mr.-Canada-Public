@@ -17,6 +17,11 @@ import components.HTMLReaderComponent;
 import place.Place;
 import user.User;
 
+/**
+ * @author lucerc
+ * @author walindqg
+ * @author jaraczlo
+ */
 public class Question extends HTMLReaderComponent {
 
 	private JLabel label;
@@ -25,7 +30,6 @@ public class Question extends HTMLReaderComponent {
 	private ArrayList<String> responseNames;
 
 	/**
-	 * @author lucerc
 	 * ensures: default constructor for the question class
 	 * @param viewport - the JPanel for which to display the Question
 	 * @param questionName - the associated name for the question in the file system

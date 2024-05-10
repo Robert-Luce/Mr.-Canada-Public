@@ -23,6 +23,10 @@ import javax.swing.JLabel;
 import place.*;
 import user.User;
 
+/**
+ * @author walindqg
+ * @author jaraczlo
+ */
 public class SurveyComponent extends JPanel {
 	ArrayList<Question> questions = new ArrayList<Question>();
 	ArrayList<Place> places = new ArrayList<Place>();
