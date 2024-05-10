@@ -6,7 +6,7 @@ public class Place{
 	private String name;
 	private String city;
 
-	protected int score = 0;
+	protected int score;
 	protected int multiplier;
 	private ArrayList<String> criteriaList;
 
@@ -22,6 +22,7 @@ public class Place{
 		this.name = name;
 		this.city = city;
 		this.criteriaList = criteriaList;
+		this.score = 0;
 	}
 
 	/**
@@ -51,15 +52,22 @@ public class Place{
 	}
 
 	public void checkCriteria(String criteria) {
+		System.out.println();
+		System.out.println("score for " + name + " before checkCriteria:" + score);
+		System.out.println(city);
+		System.out.println(criteria);
 		if(criteria.equals(city)) {
 			score = score + 10;
+			System.out.println("added 10 to " + name + "'s score for " + city);
 		} else {
 			for(String c : criteriaList) {
 				if(criteria.equals(c)) {
 					score = score + 1; 
+					System.out.println("added 1 to " + name + "'s score for " + c);
 				}
 			}
 		}
+		System.out.println("score for " + name + "after checkCriteria:" + score);
 		
 	}
 

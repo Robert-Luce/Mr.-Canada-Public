@@ -16,7 +16,7 @@ public class TestPlaceLinkedList {
 //	PlaceLinkedList list1;
 
 	@Test
-	public void testAddN01(){
+	public void testPlaceLinkedListN01(){
 		PlaceLinkedList list1 = new PlaceLinkedList();
 
 		assertEquals("[]", list1.toString());

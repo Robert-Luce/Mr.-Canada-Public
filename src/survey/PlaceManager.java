@@ -34,6 +34,7 @@ public class PlaceManager {
 							.of(Path.of("MrCanadaData\\Criteria Test.txt").toAbsolutePath().toString()))
 					.split("\r\n")));
 			criteria.addAll(cs);
+			System.out.println("Criteria:" + criteria);
 		} catch (Exception e) {
 			System.out.println("Please select a criteria");
 		}
@@ -43,19 +44,17 @@ public class PlaceManager {
 		powLL = new PlaceLinkedList();
 		for(Place p : places) {
 			for(String c : criteria) {
+				System.out.println("criteria:" + c);
 				p.checkCriteria(c);
 			}
 			if(p.getName().contains("Restaurant")) {
 				rLL.addAtBeginning(generateHTML(p.getName(), viewport), p.getScore());
-				System.out.println("r in LL");
 				rLL.sort();
 			} else if (p.getName().contains("Attraction")) {
 				aLL.addAtBeginning(generateHTML(p.getName(), viewport), p.getScore());
-				System.out.println("a in LL");
 				aLL.sort();
 			} else if (p.getName().contains("PlaceOfWorship")) {
 				powLL.addAtBeginning(generateHTML(p.getName(), viewport), p.getScore());
-				System.out.println("pow in LL");
 				powLL.sort();
 			}
 			
@@ -103,15 +102,16 @@ public class PlaceManager {
 		return h;
 	}
 	
-	public void getResults(PlaceLinkedList componentList){
+	public PlaceLinkedList getResults(){
+		PlaceLinkedList resultsList = new PlaceLinkedList();
 		aLL.sort();
-		System.out.println("got to sort 1");
-		componentList.addAtBeginning(aLL.getHTMLAtIndex(1), 1);
+		resultsList.addAtBeginning(aLL.getHTMLAtIndex(0), 1);
 		rLL.sort();
-		componentList.addAtBeginning(rLL.getHTMLAtIndex(0), 1);
+		resultsList.addAtBeginning(rLL.getHTMLAtIndex(0), 1);
 		powLL.sort();
-		componentList.addAtBeginning(powLL.getHTMLAtIndex(0), 1);
-		// ^^ this is causing issues for some reason, just with powLL, so I temporarily commented it out to run the survey
+		resultsList.addAtBeginning(powLL.getHTMLAtIndex(0), 1);
+		System.out.println(resultsList.toString());
+		return resultsList;
 	}
 	
 	

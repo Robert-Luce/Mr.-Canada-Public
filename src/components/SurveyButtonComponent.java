@@ -21,12 +21,15 @@ public class SurveyButtonComponent extends ButtonComponent {
 		super(SURVEY_BUTTON_FILE_NAME, SURVEY_BUTTON_FILE_PATH, viewport);
 		this.pM = placeManager;
 		this.page = new Page(viewport, RESULTS_FILE_NAME);
+		this.pLL = new PlaceLinkedList();
 	}
 	
+	@Override
 	public void pressed() {
-		this.getViewport().removeAll();
-		pM.getResults(pLL);
+
+		pLL = pM.getResults();
 		this.page.setPLL(pLL);
+		this.getViewport().removeAll();
 		this.page.open();
 	}
 
