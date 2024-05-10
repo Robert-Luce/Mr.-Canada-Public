@@ -20,8 +20,8 @@ public class Response extends HTMLReaderComponent {
 	private int responseNumber;
 	private ArrayList<String> criteria;
 
-	public Response(JPanel viewport, int questionNumber, String responseName) {
-		super(responseName, "Question" + questionNumber + "\\" + responseName, viewport);
+	public Response(JPanel viewport, int questionNumber, String responseName, String language) {
+		super(responseName, language + "Question" + questionNumber + "\\" + responseName, viewport);
 		this.checkbox = new JCheckBox();
 		this.checkbox.setText(this.getHtmlFileData());
 		try {

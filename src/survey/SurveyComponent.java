@@ -42,7 +42,7 @@ public class SurveyComponent extends JPanel {
 			this.questionNames = new ArrayList<String>();
 		}
 		for (String questionName : questionNames) {
-			this.questions.add(new Question(this.viewport, questionName));
+			this.questions.add(new Question(this.viewport, questionName, language));
 		}
 		for (int i = 0; i < this.questions.size(); i++) {
 			this.add(this.questions.get(i));

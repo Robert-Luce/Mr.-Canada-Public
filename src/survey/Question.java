@@ -23,7 +23,7 @@ public class Question extends HTMLReaderComponent {
 	private ArrayList<Response> responses;
 	private ArrayList<String> responseNames;
 
-	public Question(JPanel viewport, String questionName) {
+	public Question(JPanel viewport, String questionName, String language) {
 		super(questionName, questionName, viewport);
 		this.responses = new ArrayList<Response>();
 		this.label = new JLabel(this.getHtmlFileData());
@@ -38,7 +38,7 @@ public class Question extends HTMLReaderComponent {
 		this.setLocation(0, 100 * this.questionNumber);
 		try {
 			this.responseNames = new ArrayList<String>(Arrays.asList(Files
-					.readString(Path.of(Path.of("MrCanadaData\\Question" + this.questionNumber + "\\Response Names.txt")
+					.readString(Path.of(Path.of("MrCanadaData\\" + language + "Question" + this.questionNumber + "\\Response Names.txt")
 							.toAbsolutePath().toString()))
 					.split("\r\n")));
 		} catch (Exception e) {
@@ -47,7 +47,7 @@ public class Question extends HTMLReaderComponent {
 			this.responseNames = new ArrayList<String>();
 		}
 		for (String responseName : responseNames) {
-			this.responses.add(new Response(this.getViewport(), this.questionNumber, responseName));
+			this.responses.add(new Response(this.getViewport(), this.questionNumber, responseName, language));
 		}
 		for (int i = 0; i < this.responses.size(); i++) {
 			this.add(this.responses.get(i));
