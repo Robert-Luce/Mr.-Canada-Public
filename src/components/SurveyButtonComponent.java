@@ -26,7 +26,7 @@ public class SurveyButtonComponent extends ButtonComponent {
 	
 	@Override
 	public void pressed() {
-
+		pM.assessLocations();
 		pLL = pM.getResults();
 		this.page.setPLL(pLL);
 		this.getViewport().removeAll();
