@@ -38,12 +38,12 @@ public class Question extends HTMLReaderComponent {
 		this.setLocation(0, 100 * this.questionNumber);
 		try {
 			this.responseNames = new ArrayList<String>(Arrays.asList(Files
-					.readString(Path.of(Path.of("MrCanadaData\\" + language + "Question" + this.questionNumber + "\\Response Names.txt")
+					.readString(Path.of(Path.of("MrCanadaData\\" + language + "Question" + this.questionNumber + "\\" + language + "Response Names.txt")
 							.toAbsolutePath().toString()))
 					.split("\r\n")));
 		} catch (Exception e) {
 			System.out.println(
-					"Please add text to MrCanadaData\\Question" + this.questionNumber + "\\Response Names.txt");
+					"Please add text to MrCanadaData\\" + language + "Question" + this.questionNumber + "\\" + language + "Response Names.txt");
 			this.responseNames = new ArrayList<String>();
 		}
 		for (String responseName : responseNames) {
