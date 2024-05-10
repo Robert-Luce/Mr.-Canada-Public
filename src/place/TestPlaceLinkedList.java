@@ -11,9 +11,11 @@ import components.HTMLComponent;
 //import org.junit.Test;
 
 
-
+/**
+ * @author leonemm
+ * ensures: tests that class PlaceLinkedList and its methods function as intended
+ */
 public class TestPlaceLinkedList {
-//	PlaceLinkedList list1;
 
 	@Test
 	public void testPlaceLinkedListN01(){

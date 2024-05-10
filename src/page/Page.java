@@ -13,6 +13,9 @@ import components.ThumbnailComponent;
 import place.Place;
 import place.PlaceLinkedList;
 
+/**
+ * @author lucerc
+ */
 public class Page {
 
 	private JPanel viewport;

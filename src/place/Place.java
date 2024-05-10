@@ -1,7 +1,9 @@
 package place;
 
 import java.util.ArrayList;
-
+/**
+ * @author walindqg, leonemm
+ */
 public class Place{
 	private String name;
 	private String city;
@@ -16,7 +18,6 @@ public class Place{
 	 * @param name         - the name of the Place
 	 * @param city         - the city that the Place is in
 	 * @param address      - the address of the Place
-	 * @param isAccessible - whether or not the Place has handicapped accessibility
 	 */
 	public Place(String name, String city, ArrayList<String> criteriaList) {
 		this.name = name;
@@ -43,31 +44,36 @@ public class Place{
 		return city;
 	}
 	
+	/**
+	 *  ensures: allows other classes to access this Place's score
+	 * 
+	 */
 	public int getScore() {
 		return score;
 	}
 	
+	/**
+	 * ensures: allows other classes to set this Place's score
+	 * @param score - the score of the Place, based on how many criteria it meets
+	 */
 	public void setScore(int score) {
 		this.score = score;
 	}
 
+	/**
+	 * ensures: checks which criteria this Place meets and adds points accordingly
+	 * @param criteria - criteria to check whether the Place meets
+	 */
 	public void checkCriteria(String criteria) {
-		System.out.println();
-		System.out.println("score for " + name + " before checkCriteria:" + score);
-		System.out.println(city);
-		System.out.println(criteria);
 		if(criteria.equals(city)) {
 			score = score + 10;
-			System.out.println("added 10 to " + name + "'s score for " + city);
 		} else {
 			for(String c : criteriaList) {
 				if(criteria.equals(c)) {
 					score = score + 1; 
-					System.out.println("added 1 to " + name + "'s score for " + c);
 				}
 			}
 		}
-		System.out.println("score for " + name + "after checkCriteria:" + score);
 		
 	}
 
