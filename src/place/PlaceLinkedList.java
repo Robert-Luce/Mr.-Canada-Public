@@ -7,7 +7,7 @@ import java.util.Comparator;
 import components.HTMLComponent;
 
 public class PlaceLinkedList {
-	PlaceNode first;
+	private PlaceNode first;
 
 	private class PlaceNode {
 		private HTMLComponent placeHTML;

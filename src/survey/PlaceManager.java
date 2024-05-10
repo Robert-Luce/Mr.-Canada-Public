@@ -110,7 +110,14 @@ public class PlaceManager {
 		resultsList.addAtBeginning(rLL.getHTMLAtIndex(0), 1);
 		powLL.sort();
 		resultsList.addAtBeginning(powLL.getHTMLAtIndex(0), 1);
-		System.out.println(resultsList.toString());
+		
+		// second row of results
+//		aLL.getHTMLAtIndex(1).setHtmlY(584);
+//		rLL.getHTMLAtIndex(1).setHtmlY(584);
+//		powLL.getHTMLAtIndex(1).setHtmlY(584);
+//		resultsList.addAtBeginning(aLL.getHTMLAtIndex(1), 1);
+//		resultsList.addAtBeginning(rLL.getHTMLAtIndex(1), 1);
+//		resultsList.addAtBeginning(powLL.getHTMLAtIndex(1), 1);
 		return resultsList;
 	}
 	

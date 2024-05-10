@@ -39,6 +39,7 @@ public class ThumbnailComponent extends ButtonComponent implements PressableComp
 	}
 
 	public void open(ThumbnailComponent thumbnailComponent) {
+		this.repaint();
 		super.open();
 		thumbnailComponent.getViewport().addMouseListener(this.getListener());
 	}

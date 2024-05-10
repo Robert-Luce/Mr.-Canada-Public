@@ -31,6 +31,7 @@ public class SurveyButtonComponent extends ButtonComponent {
 		this.page.setPLL(pLL);
 		this.getViewport().removeAll();
 		this.page.open();
+		
 	}
 
 }
