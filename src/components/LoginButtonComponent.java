@@ -47,7 +47,9 @@ public class LoginButtonComponent extends ButtonComponent {
 	}
 
 	/**
-	 * ensures: 
+	 * ensures: checks if when the LoginButton is pressed if the user has already completed the survey. If they have
+	 * then they will be taken to the results page, otherwise they will be taken to the survey. If incorrect password
+	 * is entered, error message will be displayed. 
 	 */
 	@Override
 	public void pressed() {
