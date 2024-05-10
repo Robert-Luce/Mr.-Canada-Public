@@ -6,6 +6,9 @@ import java.awt.event.MouseListener;
 import components.ButtonComponent;
 import components.ThumbnailComponent;
 
+/**
+ * @author lucerc
+ */
 public class MouseListeners implements MouseListener {
 
 	private ButtonComponent component;

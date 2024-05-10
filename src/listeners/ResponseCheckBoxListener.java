@@ -14,14 +14,18 @@ import java.util.ArrayList;
 
 import survey.SurveyComponent;
 
+/**
+ * @author lucerc
+ */
 public class ResponseCheckBoxListener implements ItemListener {
 
 	private ArrayList<String> criteria;
 	private String filePath;
 
 	/**
-	 * @param criteria
 	 * 
+	 * @param criteria
+	 * @param filePath
 	 */
 	public ResponseCheckBoxListener(ArrayList<String> criteria, String filePath) {
 		this.criteria = criteria;

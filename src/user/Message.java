@@ -9,6 +9,10 @@ public class Message {
 	private int messageBits;
 	private int zeroBits;
 
+	/**
+	 * 
+	 * @param input
+	 */
 	public Message(String input) {
 		for (char letter : input.toCharArray()) {
 			int asciiValue = (int) letter;
@@ -37,6 +41,10 @@ public class Message {
 		}
 	}
 
+	/**
+	 * 
+	 * @return
+	 */
 	public ArrayList<Block> getBlocks() {
 		ArrayList<Block> blocks = new ArrayList<Block>();
 		for (int i = 0; i < this.data.size() / 512; i++) {

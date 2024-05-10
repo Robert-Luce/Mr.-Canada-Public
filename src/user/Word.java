@@ -11,16 +11,29 @@ public class Word {
 		this.fixNulls();
 	}
 
+	/**
+	 * 
+	 * @param length
+	 */
 	public Word(int length) {
 		this.bits = new Boolean[length];
 		this.fixNulls();
 	}
 
+	/**
+	 * 
+	 * @param bits
+	 */
 	public Word(Boolean[] bits) {
 		this.bits = bits;
 		this.fixNulls();
 	}
 
+	/**
+	 * 
+	 * @param number
+	 * @param length
+	 */
 	public Word(int number, int length) {
 		this(length);
 		number = (int) (number % Math.pow(2, length));
@@ -30,6 +43,12 @@ public class Word {
 		}
 	}
 
+	/**
+	 * 
+	 * @param input1
+	 * @param input2
+	 * @return
+	 */
 	public static Word bitwiseAnd(Word input1, Word input2) {
 		Word output = new Word(input1.bits.length);
 		for (int i = 0; i < input1.bits.length; i++) {
@@ -38,6 +57,12 @@ public class Word {
 		return output;
 	}
 
+	/**
+	 * 
+	 * @param input1
+	 * @param input2
+	 * @return
+	 */
 	public static Word bitwiseInclusiveOr(Word input1, Word input2) {
 		Word output = new Word(input1.bits.length);
 		for (int i = 0; i < input1.bits.length; i++) {
@@ -52,6 +77,12 @@ public class Word {
 		}
 	}
 
+	/**
+	 * 
+	 * @param input1
+	 * @param input2
+	 * @return
+	 */
 	public static Word bitwiseExclusiveOr(Word input1, Word input2) {
 		Word output = new Word(input1.bits.length);
 		for (int i = 0; i < input1.bits.length; i++) {
@@ -76,12 +107,23 @@ public class Word {
 		return output;
 	}
 
+	/**
+	 * 
+	 * @param input1
+	 * @param input2
+	 * @return
+	 */
 	public static Word moduloAddition(Word input1, Word input2) {
 		int sum = input2.toNumber() + input1.toNumber();
 		Word output = new Word(sum, input1.bits.length);
 		return output;
 	}
 
+	/**
+	 * 
+	 * @param number
+	 * @return
+	 */
 	public Word leftShift(int number) {
 		Word output = new Word(this.bits.length);
 		for (int i = 0; i < this.bits.length - 1 - number; i++) {
@@ -90,6 +132,11 @@ public class Word {
 		return output;
 	}
 
+	/**
+	 * 
+	 * @param number
+	 * @return
+	 */
 	public Word rightShift(int number) {
 		Word output = new Word(this.bits.length);
 		for (int i = this.bits.length - 1; i - number >= 0; i--) {
@@ -98,6 +145,11 @@ public class Word {
 		return output;
 	}
 
+	/**
+	 * 
+	 * @param number
+	 * @return
+	 */
 	public Word rotateLeft(int number) {
 		Word leftWord = this.leftShift(number);
 		Word rightWord = this.rightShift(this.bits.length - number);
@@ -105,6 +157,11 @@ public class Word {
 		return output;
 	}
 
+	/**
+	 * 
+	 * @param number
+	 * @return
+	 */
 	public Word rotateRight(int number) {
 		Word leftWord = this.leftShift(this.bits.length - number);
 		Word rightWord = this.rightShift(number);
@@ -112,6 +169,13 @@ public class Word {
 		return output;
 	}
 
+	/**
+	 * 
+	 * @param input1
+	 * @param input2
+	 * @param input3
+	 * @return
+	 */
 	public static Word Ch(Word input1, Word input2, Word input3) {
 		Word output = moduloAddition(bitwiseAnd(input1, input1), bitwiseAnd(input1.bitwiseNot(), input3));
 		return output;
@@ -133,6 +197,13 @@ public class Word {
 		return moduloAddition(moduloAddition(this.rotateLeft(17), this.rotateLeft(19)), this.rightShift(10));
 	}
 
+	/**
+	 * 
+	 * @param input1
+	 * @param input2
+	 * @param input3
+	 * @return
+	 */
 	public static Word Maj(Word input1, Word input2, Word input3) {
 		Word output = moduloAddition(bitwiseAnd(input1, input2),
 				moduloAddition(bitwiseAnd(input1, input3), bitwiseAnd(input2, input3)));

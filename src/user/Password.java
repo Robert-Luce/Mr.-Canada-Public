@@ -13,6 +13,11 @@ public class Password {
 		this.username = username;
 	}
 
+	/**
+	 * 
+	 * @param password
+	 * @return
+	 */
 	public boolean checkPassword(String password) {
 		try {
 			Hash inputHash = new Hash(password);
@@ -32,6 +37,10 @@ public class Password {
 		}
 	}
 
+	/**
+	 * 
+	 * @param password
+	 */
 	public void newPassword(String password) {
 		try {
 			FileWriter writer = new FileWriter("MrCanadaData\\Users\\" + this.username + "\\password.txt");
