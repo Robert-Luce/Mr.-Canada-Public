@@ -17,13 +17,11 @@ public class User {
 	private Password password;
 	private ArrayList<String> criterias;
 	private String language;
-	private Page resultspage;
 
 	public User(String username, String inputPassword, String language) throws Exception {
 		this.username = username;
 		this.password = new Password(this.getUsername());
 		this.language = language;
-		this.resultspage = null;
 		Path path = Paths.get("MrCanadaData\\Users\\" + this.getUsername());
 		if (!Files.exists(path)) {
 			Files.createDirectories(path);
@@ -62,14 +60,5 @@ public class User {
 		return username;
 	}
 
-	public void setResultsPage(Page page) {
-		this.resultspage = page;
-		
-	}
-	
-	public Page getResultsPage() {
-		return this.resultspage;
-		
-	}
 
 }
