@@ -50,7 +50,7 @@ public class LoginComponent extends JComponent {
 		this.passwordField.setSize(this.passwordLabel.getHtmlWidth(), this.passwordLabel.getHtmlHeight());
 		this.passwordField
 				.setPreferredSize(new Dimension(this.passwordLabel.getHtmlWidth(), this.passwordLabel.getHtmlHeight()));
-		this.usernameField.setLocation(this.usernameLabel.getHtmlX() + this.usernameLabel.getHtmlWidth(),
+		this.usernameField.setLocation(this.passwordLabel.getHtmlX() + this.passwordLabel.getHtmlWidth(),
 				this.usernameLabel.getHtmlY());
 		this.usernameField.setSize(this.usernameLabel.getHtmlWidth(), this.usernameLabel.getHtmlHeight());
 		this.usernameField
