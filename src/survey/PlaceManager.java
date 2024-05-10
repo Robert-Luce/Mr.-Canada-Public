@@ -124,12 +124,8 @@ public class PlaceManager {
 		resultsList.addAtBeginning(placeofworshipLL.getHTMLAtIndex(0), 1);
 		
 		// second row of results
-//		aLL.getHTMLAtIndex(1).setHtmlY(584);
-//		rLL.getHTMLAtIndex(1).setHtmlY(584);
-//		powLL.getHTMLAtIndex(1).setHtmlY(584);
-//		resultsList.addAtBeginning(aLL.getHTMLAtIndex(1), 1);
-//		resultsList.addAtBeginning(rLL.getHTMLAtIndex(1), 1);
-//		resultsList.addAtBeginning(powLL.getHTMLAtIndex(1), 1);
+		
+
 		return resultsList;
 	}
 	
