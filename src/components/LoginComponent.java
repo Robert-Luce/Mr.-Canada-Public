@@ -73,6 +73,7 @@ public class LoginComponent extends JComponent {
 		this.add(this.usernameField);
 		this.add(this.button);
 		this.add(this.language);
+		this.add(this.languageLabel);
 		this.setSize(this.viewport.getSize());
 		this.setPreferredSize(this.viewport.getPreferredSize());
 		this.setLocation(0, 0);
