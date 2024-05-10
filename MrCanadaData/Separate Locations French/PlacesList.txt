@@ -1,0 +1,38 @@
+Attraction - Biosphere
+Attraction - Casa Loma
+Attraction - CN Tower
+Attraction - Erico - Creative Chocolate Shop and Chocolate Museum
+Attraction - Jacques-Cartier National Park
+Attraction - La Citadelle de Québec
+Attraction - Montreal Botanical Garden
+Attraction - Old Montreal
+Attraction - Old Quebec
+Attraction - Parc de la Chute-Montmorency
+Attraction - Place dArmes
+Attraction - Queen Street
+Attraction - Scarborough Bluffs
+Attraction - Toronto Island Park
+Restaurant - À La Marocaine
+Restaurant - Buffet de lAntiquaire
+Restaurant - Canadiana Grill By the Lake
+Restaurant - Chocolats Favoris
+Restaurant - Gaspar Brasserie Francaise
+Restaurant - La Galette Libanaise
+Restaurant - Moroccos Kitchen
+Restaurant - Restaurant Au-Tarot
+Restaurant - Restaurant Meridional
+Restaurant - Richmond Station
+Restaurant - Saveurs du Monde
+Restaurant - St-Hubert
+Restaurant - The Sultans Tent and Cafe Moroc
+Restaurant - Vieux-Port Steakhouse
+PlaceOfWorship - Al-Rawdah Mosque
+PlaceOfWorship - Congregation Beth Israel Ohev Sholem
+PlaceOfWorship - Masjid Toronto
+PlaceOfWorship - Mosquée de Québec à Limoilou
+PlaceOfWorship - Muslim Prayer Room
+PlaceOfWorship - Notre-Dame Basilica
+PlaceOfWorship - Quebec Islamic Cultural Centre
+PlaceOfWorship - Shearith Israel
+PlaceOfWorship - St. Michael’s Cathedral Basilica
+PlaceOfWorship - The Chevra

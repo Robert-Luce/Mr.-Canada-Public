@@ -24,7 +24,9 @@ public class Question extends HTMLReaderComponent {
 	private ArrayList<String> responseNames;
 
 	public Question(JPanel viewport, String questionName, String language) {
+		
 		super(questionName, questionName, viewport);
+		
 		this.responses = new ArrayList<Response>();
 		this.label = new JLabel(this.getHtmlFileData());
 		try {
