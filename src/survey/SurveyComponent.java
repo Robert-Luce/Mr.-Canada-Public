@@ -1,24 +1,14 @@
 package survey;
 
-import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.Dimension;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.Arrays;
 
 import javax.swing.JPanel;
-import javax.swing.JTable;
-
-import components.ButtonComponent;
 import components.SurveyButtonComponent;
-
-import javax.swing.JButton;
-import javax.swing.JCheckBox;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
 
 import place.*;
 import user.User;
@@ -38,6 +28,8 @@ public class SurveyComponent extends JPanel {
 	 */
 	public SurveyComponent(JPanel viewport, String language, User user) {
 		this.viewport = viewport;
+		this.viewport.setBackground(Color.WHITE);
+		this.setBackground(Color.WHITE);
 		try {
 			this.questionNames = new ArrayList<String>(Arrays.asList(Files
 					.readString(Path.of(Path.of("MrCanadaData\\" + language + "Question Names.txt")
