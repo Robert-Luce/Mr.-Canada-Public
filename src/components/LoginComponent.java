@@ -78,10 +78,9 @@ public class LoginComponent extends JComponent {
 		this.setPreferredSize(this.viewport.getPreferredSize());
 		this.setLocation(0, 0);
 		
-		
 //		Page destinationFromLog = new Page(viewport, "DestinationCatalog FromHomepage");
 //		destinationFromLog.thumbnailOpen();
-//		
+		
 //		
 //		ThumbnailComponent DestinationCatalogThumbnail = new ThumbnailComponent("DestinationCatalog FromHomepage", viewport);
 //		this.add(DestinationCatalogThumbnail);

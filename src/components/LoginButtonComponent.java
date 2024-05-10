@@ -2,6 +2,7 @@ package components;
 
 import java.awt.Dimension;
 import java.awt.Graphics;
+import java.util.ArrayList;
 
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
@@ -10,6 +11,8 @@ import javax.swing.JScrollPane;
 import javax.swing.JTextField;
 
 import page.Page;
+import place.Place;
+import survey.PlaceManager;
 import survey.SurveyComponent;
 import user.User;
 /**
@@ -24,6 +27,7 @@ public class LoginButtonComponent extends ButtonComponent {
 	private JTextField username;
 	private User user;
 	private JComboBox<String> language;
+	private JPanel viewport;
 
 	/**
 	 * ensures: LoginButtonComponent is constructed
@@ -34,6 +38,7 @@ public class LoginButtonComponent extends ButtonComponent {
 	 */
 	public LoginButtonComponent(JPanel viewport, JTextField username, JTextField password, JComboBox<String> language) {
 		super(LOGIN_BUTTON_FILE_NAME, LOGIN_BUTTON_FILE_PATH, viewport);
+		this.viewport = viewport;
 		this.language = language;
 		this.username = username;
 		this.password = password;
@@ -47,6 +52,10 @@ public class LoginButtonComponent extends ButtonComponent {
 		try {
 			this.user = new User(this.username.getText(), this.password.getText(), this.language.getSelectedItem().toString());
 			if (this.user.hasCriteria()) { // checks if user has already done the survey
+//				Page resultsPage = new Page(viewport, language + "Results");
+//				ArrayList<Place> placeList = new ArrayList<>();
+//				PlaceManager pM = new PlaceManager(placeList, viewport, language);
+//				
 			} else { // if user hasn't done survey, starts the survey
 				this.getViewport().removeAll();
 				this.getViewport().repaint();
