@@ -30,7 +30,7 @@ public class ResponseCheckBoxListener implements ItemListener {
 	public ResponseCheckBoxListener(ArrayList<String> criteria, String filePath) {
 		this.criteria = criteria;
 		this.filePath = filePath;
-		this.filePath = Path.of("MrCanadaData\\" + this.filePath).toAbsolutePath().toString();
+		this.filePath = Path.of("MrCanadaData\\Users\\" + this.filePath).toAbsolutePath().toString();
 	}
 
 	@Override

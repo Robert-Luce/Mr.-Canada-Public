@@ -37,7 +37,7 @@ public class PlaceManager {
 		try {
 			ArrayList<String> cs = new ArrayList<String>(Arrays.asList(Files
 					.readString(Path
-							.of(Path.of("MrCanadaData\\"+user.getUsername()+"\\Criteria.txt").toAbsolutePath().toString()))
+							.of(Path.of("MrCanadaData\\Users\\"+user.getUsername()+"\\Criteria.txt").toAbsolutePath().toString()))
 					.split("\r\n")));
 			criteria.addAll(cs);
 			System.out.println("Criteria:" + criteria);
