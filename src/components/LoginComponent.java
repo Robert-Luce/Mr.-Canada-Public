@@ -13,6 +13,7 @@ import javax.swing.JTextField;
 import page.Page;
 /**
  * @author lucerc
+ * @author jaraczlo
  */
 public class LoginComponent extends JComponent {
 	private static final String PASSWORD_LABEL_FILE_PATH = "Password Label";
