@@ -45,7 +45,6 @@ public class User {
 
 	public boolean hasCriteria() {
 		try {
-			System.out.println(this.getUsername());
 			this.criterias = new ArrayList<String>(Arrays.asList(Files.readString(Path
 					.of(Path.of("MrCanadaData\\Users\\" + this.getUsername() + "\\Criteria.txt").toAbsolutePath().toString()))
 					.split("\r\n")));
