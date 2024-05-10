@@ -11,6 +11,7 @@ import survey.PlaceManager;
 /**
  * @author lucerc
  * @author walindqg
+ * @author leonemm
  */
 public class SurveyButtonComponent extends ButtonComponent {
 	private static final String SURVEY_BUTTON_FILE_PATH = "Survey Button";
