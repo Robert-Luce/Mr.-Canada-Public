@@ -2,3 +2,4 @@ x=720 y=215 width=360 height=234
 Toronto
 ManMade
 Accessible
+Muslim

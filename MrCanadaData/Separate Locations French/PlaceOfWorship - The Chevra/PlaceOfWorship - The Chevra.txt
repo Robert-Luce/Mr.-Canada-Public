@@ -1,3 +1,4 @@
 x=720 y=350 width=360 height=234
 Montreal
 Accessible
+Jewish
