@@ -23,6 +23,7 @@ public class HTMLReaderComponent extends JComponent {
 	private String txtAbsolutePath;
 	private String txtFileData;
 
+	
 	public static int extractIntegerAfter(String target, String text) throws Exception {
 		Pattern pattern = Pattern.compile(target + "(\\d+)");
 		Matcher matcher = pattern.matcher(text);
@@ -34,6 +35,12 @@ public class HTMLReaderComponent extends JComponent {
 		}
 	}
 
+	/**
+	 * ensures: HTMLReaderComponent is constructed
+	 * @param fileName
+	 * @param filePath
+	 * @param viewport
+	 */
 	public HTMLReaderComponent(String fileName, String filePath, JPanel viewport) {
 		super();
 		this.viewport = viewport;
@@ -87,44 +94,83 @@ public class HTMLReaderComponent extends JComponent {
 		}
 	}
 
+	/**
+	 * ensures: gets filePath
+	 * @return filePath
+	 */
 	public String getFilePath() {
 		return filePath;
 	}
 
+	/**
+	 * ensures: gets file's name 
+	 * @return fileName
+	 */
 	public String getFileName() {
 		return fileName;
 	}
 
+	/**
+	 * ensures: gets HTML width
+	 * @return htmlWidth
+	 */
 	public int getHtmlWidth() {
 		return htmlWidth;
 	}
 
+	/**
+	 * ensures: sets the HTML width
+	 * @param htmlWidth
+	 */
 	public void setHtmlWidth(int htmlWidth) {
 		this.htmlWidth = htmlWidth;
 	}
 
+	/**
+	 * ensures: gets the height of the HTML
+	 * @return htmlHeight
+	 */
 	public int getHtmlHeight() {
 		return htmlHeight;
 	}
 
+	/**
+	 * ensures: sets the height of the HTML
+	 * @param htmlHeight
+	 */
 	public void setHtmlHeight(int htmlHeight) {
 		this.htmlHeight = htmlHeight;
 	}
 
+	/**
+	 * ensures: gets Html data
+	 * @return htmlFileData
+	 */
 	public String getHtmlFileData() {
 		return htmlFileData;
 	}
 
+	/**
+	 * ensures: gets the viewport JPanel
+	 * @return viewport
+	 */
 	public JPanel getViewport() {
 		return this.viewport;
 	}
 
+	/**
+	 * ensures: corresponding is added to the Jpanel 
+	 */
 	public void open() {
 		this.getViewport().add(this);
 		this.revalidate();
 		this.repaint();
 	}
 
+	/**
+	 * ensures: gets the textFileData
+	 * @return txtFileData
+	 */
 	public String getTxtFileData() {
 		return txtFileData;
 	}

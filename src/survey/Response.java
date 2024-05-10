@@ -15,6 +15,11 @@ import listeners.ResponseCheckBoxListener;
 import place.Place;
 import user.User;
 
+/**
+ * @author lucerc
+ * @author walindqg
+ * @author jaraczlo
+ */
 public class Response extends HTMLReaderComponent {
 
 	private JCheckBox checkbox;
@@ -23,7 +28,6 @@ public class Response extends HTMLReaderComponent {
 	private User user;
 
 	/**
-	 * @author lucerc
 	 * ensures: default constructor for the Response class.
 	 * @param viewport - the JPanel for which the Response should be displayed on.
 	 * @param questionNumber - the number of the associated question in the file system
