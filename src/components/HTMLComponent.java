@@ -73,7 +73,7 @@ public class HTMLComponent extends HTMLReaderComponent {
 	}
 
 	/**
-	 * ensures: 
+	 * ensures: the label is set from  the corresponding HTML file text
 	 */
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
@@ -81,16 +81,33 @@ public class HTMLComponent extends HTMLReaderComponent {
 		this.label.update(g);
 		this.panel.update(g);
 	}
+	/**
+	 * ensures: gets HTML location's x value
+	 * @return htmlX
+	 */
 	public int getHtmlX() {
 		return htmlX;
 	}
+	/**
+	 * ensures: gets HTML location's y value
+	 * @return htmlY
+	 */
 	public int getHtmlY() {
 		return htmlY;
 	}
 
+	/**
+	 * ensures: new rectangle is created with the HTML's width and height 
+	 * @param buttonComponent
+	 * @return Rectangle
+	 */
 	public Rectangle getBounds(ButtonComponent buttonComponent) {
 		return new Rectangle(this.htmlX, this.htmlY, this.getHtmlWidth(), this.getHtmlHeight());
 	}
+	/**
+	 * ensures: sets HTML's y value for location
+	 * @param htmlY
+	 */
 	public void setHtmlY(int htmlY) {
 		this.htmlY = htmlY;
 	}
