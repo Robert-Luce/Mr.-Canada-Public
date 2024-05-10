@@ -35,6 +35,8 @@ public class ResponseCheckBoxListener implements ItemListener {
 
 	@Override
 	public void itemStateChanged(ItemEvent e) {
+		System.gc();
+		Runtime.getRuntime().gc();
 		if (e.getStateChange() == ItemEvent.SELECTED) {
 			BufferedReader reader;
 			ArrayList<String> currentCriteria = new ArrayList<String>();
@@ -44,6 +46,7 @@ public class ResponseCheckBoxListener implements ItemListener {
 				while ((line = reader.readLine()) != null) {
 					currentCriteria.add(line);
 				}
+				reader.close();
 			} catch (Exception error) {
 				System.out.println("Please add " + this.filePath);
 			}
@@ -53,6 +56,8 @@ public class ResponseCheckBoxListener implements ItemListener {
 						reader = new BufferedReader(new FileReader(filePath));
 						writer.newLine();
 						writer.write(textToAppend);
+						writer.close();
+						reader.close();
 					} catch (Exception error) {
 						System.out.println("Please add " + this.filePath);
 					}

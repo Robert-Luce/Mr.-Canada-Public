@@ -132,6 +132,7 @@ public class Page {
 	 */
 	public void thumbnailPressed() {
 		this.thumbnail.getPageDisplayedOn().close();
+		this.viewport.removeAll();
 		this.open();
 		this.viewport.repaint();
 	}
