@@ -21,6 +21,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 
 import place.*;
+import user.User;
 
 public class SurveyComponent extends JPanel {
 	ArrayList<Question> questions = new ArrayList<Question>();
@@ -33,8 +34,9 @@ public class SurveyComponent extends JPanel {
 	 * ensures: default constructor for the SurveyComponent.
 	 * @param viewport - the JPanel for which to add this SurveyComponent
 	 * @param language - the language that the survey must be displayed in
+	 * @param User 
 	 */
-	public SurveyComponent(JPanel viewport, String language) {
+	public SurveyComponent(JPanel viewport, String language, User user) {
 		this.viewport = viewport;
 		try {
 			this.questionNames = new ArrayList<String>(Arrays.asList(Files
@@ -47,7 +49,7 @@ public class SurveyComponent extends JPanel {
 			this.questionNames = new ArrayList<String>();
 		}
 		for (String questionName : questionNames) {
-			this.questions.add(new Question(this.viewport, questionName, language));
+			this.questions.add(new Question(this.viewport, questionName, language, user));
 		}
 		for (int i = 0; i < this.questions.size(); i++) {
 			this.add(this.questions.get(i));
@@ -56,7 +58,7 @@ public class SurveyComponent extends JPanel {
 		PlaceManager placeManager = new PlaceManager(places, viewport, language);
 		placeManager.generatePlaces();
 //		placeManager.assessLocations();
-		this.checkButton = new SurveyButtonComponent(viewport, placeManager, language);
+		this.checkButton = new SurveyButtonComponent(viewport, placeManager, language, user);
 		this.add(this.checkButton);
 		this.setPreferredSize(new Dimension(1080, 1000));
 		this.setSize(1080, 1000);

@@ -60,7 +60,7 @@ public class LoginButtonComponent extends ButtonComponent {
 				this.getViewport().removeAll();
 				this.getViewport().repaint();
 				this.getViewport().revalidate();
-				SurveyComponent survey = new SurveyComponent(this.getViewport(), this.language.getSelectedItem().toString());
+				SurveyComponent survey = new SurveyComponent(this.getViewport(), this.language.getSelectedItem().toString(), this.user);
 				survey.open();
 			}
 		} catch (Exception e) { // if any of the above fails (i.e. wrong password), displays error message
