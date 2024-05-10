@@ -53,13 +53,14 @@ public class LoginButtonComponent extends ButtonComponent {
 			this.user = new User(this.username.getText(), this.password.getText(), this.language.getSelectedItem().toString());
 			if (this.user.hasCriteria()) { // checks if user has already done the survey
 				System.out.println("user exists");
-				Page resultsPage = new Page(viewport, language + "Results");
+				Page resultsPage = new Page(viewport, language.getSelectedItem() + "Results");
 				ArrayList<Place> placeList = new ArrayList<>();
 				PlaceManager pM = new PlaceManager(placeList, viewport, this.language.getSelectedItem().toString());
 				pM.generatePlaces();
 				pM.assessLocations(user);
-				resultsPage.setPLL(pM.getResults());
+
 				this.getViewport().removeAll();
+				resultsPage.setPLL(pM.getResults());
 				this.getViewport().repaint();
 				this.getViewport().revalidate();
 				resultsPage.open();
