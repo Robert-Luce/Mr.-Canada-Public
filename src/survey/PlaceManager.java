@@ -78,11 +78,11 @@ public class PlaceManager {
 			try {
 				ArrayList<String> info = new ArrayList<String>(Arrays.asList(Files
 						.readString(Path
-								.of(Path.of("MrCanadaData\\Separate Locations " + language + "\\" + placeName + "\\" + placeName +" Info.txt").toAbsolutePath().toString()))
+								.of(Path.of("MrCanadaData\\Separate Locations " + language + "\\" + placeName + "\\" + placeName +".txt").toAbsolutePath().toString()))
 						.split("\r\n")));
 				placeInfo.addAll(info);
 			} catch (Exception e) {
-				System.out.println("Please add text to MrCanadaData\\\\Separate Locations English\\\\" + placeName + "\\\\" + placeName +" Info.txt" );
+				System.out.println("Please add text to MrCanadaData\\\\Separate Locations English\\\\" + placeName + "\\\\" + placeName +".txt" );
 			}
 
 			ArrayList<String> truncInfo = new ArrayList<String>();
