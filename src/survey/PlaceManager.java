@@ -92,13 +92,7 @@ public class PlaceManager {
 			} catch (Exception e) {
 				System.out.println("Please add text to MrCanadaData\\\\Separate Locations English\\\\" + placeName + "\\\\" + placeName +".txt" );
 			}
-
-			ArrayList<String> truncInfo = new ArrayList<String>();
-
-			for(int i = 1; i < placeInfo.size()-1; i++) {
-				truncInfo.add(placeInfo.get(i));
-			}
-			places.add(new Place(placeName, placeInfo.get(1), truncInfo));
+			places.add(new Place(placeName, placeInfo.get(1), placeInfo));
 		}
 		
 		
