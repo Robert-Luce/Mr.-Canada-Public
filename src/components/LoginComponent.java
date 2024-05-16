@@ -69,7 +69,7 @@ public class LoginComponent extends JComponent {
 				.setPreferredSize(new Dimension(this.languageLabel.getHtmlWidth(), this.languageLabel.getHtmlHeight()));
 		this.button = new LoginButtonComponent(viewport, this.usernameField, this.passwordField, this.language);
 		
-		DestinationCatalogButtonComponent dcB = new DestinationCatalogButtonComponent(viewport, language.getSelectedItem().toString());
+		DestinationCatalogButtonComponent dcB = new DestinationCatalogButtonComponent(viewport, language);
 		this.add(dcB);
 		this.viewport.addMouseListener(dcB.getListener());
 		
@@ -83,15 +83,7 @@ public class LoginComponent extends JComponent {
 		this.setSize(this.viewport.getSize());
 		this.setPreferredSize(this.viewport.getPreferredSize());
 		this.setLocation(0, 0);
-		
 
-		
-//		Page destinationFromLog = new Page(viewport, "DestinationCatalog FromHomepage");
-//		destinationFromLog.thumbnailOpen();
-		
-//		
-//		ThumbnailComponent DestinationCatalogThumbnail = new ThumbnailComponent("DestinationCatalog FromHomepage", viewport);
-//		this.add(DestinationCatalogThumbnail);
 	}
 
 	/**

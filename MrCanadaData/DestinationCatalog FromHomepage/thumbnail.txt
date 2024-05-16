@@ -1,1 +1,0 @@
-x=50 y=350 width=524 height=294
